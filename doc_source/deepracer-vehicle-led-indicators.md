@@ -14,7 +14,7 @@
 
  The AWS DeepRacer vehicle system LED indicators are located on the left side of the vehicle chassis when the vehicle is in the forward position in front of you\. 
 
- The three system LEDs are positioned after the **RESET** button\. The first LED \(on the left side of your field of view\) shows the status of the system power\. The second \(middle\) LED shows the status of the camera\. The last \(right\) LED shows the status of the Wi\-Fi connection\. 
+ The three system LEDs are positioned after the **RESET** button\. The first LED \(on the left side of your field of view\) shows the status of the system power\. The second \(middle\) LED is reserved for future use\. The last \(right\) LED shows the status of the Wi\-Fi connection\. 
 
 
 ****  
@@ -27,8 +27,6 @@
 |  | Steady blue | An application is running\. | 
 |  | Blinking blue | A software update is in progress\. | 
 |  | Steady red |  An error is encountered while the system is being booted or an application is being started\.  | 
-| Camera | Off | The camera is off\. | 
-|  | Steady blue | The camera is on\. | 
 | Wi\-Fi | Off | There is no Wi\-Fi connection\. | 
 |  | Blinking blue | The vehicle is connecting to the Wi\-Fi network\. | 
 |  | Steady red for 2 seconds and then off | The Wi\-Fi connection failed\. | 
