@@ -22,7 +22,7 @@
 | LED Type | Color | Status | 
 | --- | --- | --- | 
 | Power | Off | There is no power supply\. | 
-|  | Bliking yellow | BIOS and OS are being loaded\. | 
+|  | Blinking yellow | BIOS and OS are being loaded\. | 
 |  | Steady yellow | OS is loaded\. | 
 |  | Steady blue | An application is running\. | 
 |  | Blinking blue | A software update is in progress\. | 
