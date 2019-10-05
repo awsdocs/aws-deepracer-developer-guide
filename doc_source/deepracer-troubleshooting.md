@@ -11,5 +11,6 @@ Here you'll find troubleshooting tips for frequently asked questions as well as 
 + [How to Get the MAC Address of Your AWS DeepRacer Device?](deepracer-troubleshooting-get-mac-address.md)
 + [How to Recover Your AWS DeepRacer Device Console Default Password?](deepracer-troubleshooting-recover-device-web-server-password.md)
 + [How to Manually Update Your AWS DeepRacer Device?](deepracer-troubleshooting-manual-update-device.md)
++ [Why Can't I Connect to the Device Console with USB Connection between My Computer and Vehicle?](deepracer-troubleshooting-connect-to-deepracer.aws.md)
 + [How to Diagnose and Resolve Common AWS DeepRacer Operational Issues?](deepracer-troubleshooting-device-operation-issues.md)
 + [How to Restore Your AWS DeepRacer Vehicle to Factory Settings?](deepracer-troubleshooting-factory-reset.md)
