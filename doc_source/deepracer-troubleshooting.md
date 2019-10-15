@@ -3,6 +3,7 @@
 Here you'll find troubleshooting tips for frequently asked questions as well as late\-coming bug fixes\.
 
 **Topics**
++ [Why Can't I Connect to the Device Console with USB Connection between My Computer and Vehicle?](deepracer-troubleshooting-connect-to-deepracer.aws.md)
 + [How to Switch AWS DeepRacer Compute Module Power Source from Battery to Power Outlet?](deepracer-troubleshooting-switch-battery-to-wall-power.md)
 + [How to Connect Your AWS DeepRacer to Your Wi\-Fi Network?](deepracer-troubleshooting-wifi-connection-first-time.md)
 + [How to Charge the AWS DeepRacer Drive Module Battery?](deepracer-troubleshooting-charge-vehicle-battery-first-time.md)
@@ -11,6 +12,5 @@ Here you'll find troubleshooting tips for frequently asked questions as well as 
 + [How to Get the MAC Address of Your AWS DeepRacer Device?](deepracer-troubleshooting-get-mac-address.md)
 + [How to Recover Your AWS DeepRacer Device Console Default Password?](deepracer-troubleshooting-recover-device-web-server-password.md)
 + [How to Manually Update Your AWS DeepRacer Device?](deepracer-troubleshooting-manual-update-device.md)
-+ [Why Can't I Connect to the Device Console with USB Connection between My Computer and Vehicle?](deepracer-troubleshooting-connect-to-deepracer.aws.md)
 + [How to Diagnose and Resolve Common AWS DeepRacer Operational Issues?](deepracer-troubleshooting-device-operation-issues.md)
 + [How to Restore Your AWS DeepRacer Vehicle to Factory Settings?](deepracer-troubleshooting-factory-reset.md)

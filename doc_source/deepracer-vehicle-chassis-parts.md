@@ -1,9 +1,9 @@
-# AWS DeepLens Vehicle Chassis Parts<a name="deepracer-vehicle-chassis-parts"></a>
+# AWS DeepRacer Vehicle Chassis Parts<a name="deepracer-vehicle-chassis-parts"></a>
 
 The AWS DeepLens vehicle uses [WLToys A949 and A979](https://www.amazon.com/s?k=wltoys+a949+and+a979) Remote Control \(RC\) car chassis\. To help you find replacement when any part of the chassis is damaged, we provide below a catalogue of the parts\. 
 
 
-**AWS DeepLens Vehicle Chassis Parts**  
+**AWS DeepRacer Vehicle Chassis Parts**  
 
 | Part | Name | 
 | --- | --- | 
