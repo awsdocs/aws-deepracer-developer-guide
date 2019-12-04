@@ -3,7 +3,7 @@
 AWS DeepRacer is an integrated learning system for users of all levels to learn and explore [reinforcement learning](deepracer-basic-concept.md#term-rl) and to experiment and build autonomous driving applications\. It consists of the following components:
 + An [AWS Machine Learning](https://aws.amazon.com/machine-learning/) service to [train and evaluate reinforcement learning models ](create-deepracer-project.md)in a [simulated autonomous\-driving environment](https://aws.amazon.com/robomaker/)\.
 + AWS DeepRacer 1/18th scale RC vehicles capable of [running inference on a trained AWS DeepRacer model](operate-deepracer-vehicle.md) for autonomous driving\.
-+ DeepRacer League for the participants to compete on model performances on a specific track in a simulated or real environment and have the [results ranked on a virtual or physical leaderboard](deepracer-racing-series.md)\.
++ AWS DeepRacer for the participants to compete on model performances on a specific track in a simulated or real environment and have the [results ranked on a virtual or physical leaderboard](deepracer-racing-series.md)\.
 
 **Topics**
 + [The AWS DeepRacer Console](#what-is-deepracer-service-console)
@@ -32,6 +32,6 @@ The AWS DeepRacer vehicle is a Wi\-Fi enabled, physical vehicle that can drive i
 
 ## The AWS DeepRacer League<a name="what-is-deepracer-racing-series"></a>
 
- The DeepRacer League is an important component of AWS DeepRacer\. The DeepRacer League is intended to foster communal learning and collaborative exploration through sharing and competition\. 
+ The AWS DeepRacer is an important component of AWS DeepRacer\. The AWS DeepRacer is intended to foster communal learning and collaborative exploration through sharing and competition\. 
 
-With the DeepRacer League, you can have your development effort compared with other AWS DeepRacer developers in a physical or virtual racing event\. Not only do you get a chance to win prizes, you also have a way to measure your reinforcement learning model\. You can create opportunities to share your insights with other participants, to learn from each other, and to inspire each other\. 
+With the AWS DeepRacer, you can have your development effort compared with other AWS DeepRacer developers in a physical or virtual racing event\. Not only do you get a chance to win prizes, you also have a way to measure your reinforcement learning model\. You can create opportunities to share your insights with other participants, to learn from each other, and to inspire each other\. 

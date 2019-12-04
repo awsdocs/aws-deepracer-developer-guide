@@ -1,6 +1,6 @@
-# Overview of Reinforcement Learning<a name="deepracer-how-it-works-overview-reinforcement-learning"></a>
+# Reinforcement Learning in AWS DeepRacer<a name="deepracer-how-it-works-overview-reinforcement-learning"></a>
 
-In reinforcement learning, an *agent * with an objective interacts with an *environment* to maximize the agent's total reward\. The agent takes an *action*, guided by a strategy referred to as a *policy*, at a given environment *state* and reaches a new state\. There is an immediate *reward* associated with any action\. The reward is a measure of the desirability of the action\. This immediate reward is considered to be returned by the environment\. 
+ In reinforcement learning, an *agent*, such as a physical or virtual AWS DeepRacer vehicle, with an objective to achieve an intended goal interacts with an *environment* to maximize the agent's total reward\. The agent takes an *action*, guided by a strategy referred to as a *policy*, at a given environment *state* and reaches a new state\. There is an immediate *reward* associated with any action\. The reward is a measure of the desirability of the action\. This immediate reward is considered to be returned by the environment\. 
 
 The goal of the reinforcement learning in AWS DeepRacer is to learn the optimal policy in a given environment\. Learning is an iterative process of trials and errors\. The agent takes the random initial action to arrive at a new state\. Then the agent iterates the step from the new state to the next one\. Over time, the agent discovers actions that lead to the maximum long\-term rewards\. The interaction of the agent from an initial state to a terminal state is called an *episode*\.
 

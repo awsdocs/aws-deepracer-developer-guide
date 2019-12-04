@@ -1,8 +1,8 @@
 # Get Started with AWS DeepRacer<a name="deepracer-get-started"></a>
 
-To help you get started quickly with AWS DeepRacer, we walk you through essential steps using the AWS DeepRacer console\. Use the console to create a training job to train your first AWS DeepRacer model for autonomous racing\. Use the console to evaluate a trained model in a simulated environment\. 
+ To get started with AWS DeepRacer, let's first walk through the steps to use the AWS DeepRacer console to configure an agent with appropriate sensors for your autonomous driving requirements, to train a reinforcement learning model for the agent with the specified sensors, and to evaluate the trained model to ascertain the quality of the model\. 
 
 **Topics**
-+ [Set Up for Using AWS DeepRacer](deepracer-setup.md)
-+ [Train Your First AWS DeepRacer Model for Autonomous Racing](deepracer-get-started-training-model.md)
++ [Set Up Account Resources for AWS DeepRacer](deepracer-get-started-set-up-account-resources.md)
++ [Train Your First AWS DeepRacer Model](deepracer-get-started-training-model.md)
 + [Evaluate Your AWS DeepRacer Models in Simulation](deepracer-get-started-test-in-simulator.md)

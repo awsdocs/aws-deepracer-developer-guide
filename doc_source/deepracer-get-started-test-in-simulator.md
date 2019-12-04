@@ -1,40 +1,56 @@
 # Evaluate Your AWS DeepRacer Models in Simulation<a name="deepracer-get-started-test-in-simulator"></a>
 
- After your model is trained, use the AWS DeepRacer console to evaluate its performance\. In AWS DeepRacer, the performance metric is the time required to complete a track\. following the inferred actions as prescribed by the trained model\.
+ After your training job is complete, you should evaluate the trained model to assess its convergency behavior\. The evaluation proceeds by completing a number of trials on a chosen track and having the agent move on the track according to likely actions inferred by the trained model\. The performance metrics include a percentage of track completion and the time running on each track from start to finish or going off\-track\. 
 
-To evaluate a trained model using the AWS DeepRacer console, follow the steps below\. 
+To evaluate your trained model, you can use the AWS DeepRacer console\. To do so, follow the steps in this topic\. 
 
-1. On your model's details page, under the **Evaluation** section, choose **Start evaluation**\. 
+**To evaluate a trained model in the AWS DeepRacer console**
 
-   You can start an evaluation after your model is in a **Ready** state\. A model is ready when the training is complete\. If the training is not complete, the model might also be in a ready state if its trained up to the failing point\.  
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-get-started-training-completed.png)
+1. Open the AWS DeepRacer console at https://console\.aws\.amazon\.com/deepracer\. 
 
-1. Under **Select environment to start evaluation**, choose an evaluation track\.   
+1. From the main navigation pane, choose **Models** and then choose the model you just trained from the **Models** list to open the model details page\.
+
+1. In **Evaluation**, choose **Start evaluation**\.   
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-get-started-evaluation-start.png)
+
+   You can start an evaluation after your training job status changes to **Completed** or the model's status changes to **Ready** if the training job wasn't completed\. 
+
+   A model is ready when the training job is complete\. If the training wasn't completed, the model can also be in a **Ready** state if it's trained up to the failing point\.
+
+1. On the **Evaluate model** page, under **Evaluate criteria**, choose a track under **Evaluation criteria**\.   
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-get-started-evaluate-select-track.png)
 
-   Typically, you want to choose a track that is the same as or similar to the one you used in [training the model](deepracer-get-started-training-model.md#deepracer-get-started-train-model-proc)\. You can choose any track for evaluating your model, however, you can expect the best performance on a track most similar to the one used in training\.
+   Typically, you want to choose a track that is the same as or similar to the one you used in [training the model](deepracer-get-started-training-model.md#deepracer-get-started-train-model-proc)\. You can choose any track for evaluating your model, however, you can expect the best performance on a track most similar to the one used in training\. 
 
-1.  To specify the stop condition, leave the default value \(`3 trials`\) as\-is for **Number of trials**\. You can specify 3\-5 trial runs for each evaluation\.
+   To see if your model generalizes well, choose an evaluation track different from the one used in training\. 
 
-1.  Choose **Start evaluation** to start creating and initializing the evaluation job\. 
+1. On the **Evaluate model** page, under **Evaluate criteria**, choose the number of trials you want to use to evaluate the model\. 
 
-   This initialization process takes about 3 minutes to complete\.   
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-get-started-evaluation-initializing.png)
+1. On the **Evaluate model** page, under **Race type**, choose the racing type that you chose to train the model\. 
 
-1. After evaluation is in progress, choose **Stop evaluation** if you would like to stop the evaluation for any reason\.  
+   For evaluation you can choose a race type different from the race type used in training\. For example, you can train a model for head\-to\-head races and then evaluate it for time trials\. In general, the model must generalize well if the training race type differs from the evaluation race type\. For your first run, you should use the same race type for both evaluation and training\. 
+
+1. On the **Evaluate model** page, under **Virtual Race Submission**, for your first model, turn off the **Submit model after evaluation** option\. Later, if you want to participate in a racing event, leave this option enabled\.  
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-get-started-evaluate-virtual-race-submit.png)
+
+1. On the **Evaluate model** page, choose **Start evaluation** to start creating and initializing the evaluation job\. 
+
+   This initialization process takes about 3 minutes to complete\. 
+
+1. As the evaluation progresses, the evaluation results, including the trial time and track completion rate, are displayed under **Evaluation** after each trial\. In the **Simulation video stream** window, you can watch how the agent performs on the chosen track\.  
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-get-started-evaluation-in-progress.png)
 
-    To stop an evaluation job, choose **Stop evaluation** on the upper\-right corner of the **Evaluation** pane and then confirm to stop the evaluation\. 
+    You can stop an evaluation job before it completes\. To stop the evaluation job, choose **Stop evaluation** on the upper\-right corner of the **Evaluation** card and then confirm to stop the evaluation\. 
 
-1. After evaluation completed successfully, inspect the **Evaluation results** to see how your model performs\.   
+1. After the evaluation job is complete, examine the performance metrics of all the trials under **Evaluation results**\. The accompanying simulation video stream is no longer available\.   
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-get-started-evaluation-completed.png)
 
-   The **Time** values listed under **Evaluation results** show how fast a trial lasts from the start position to the finish line or getting off\-track\. The **Trial results \(% completed\)** value shows the percentage of the track that was completed\. A `100%` value means the trial completed successfully\. 
+   For this particular evaluation job, the trained model fails to complete any trial\. As the first run, this is not unusual\. Possible reasons include that the training didn't converge and the training needs more time, the action space needs to be enlarged to give the agent more room to react, or the reward function needs to be updated to handle varying environments\. 
 
-   Anything less than 100 percent means the trial failed\. A model with a less than 100 percent trial result is not ready for racing\. You can anticipate such failure when the [total reward](deepracer-console-train-evaluate-models.md#deepracer-train-models-define-reward-function) in the training doesn't appear to have converged\. In this case, you can continue to improve the model by cloning it, changing the reward function, tuning hyperparameters, and then iterating the process until the total reward converges and the performance metrics improve\. For more information on how to improve the training, see [Train and Evaluate AWS DeepRacer Models](create-deepracer-project.md)\. 
+   You can continue to improve the model by cloning a previously trained one, modifying the reward function, tuning hyperparameters, and then iterating the process until the total reward converges and the performance metrics improve\. For more information on how to improve the training, see [Train and Evaluate AWS DeepRacer Models](create-deepracer-project.md)\. 
 
- 
+ To transfer your completely trained model to your AWS DeepRacer vehicle for driving in a physical environment, you need to download the model artifacts\. To do so, choose **Download model** on the model's details page\. If your AWS DeepRacer physical vehicle doesn't support new sensors and your model has been trained with the new sensor types, you'll get an error message when you use the model on your AWS DeepRacer vehicle in a real\-world environment\. For more information about testing an AWS DeepRacer model with a physical agent, see [Operate Your AWS DeepRacer Vehicle ](operate-deepracer-vehicle.md)\.
 
- To transfer your completely trained model to your AWS DeepRacer vehicle for driving in a physical environment, you need to first download the model artifacts\. To do so, choose **Download model** on the model's details page\. For more information about testing an AWS DeepRacer model with a physical agent, see [Operate Your AWS DeepRacer Vehicle ](operate-deepracer-vehicle.md)\.
+If you've trained your model on a track identical or similar to the one specified in an AWS DeepRacer League racing event or an AWS DeepRacer community race, you can submit the model to the virtual races in the AWS DeepRacer console\. To do this, follow **Official DeepRacer virtual circuit** or **Community races** on the main navigation pane\. For more information, see [Participate in AWS DeepRacer Virtual Races](deepracer-racing-series.md)\. 
 
-If you've trained your model on a track identical or similar to the one chosen in a racing event of the AWS DeepRacer League, you can submit the model to the event\. Do this by choosing **DeepRacer League** from the primary navigation pane on the AWS DeepRacer console\. For more information, see [Rank AWS DeepRacer Models in Leaderboard](deepracer-racing-series.md)\.
+To train a model for obstacle avoidance or head\-to\-head racing, you may need to add new sensors to the agent and the physical vehicle\. For more information, see [Understand Sensors Enabling Racing Types Supported by AWS DeepRacer](deepracer-choose-race-type.md)\.

@@ -8,6 +8,7 @@ Here you'll find troubleshooting tips for frequently asked questions as well as 
 + [How to Connect Your AWS DeepRacer to Your Wi\-Fi Network?](deepracer-troubleshooting-wifi-connection-first-time.md)
 + [How to Charge the AWS DeepRacer Drive Module Battery?](deepracer-troubleshooting-charge-vehicle-battery-first-time.md)
 + [How to Charge the AWS DeepRacer Compute Module Battery?](deepracer-troubleshooting-charge-compute-battery.md)
++ [My Battery is Charged but my AWS DeepRacer Vehicle Does Not Move](deepracer-troubleshooting-immobile-vehicle-with-charged-battery.md)
 + [How to Maintain Vehicle's Wi\-Fi Connection?](deepracer-troubleshooting-maintain-vehicle-connection.md)
 + [How to Get the MAC Address of Your AWS DeepRacer Device?](deepracer-troubleshooting-get-mac-address.md)
 + [How to Recover Your AWS DeepRacer Device Console Default Password?](deepracer-troubleshooting-recover-device-web-server-password.md)

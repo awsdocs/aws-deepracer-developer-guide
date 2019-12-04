@@ -14,19 +14,30 @@ The `params` dictionary object contains the following key\-value pairs:
 
 ```
 {
-    "[all\_wheels\_on\_track](#reward-function-input-all_wheels_on_track)": Boolean,    # flag to indicate if the vehicle is on the track
-    "[x](#reward-function-input-x_y)": float,                        # vehicle's x-coordinate in meters
-    "[y](#reward-function-input-x_y)": float,                        # vehicle's y-coordinate in meters
-    "[distance\_from\_center](#reward-function-input-distance_from_center)": float,     # distance in meters from the track center 
-    "[is\_left\_of\_center](#reward-function-input-is_left_of_center)": Boolean,      # Flag to indicate if the vehicle is on the left side to the track center or not. 
-    "[heading](#reward-function-input-heading)": float,                  # vehicle's yaw in degrees
-    "[progress](#reward-function-input-progress)": float,                 # percentage of track completed
-    "[steps](#reward-function-input-steps)": int,                      # number steps completed
-    "[speed](#reward-function-input-speed)": float,                    # vehicle's speed in meters per second (m/s)
-    "[steering\_angle](#reward-function-input-steering_angle)": float,           # vehicle's steering angle in degrees
-    "[track\_width](#reward-function-input-track_width)": float,              # width of the track
-    "[waypoints](#reward-function-input-waypoints)": [[float, float], … ], # list of [x,y] as milestones along the track center
-    "[closest\_waypoints](#reward-function-input-closest_waypoints)": [int, int]    # indices of the two nearest waypoints.
+    "[all\_wheels\_on\_track](#reward-function-input-all_wheels_on_track)": Boolean,        # flag to indicate if the agent is on the track
+    "[x](#reward-function-input-x_y)": float,                            # agent's x-coordinate in meters
+    "[y](#reward-function-input-x_y)": float,                            # agent's y-coordinate in meters
+    "[closest\_objects](#reward-function-input-closest_objects)": [int, int],         # zero-based indices of the two closest objects to the agent's current position of (x, y).
+    "[closest\_waypoints](#reward-function-input-closest_waypoints)": [int, int],       # indices of the two nearest waypoints.
+    "[distance\_from\_center](#reward-function-input-distance_from_center)": float,         # distance in meters from the track center 
+    "[crashed](#reward-function-input-crashed)": Boolean,                    # Boolean flag to indicate whether the agent has crashed.
+    "[is\_left\_of\_center](#reward-function-input-is_left_of_center)": Boolean,          # Flag to indicate if the agent is on the left side to the track center or not. 
+    "[offtrack](#reward-function-input-offtrack)": Boolean,                   # Boolean flag to indicate whether the agent has gone off track.
+    "[is\_reversed](#reward-function-input-is_reversed)": Boolean,                # flag to indicate if the agent is driving clockwise (True) or counter clockwise (False).
+    "[heading](#reward-function-input-heading)": float,                      # agent's yaw in degrees
+    "[objects\_distance](#reward-function-input-objects_distance)": [float, ],         # list of the objects' distances in meters between 0 and track_len.
+    "[objects\_heading](#reward-function-input-objects_heading)": [float, ],          # list of the objects' headings in degrees between -180 and 180.
+    "[objects\_left\_of\_center](#reward-function-input-objects_left_of_center)": [Boolean, ], # list of Boolean flags indicating whether elements' objects are left of the center (True) or not (False).
+    "[objects\_location](#reward-function-input-objects_location)": [(float, float),], # list of of object locations [(x,y), ...].
+    "[objects\_speed](#reward-function-input-objects_speed)": [float, ],            # list of the objects' speeds in meters per second.
+    "[progress](#reward-function-input-progress)": float,                     # percentage of track completed
+    "[speed](#reward-function-input-speed)": float,                        # agent's speed in meters per second (m/s)
+    "[steering\_angle](#reward-function-input-steering_angle)": float,               # agent's steering angle in degrees
+    "[steps](#reward-function-input-steps)": int,                          # number steps completed
+    "[track\_length](#reward-function-input-track_len)": float,                 # track length in meters.
+    "[track\_width](#reward-function-input-track_width)": float,                  # width of the track
+    "[waypoints](#reward-function-input-waypoints)": [(float, float), ]        # list of (x,y) as milestones along the track center
+
 }
 ```
 
@@ -36,13 +47,13 @@ The more detailed technical reference for the input parameters is as follows\.
 
 **Type: ** `Boolean`
 
-**Range: ** `True|False`
+**Range: ** `(True:False)`
 
-A `Boolean` flag to indicate whether the vehicle is on\-track or off\-track\. It's off\-track \(`False`\) if any of its wheels are outside of the track borders\. It's on\-track \(`True`\) if all of the wheels are inside the two track borders\. The following illustration shows that the vehicle is on\-track\. 
+A `Boolean` flag to indicate whether the agent is on\-track or off\-track\. It's off\-track \(`False`\) if any of its wheels are outside of the track borders\. It's on\-track \(`True`\) if all of the wheels are inside the two track borders\. The following illustration shows that the agent is on\-track\. 
 
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-reward-function-input-all_wheels_on_track-true.png)
 
-The following illustration shows that the vehicle is off\-track\.
+The following illustration shows that the agent is off\-track\.
 
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-reward-function-input-all_wheels_on_track-false.png)
 
@@ -79,9 +90,9 @@ define reward_function(params):
 
 **Type**: `[int, int]`
 
-**Range**: `[0:Max-2,1:Max-1]`
+**Range**: `[(0:Max-1),(1:Max-1)]`
 
-The zero\-based indices of the two neighboring `waypoint`s closest to the vehicle's current position of `(x, y)`\. The distance is measured by the Euclidean distance from the center of the vehicle\. `Max` is the length of the waypoints list\. In the illustration shown in [waypoints](#reward-function-input-waypoints), the `closest_waypoints` would be `[16, 17]`\. Another possibility could be `[16, 15]`\.
+The zero\-based indices of the two neighboring `waypoint`s closest to the agent's current position of `(x, y)`\. The distance is measured by the Euclidean distance from the center of the agent\. The first element refers to the closest waypoint in the front the agent and the second element refers the closest waypoint behind the agent\. `Max` is the length of the waypoints list\. In the illustration shown in [waypoints](#reward-function-input-waypoints), the `closest_waypoints` would be `[17, 16]`\. 
 
 **Example**: A reward function using the `closest_waypoints` parameter\.
 
@@ -126,13 +137,21 @@ def reward_function(params):
     return reward
 ```
 
+## closest\_objects<a name="reward-function-input-closest_objects"></a>
+
+**Type**: `[int, int]`
+
+**Range**: `[(0:len(object_locations)-1), (0:len(object_locations)-1]`
+
+ The zero\-based indices of the two closest objects to the agent's current position of \(x, y\)\. First index refers to the closest object behind the agent, and second index refers to the closest object in front of the agent\. If there is only one object, both indices will be 0\. 
+
 ## distance\_from\_center<a name="reward-function-input-distance_from_center"></a>
 
 **Type**: `float`
 
 **Range**: `0:~track_width/2`
 
-Displacement, in meters, between the vehicle center and the track center\. The observable maximum displacement occurs when any of the agent's wheels are outside a track border and, depending on the width of the track border, can be slightly smaller or larger than half the `track_width`\.
+Displacement, in meters, between the agent center and the track center\. The observable maximum displacement occurs when any of the agent's wheels are outside a track border and, depending on the width of the track border, can be slightly smaller or larger than half the `track_width`\.
 
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-reward-function-input-distance_from_center.png)
 
@@ -169,7 +188,7 @@ def reward_function(params):
 
 **Range**: `-180:+180`
 
-Heading direction, in degrees, of the vehicle with respect to the x\-axis of the coordinate system\.
+Heading direction, in degrees, of the agent with respect to the x\-axis of the coordinate system\.
 
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-reward-function-input-heading.png)
 
@@ -177,13 +196,83 @@ Heading direction, in degrees, of the vehicle with respect to the x\-axis of the
 
 For more information, see [`closest_waypoints`](#reward-function-input-closest_waypoints)\.
 
+## crashed<a name="reward-function-input-crashed"></a>
+
+**Type**: `Boolean`
+
+**Range**: `(True:False)`
+
+A Boolean flag to indicate whether the agent has crashed into another object \(`True`\) or not \(`False`\) as a termination status\. 
+
 ## is\_left\_of\_center<a name="reward-function-input-is_left_of_center"></a>
 
 **Type**: `Boolean`
 
-**Range**: `True | False`
+**Range**: `[True : False]`
 
-A `Boolean` flag to indicate if the vehicle is on the left side to the track center \(`True`\) or on the right side \(`False`\)\. 
+A `Boolean` flag to indicate if the agent is on the left side to the track center \(`True`\) or on the right side \(`False`\)\. 
+
+## offtrack<a name="reward-function-input-offtrack"></a>
+
+**Type**: `Boolean`
+
+**Range**: `(True:False)`
+
+A Boolean flag to indicate whether the agent has off track \(True\) or not \(False\) as a termination status\. 
+
+## is\_reversed<a name="reward-function-input-is_reversed"></a>
+
+**Type**: `Boolean`
+
+**Range**: `[True:False]`
+
+A Boolean flag to indicate if the agent is driving on clock\-wise \(True\) or counter clock\-wise \(False\)\. 
+
+It's used when you enable direction change for each episode\. 
+
+## objects\_distance<a name="reward-function-input-objects_distance"></a>
+
+**Type**: `[float, … ]`
+
+**Range**: `[(0:track_length), … ]`
+
+List of the distances of objects from the agent\. The ith element measures the distance in meters between the ith object and the agent along the track center line\. 
+
+The distance is not the straight\-line distance, but calculated by projecting the center of an object and vehicle to the center line of the track and measure distance along the center line between the two points\.
+
+## objects\_heading<a name="reward-function-input-objects_heading"></a>
+
+**Type**: `[float, … ]`
+
+**Range**: `[(-180:180), … ]`
+
+List of the headings of objects in degrees\. The ith element measures the heading of the ith object\. For stationary objects, their headings are 0\. For a bot vehicle, the corresponding element's value is the vehicle's heading angle\.
+
+## objects\_left\_of\_center<a name="reward-function-input-objects_left_of_center"></a>
+
+**Type**: `[Boolean, … ]`
+
+**Range**: `[True|False, … ]`
+
+List of Boolean flags\. The ith element value indicates whether the ith object is to the left \(True\) or right \(False\) side of the track center\. 
+
+## objects\_location<a name="reward-function-input-objects_location"></a>
+
+**Type**: `[(x,y), ...]`
+
+**Range**: `[(0:N,0:N), ...]`
+
+List of all object locations, each location is a tuple of \([x, y](#reward-function-input-x_y)\)\. 
+
+The size of the list equals the number of objects on the track\. Note the object could be the stationary obstacles, moving bot vehicles\. 
+
+## objects\_speed<a name="reward-function-input-objects_speed"></a>
+
+**Type**: `[float, … ]`
+
+**Range**: `[(0:12.0), … ]`
+
+List of speeds \(meters per second\) for the objects on the track\. For stationary objects, their speeds are 0\. For a bot vehicle, the value is the speed you set in training\.  
 
 ## progress<a name="reward-function-input-progress"></a>
 
@@ -203,7 +292,7 @@ For more information, see [steps](#reward-function-input-steps)\.
 
 **Range**: `0.0:5.0`
 
-The observed speed of the vehicle, in meters per second \(m/s\)\.
+The observed speed of the agent, in meters per second \(m/s\)\.
 
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-reward-function-input-speed.png)
 
@@ -217,7 +306,7 @@ For more information, see [all\_wheels\_on\_track](#reward-function-input-all_wh
 
 **Range**: `-30:30`
 
-Steering angle, in degrees, of the front wheels from the center line of the vehicle\. The negative sign \(\-\) means steering to the right and the positive \(\+\) sign means steering to the left\. The vehicle center line is not necessarily parallel with the track center line as is shown in the following illustration\.
+Steering angle, in degrees, of the front wheels from the center line of the agent\. The negative sign \(\-\) means steering to the right and the positive \(\+\) sign means steering to the left\. The agent center line is not necessarily parallel with the track center line as is shown in the following illustration\.
 
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-reward-function-steering.png)
 
@@ -249,7 +338,7 @@ def reward_function(params):
 
 **Range**: `0:Nstep`
 
-Number of steps completed\. A step corresponds to an action taken by the vehicle following the current policy\.
+Number of steps completed\. A step corresponds to an action taken by the agent following the current policy\.
 
 **Example:** *A reward function using the `steps` parameter*
 
@@ -276,6 +365,14 @@ def reward_function(params):
 
     return reward
 ```
+
+## track\_length<a name="reward-function-input-track_len"></a>
+
+**Type**: `float`
+
+**Range**: `[0:Lmax]`
+
+The track length in meters\. `Lmax is track-dependent.`
 
 ## track\_width<a name="reward-function-input-track_width"></a>
 
@@ -318,7 +415,7 @@ def reward_function(params):
 
 **Range**: `0:N`
 
-Location, in meters, of the vehicle center along the x and y axes, of the simulated environment containing the track\. The origin is at the lower\-left corner of the simulated environment\.
+Location, in meters, of the agent center along the x and y axes, of the simulated environment containing the track\. The origin is at the lower\-left corner of the simulated environment\.
 
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-reward-function-input-x-y.png)
 
@@ -328,7 +425,7 @@ Location, in meters, of the vehicle center along the x and y axes, of the simula
 
 **Range**: `[[xw,0,yw,0] … [xw,Max-1, yw,Max-1]]`
 
-An ordered list of track\-depedent `Max` milestones along the track center\. Each milestone is described by a coordinate of \(xw,i, yw,i\)\. For a looped track, the first and last waypoints are the same\. For a straight or other non\-looped track, the first and last waypoints are different\.
+An ordered list of track\-dependent `Max` milestones along the track center\. Each milestone is described by a coordinate of \(xw,i, yw,i\)\. For a looped track, the first and last waypoints are the same\. For a straight or other non\-looped track, the first and last waypoints are different\.
 
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-reward-function-input-waypoints.png)
 

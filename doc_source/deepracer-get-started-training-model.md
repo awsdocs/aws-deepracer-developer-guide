@@ -1,74 +1,94 @@
-# Train Your First AWS DeepRacer Model for Autonomous Racing<a name="deepracer-get-started-training-model"></a>
+# Train Your First AWS DeepRacer Model<a name="deepracer-get-started-training-model"></a>
 
-Using the AWS DeepRacer console, you can follow built\-in templates to train and evaluate an AWS DeepRacer model\. <a name="deepracer-get-started-train-model-proc"></a>
+To get started quickly using AWS DeepRacer to explore reinforcement learning and its application to autonomous driving, we'll walk you through how to train your first model using the AWS DeepRacer console\.<a name="deepracer-get-started-train-model-proc"></a>
 
-**To train a reinforcement learning model for autonomous racing using the AWS DeepRacer console**
+**To train a reinforcement learning model using the AWS DeepRacer console**
 
-1. Sign in to the [AWS DeepRacer console](https://console.aws.amazon.com/deepracer) \(https://console\.aws\.amazon\.com/deepracer\)\.
+1. If this is your first time using AWS DeepRacer, choose **Get started** from the service landing page or choose **Get started with reinforcement learning** from the main navigation pane\. 
 
-1. On the AWS DeepRacer home page, choose **Get started** and do the following on the **Get started with reinforcement learning** page:
+1. On the **Get started with reinforcement learning** page, under **Step 2: Create a model and race**, choose **Create model**\.   
+![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-training-create-model-on-get-started-page.png)
 
-   1. Under **Account resources**, choose **Create resources**, if this is your first time to use AWS DeepRacer\. 
+   Alternatively, on the AWS DeepRacer home page, choose **Models** from the main navigation pane to open the **Models** page\. On the **Models** page, choose **Create model**\.  
+![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-training-create-model.png)
 
-   1. If you're new reinforcement learning, choose **Learn RL** under **Introduction to reinforcement learning** to get familiar with reinforcement learning\.
+1. On the **Create model** page, under **Account resources**, if you don't have the required account resources, choose **Create resources**\. If there is any issue with the account resources, choose **Reset resources**\.
 
-   1. Under **Create a reinforcement learn \(RL\) model**, choose **Create model** to start to create your first AWS DeepRacer model\.
+   For more information about the required IAM roles and policies, see [Required IAM Roles for AWS DeepRacer to Call Dependent AWS Services](deepracer-understand-required-permissions-and-iam-roles.md)\. 
 
-   If you have prior experiences with AWS DeepRacer, you can skip this step and choose instead **Reinforcement learning** on the primary navigation pane and then choose **Create model**\.
+1.  On the **Create model** page, under **Training details**, type a name for the model in **Model name** and, optionally, provide a summary description of the model in **Training job description**\.
 
-1.  On the **Create model** page, do the following to configure and start training your AWS DeepRacer model: 
+   You'll use the model name to reference this model when submitting it to a leaderboard of an AWS\-sponsored or community\-organized racing event or when cloning to continue the training\.   
+![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-training-details.png)
 
-   1. To refresh your account resources, choose **Reset resources** under **Account resources**\. This action forces the required resources for your account to be recreated or re\-associated\. 
+1. On the **Create model** page, under **Environment simulation**, choose an available track as a virtual environment to train your AWS DeepRacer agent through trials and errors\. Then, choose **Next**\.
 
-      When the required resources are created, you should see the following display:  
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-get-started-resources-created.png)
+   For your first run, choose a simple track of less irregular shapes and smoother turns\. In later iterations, you can choose more complex track to progressively improve your models\. To train a model for a particular racing event, choose a track most similar to the designated track of the event\.
 
-      The Amazon S3 bucket is used to store the trained model artifacts\. And the IAM roles contain relevant IAM policies to grant AWS DeepRacer permission to call other AWS services on your behalf\. For more information about the required IAM roles and policies, see [Required IAM Roles for AWS DeepRacer to Call Dependent AWS Services](deepracer-understand-required-permissions-and-iam-roles.md)\. The AWS DeepRacer Virtual Private Cloud \(VPC\) stack is used to run training jobs\. The AWS RoboMaker simulation application is used to visualize training and evaluating your model\.
+1. On the **Create model** page, choose **Next**\. 
 
-   1.  Under **Model details**, enter a name for the to\-be\-trained model in the **Model name** input field and optionally provide a brief description in the **Model description \- optional** input field\.   
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-get-started-train-model.png)
+1. On the **Create Model** page, under **Race type**, choose a training type\.  
+![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-training-type.png)
 
-      The model name identifies this model among the AWS DeepRacer models you've created and on the leaderboards, which show the performance rank of the model\. The model description can provide a summary of the model features and limitations\.
+   For your first run, choose **Time trial**\. The agent with the default sensor configuration with a single\-lens camera is suitable for this type of racing without modifications\. For more information, see [Tailor AWS DeepRacer Training for Time Trials](deepracer-choose-race-type.md#deepracer-get-started-training-simple-time-trial)\.
 
-   1. Under **Environment simulation**, choose an available track as a virtual environment to train your AWS DeepRacer model through trials and errors\. For your first run, choose a simple option, e\.g\., of **Straight track**\. In later iterations, you can choose more complex track to progressively improve your models\. To train a model for a particular racing event, choose a track most similar to the track of the event\.
+   For later runs, you can choose **Object avoidance** to go around stationary obstacles placed at fixed or random locations along the chosen track\. The agent should be configured with at least a double\-lens front\-facing stereo camera for such applications, although a single\-lens front\-facing camera can be used for avoiding stationary obstacles on fixed locations\. For more information, see [Tailor AWS DeepRacer Training for Object Avoidance Races](deepracer-choose-race-type.md#deepracer-get-started-training-object-avoidance)\.
 
-   1. Under **Action space**, use the default setting for your first training\. Later, you can explore different size and granularity of the action space to make your model sufficiently flexible to accommodate the selected track\.
+    For more ambitious runs, choose **Head\-to\-head racing** to race against up to 4 bot vehicles moving at a constant speed\. In addition to either a single\-lens camera or a stereo camera, the agent should be configured with a LiDAR unit to enable detecting and avoiding blind spots while passing other moving vehicles or stationary obstacles\. For more information, see [Tailor AWS DeepRacer Training for Head\-to\-Head Races](deepracer-choose-race-type.md#deepracer-get-started-training-h2h-racing)\.
 
-   1.  Under **Reward function**, use the default reward function example or choose **Reward function examples** to select another example function and then choose **Use code** of the selected function\. 
+1. On the **Create model** page, under **Agent**, choose **The Original DeepRacer** for your first model\.   
+![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-training-agent.png)
 
-      There are three example functions you can start with\. They illustrate how to follow the track center \(default\), how to keep the agent inside the track borders, and how to prevent zig\-zag driving\. 
+   The **Edit** button is unavailable because the default agent is not configurable\. For a custom agent, the **Edit** option will be available for you to modify the agent configuration to meet the racing criteria for the chosen race type\. 
 
-      After getting familiar with the reward function examples, you can modify or replace the predefined reward function code in the code editor\.
+1. On the **Create model** page, choose **Next**\.
 
-   1. Under **Hyperparameters**, you can leave the default values or expand the section to set **Hyperparameters** values as follows: 
+1. On the **Create model** page, under **Reward function**, use the default reward function example as\-is for your first model\.   
+![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-reward-function-example-editor.png)
 
-      1.  For **Gradient descent batch size**, choose [available options](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\. 
+   Later on, you can choose **Reward function examples** to select another example function and then choose **Use code** to accept the selected reward function\.
 
-      1.  For **Number of epochs**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\. 
+   There are four example functions you can start with\. They illustrate how to follow the track center \(default\), how to keep the agent inside the track borders, and how to prevent zig\-zag driving, and how to avoid crashing into stationary obstacles or other moving vehicles\. 
 
-      1.  For **Learning rate**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\. 
-
-      1. For **Entropy**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\. 
-
-      1. For **Discount factor**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\.
-
-      1. For **Loss type**, choose [available options](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\.
-
-      1. For **Number of experience episodes between each policy\-updating iteration**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\.
-
-      For more information about hyperparameters, see [Systematically Tune Hyperparameters](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\.
-
-   1. Under **Stop conditions**, set a **Maximum time** value to terminate long\-running \(and possible run\-away\) training session\.
-
-   1.  Choose **Start training** to start creating the model and provisioning the training job instance\. 
-
-1.  A training starts with provisioning a AWS DeepRacer training job\. The process takes about 6 minutes and its status is **Initializing** until the training job is successfully provisioned\.   
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-training-status.png)
-
-1. After the job is provisioned, training starts and the process has **In progress** status until the job stops\. You can choose the refresh button to periodically refresh the **Reward graph**\.  
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-training-in-progress.png)
-
-1. After the training job stops, the process is **Completed**, and you can start to [evaluate your trained model](deepracer-get-started-test-in-simulator.md) to measure its performance\.  
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-training-completed.png)
+   To learn more about the reward function, see [AWS DeepRacer Reward Function Reference](deepracer-reward-function-reference.md)\.
 
     
+
+1. On the **Create model** page, under **Training algorithm and hyperparameters**,  use the default hyperparameter values as\-is\.
+
+   Later on, to improve training performance, expand **Hyperparameters** and modify the default hyperparameter values as follows:
+
+   1.  For **Gradient descent batch size**, choose [available options](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\. 
+
+   1.  For **Number of epochs**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\. 
+
+   1.  For **Learning rate**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\. 
+
+   1. For **Entropy**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\. 
+
+   1. For **Discount factor**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\.
+
+   1. For **Loss type**, choose [available options](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\.
+
+   1. For **Number of experience episodes between each policy\-updating iteration**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\.
+
+   For more information about hyperparameters, see [Systematically Tune Hyperparameters](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\.
+
+1. On the **Create model** page, under **Stop conditions**, leave the default **Maximum time** value as\-is or set a new value to terminate the training job, to help prevent long\-running \(and possible run\-away\) training jobs\. 
+
+   When experimenting in the early phase of training, you should start with a small value for this parameter and then progressively let a training job go longer\.
+
+1. On the **Create model** page, choose **Create model** to start creating the model and provisioning the train job instance\. 
+
+1. After the submission, watch your training job being initialized and then run\. 
+
+   The initialization process takes about 6 minutes to complete, when the job status changes from **Initializing** to **In progress**\.
+
+1. While the training job is in progress, watch **Reward graph** and **Simulation video stream** to observe how training proceeds\. You can choose the refresh button next to **Reward graph** periodically to refresh the **Reward graph** until the training job stops\.   
+![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-training-in-progress.png)
+
+The training job is running on the AWS Cloud\. You don't need to keep the AWS DeepRacer console open during the training\. You can come back to the console review the training progress at any time before the training job is terminated\. 
+
+If the** Simulation video stream** window or the **Reward graph** display becomes unresponsive, refresh the browser page to get the training progress updated\.
+
+After the training job stops, you can proceed to evaluate the model trained thus far\. To do so, follow the next [steps](deepracer-get-started-test-in-simulator.md)\.

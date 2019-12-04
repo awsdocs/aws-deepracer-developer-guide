@@ -1,6 +1,6 @@
 # Train and Evaluate AWS DeepRacer Models Using the AWS DeepRacer Console<a name="deepracer-console-train-evaluate-models"></a>
 
- To train a reinforcement learning model, you can use the AWS DeepRacer console\. In the console, create a training job, choose a supported framework and an available algorithm, add a reward function, and configure training settings\. You can also watch training proceed in a simulator\. You can find the step\-by\-step instructions in [Train Your First AWS DeepRacer Model for Autonomous Racing ](deepracer-get-started-training-model.md)\. 
+ To train a reinforcement learning model, you can use the AWS DeepRacer console\. In the console, create a training job, choose a supported framework and an available algorithm, add a reward function, and configure training settings\. You can also watch training proceed in a simulator\. You can find the step\-by\-step instructions in [Train Your First AWS DeepRacer Model ](deepracer-get-started-training-model.md)\. 
 
 This section explains how to train and evaluate an AWS DeepRacer model\. It also shows how to create and improve a reward function, how an action space affects model performance, and how hyperparameters affect training performance\. You can also learn how to clone a training model to extend a training session, how to use the simulator to evaluate training performance, and how to address some of the simulation to real\-world challenges\. 
 
@@ -345,15 +345,13 @@ In general, evaluating a model involves the following tasks:
 
 1. Optionally, submit the evaluation result to an eligible [AWS DeepRacer leaderboard](deepracer-racing-series.md)\. The ranking on the leaderboard lets you know how well your model performs against other participants\.
 
-For step\-by\-step instructions to run an AWS DeepRacer evaluation job in simulation, see [Evaluate Your AWS DeepRacer Models in Simulation](deepracer-get-started-test-in-simulator.md)\. You can run multiple evaluation jobs in simulation, but you must run them one after another\. AWS DeepRacer only keeps the latest evaluation job status and the result\. 
-
 Test an AWS DeepRacer model with an AWS DeepRacer vehicle driving on a physical track, see [Operate Your AWS DeepRacer Vehicle ](operate-deepracer-vehicle.md)\.
 
 ## Log AWS DeepRacer Events to CloudWatch Logs<a name="deepracer-log-events-to-cloudwatch"></a>
 
 For diagnostic purposes, AWS DeepRacer reports certain runtime events to CloudWatch Logs during training and evaluation\. 
 
-The events are logged in job\-specific log streams\. For a training job, the log stream appears under the `/aws/sagemaker/TrainingJobs` log group\. For a simulation job, the log stream appears under the `/aws/robomaker/SimulationJobs` log group\. For an evaluation job submitted to a leaderboard in the DeepRacer League Virtual circuit, the log stream appears under the `/aws/deepracer/leaderboard/SimulationJobs` log group\. For the reward function execution, the log stream appears under the `/aws/lambda/AWS-DeepRacer-Test-Reward-Function` log group\. 
+The events are logged in job\-specific log streams\. For a training job, the log stream appears under the `/aws/sagemaker/TrainingJobs` log group\. For a simulation job, the log stream appears under the `/aws/robomaker/SimulationJobs` log group\. For an evaluation job submitted to a leaderboard in the AWS DeepRacer Virtual Circuit, the log stream appears under the `/aws/deepracer/leaderboard/SimulationJobs` log group\. For the reward function execution, the log stream appears under the `/aws/lambda/AWS-DeepRacer-Test-Reward-Function` log group\. 
 
  Most of the log entries are self\-explanatory, except for those starting with "`SIM_TRACE_LOG`"\. An example of this log entry is shown as follows:
 

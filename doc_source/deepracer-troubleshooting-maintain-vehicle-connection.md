@@ -2,12 +2,6 @@
 
  The following troubleshooting guide provides you tips for maintaining your vehicle's connection\. 
 
-**Topics**
-+ [How to Troubleshoot Wi\-Fi Connection if Vehicle's Wi\-Fi LED Indicator Flashes Blue, Then Turns Red for Two Seconds, and Finally Off?](#deepracer-troubleshoot-reconnect-wifi-after-led-turns-red-flashing-blue-and-off)
-+ [What Does It Mean When the Vehicle's Wi\-Fi or Power LED Indicator Flashes Blue?](#deepracer-troubleshooting-failed-to-load-model-artifacts)
-+ [How Can I Connect to Vehicle's Device Console Using its Hostname?](#deepracer-troubleshooting-connect-device-console-with-hostname)
-+ [How to Connect to Vehicle's Device Console Using its IP Address?](#deepracer-troubleshooting-connect-device-console-using-ip-address)
-
 ## How to Troubleshoot Wi\-Fi Connection if Vehicle's Wi\-Fi LED Indicator Flashes Blue, Then Turns Red for Two Seconds, and Finally Off?<a name="deepracer-troubleshoot-reconnect-wifi-after-led-turns-red-flashing-blue-and-off"></a>
 
 Check the following to verify you have the valid Wi\-Fi connection settings\.
