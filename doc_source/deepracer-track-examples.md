@@ -7,6 +7,7 @@ The following track design templates show AWS DeepRacer tracks that you can buil
 + [AWS DeepRacer S\-Curve Track Template](#deepracer-track-example-s-curve)
 + [AWS DeepRacer Loop Track Template](#deepracer-track-example-loop)
 + [AWS DeepRacer AWS re:Invent 2018 Track Template](#deepracer-track-example-reinvent-2018)
++ [AWS DeepRacer Championship Cup 2019 Track Template](#deepracer-track-example-reinvent-2019)
 
 ## AWS DeepRacer Single\-Turn Track Template<a name="deepracer-track-example-single-turn"></a>
 
@@ -51,3 +52,13 @@ This track was tested with the following materials for its surface:
  Due to its large size, the track cannot be easily printed on a single piece of material\. Align track lines well when connecting pieces together\.
 
 For more detailed information, see [the AWS DeepRacer re:Invent 2018 track specification](samples/deepracer_track_reInvent_2018.zip)\. 
+
+## AWS DeepRacer Championship Cup 2019 Track Template<a name="deepracer-track-example-reinvent-2019"></a>
+
+This track was used during the AWS DeepRacer 2019 Championship Cup finals\. It's intended to train models for head\-to\-head racing\.
+
+![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-Championship_Cup_2019.png)
+
+The track is 23 meters long and 0\.91 meter wide\.
+
+To print or create your own Championship Cup track, download the [AWS DeepRacer Championship Cup 2019 track files here](samples/Championship_Cup_2019_Track.zip)\. 
