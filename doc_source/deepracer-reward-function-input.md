@@ -92,7 +92,7 @@ define reward_function(params):
 
 **Range**: `[(0:Max-1),(1:Max-1)]`
 
-The zero\-based indices of the two neighboring `waypoint`s closest to the agent's current position of `(x, y)`\. The distance is measured by the Euclidean distance from the center of the agent\. The first element refers to the closest waypoint in the front the agent and the second element refers the closest waypoint behind the agent\. `Max` is the length of the waypoints list\. In the illustration shown in [waypoints](#reward-function-input-waypoints), the `closest_waypoints` would be `[17, 16]`\. 
+The zero\-based indices of the two neighboring `waypoint`s closest to the agent's current position of `(x, y)`\. The distance is measured by the Euclidean distance from the center of the agent\. The first element refers to the closest waypoint behind the agent and the second element refers the closest waypoint in front of the agent\. `Max` is the length of the waypoints list\. In the illustration shown in [waypoints](#reward-function-input-waypoints), the `closest_waypoints` would be `[16, 17]`\. 
 
 **Example**: A reward function using the `closest_waypoints` parameter\.
 
