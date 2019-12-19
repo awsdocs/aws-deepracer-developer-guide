@@ -19,8 +19,8 @@ def reward_function(params):
     '''
     
     # Read input parameters
-    track_width = params['[track\_width](deepracer-reward-function-input.md#reward-function-input-track_width)']
-    distance_from_center = params['[distance\_from\_center](deepracer-reward-function-input.md#reward-function-input-distance_from_center)']
+    track_width = params['track_width']
+    distance_from_center = params['distance_from_center']
 
     # Calculate 3 markers that are increasingly further away from the center line
     marker_1 = 0.1 * track_width
@@ -51,8 +51,8 @@ def reward_function(params):
     '''
     
     # Read input parameters
-    all_wheels_on_track = params['[all\_wheels\_on\_track](deepracer-reward-function-input.md#reward-function-input-all_wheels_on_track)']
-    distance_from_center = params['[distance\_from\_center](deepracer-reward-function-input.md#reward-function-input-distance_from_center)']
+    all_wheels_on_track = params['all_wheels_on_track']
+    distance_from_center = params['distance_from_center']
     track_width = params['track_width']
     
     # Give a very low reward by default
@@ -78,9 +78,9 @@ def reward_function(params):
     '''
     
     # Read input parameters
-    distance_from_center = params['[distance\_from\_center](deepracer-reward-function-input.md#reward-function-input-distance_from_center)']
-    track_width = params['[track\_width](deepracer-reward-function-input.md#reward-function-input-track_width)']
-    steering = abs(params['[steering](deepracer-reward-function-input.md#reward-function-input-steering_angle)']) # Only need the absolute steering angle
+    distance_from_center = params['distance_from_center']
+    track_width = params['track_width']
+    steering = abs(params['steering']) # Only need the absolute steering angle
 
     # Calculate 3 marks that are farther and father away from the center line
     marker_1 = 0.1 * track_width
@@ -118,13 +118,13 @@ def reward_function(params):
     and penalizing getting too close to the objects in front
     '''
 
-    all_wheels_on_track = params['[all\_wheels\_on\_track](deepracer-reward-function-input.md#reward-function-input-all_wheels_on_track)']
-    distance_from_center = params['[distance\_from\_center](deepracer-reward-function-input.md#reward-function-input-distance_from_center)']
-    track_width = params['[track\_width](deepracer-reward-function-input.md#reward-function-input-track_width)']
-    objects_distance = params['[objects\_distance](deepracer-reward-function-input.md#reward-function-input-objects_distance)']
-    _, next_object_index = params['[closest\_objects](deepracer-reward-function-input.md#reward-function-input-closest_objects)']
-    objects_left_of_center = params['[objects\_left\_of\_center](deepracer-reward-function-input.md#reward-function-input-objects_left_of_center)']
-    is_left_of_center = params['[is\_left\_of\_center](deepracer-reward-function-input.md#reward-function-input-is_left_of_center)']
+    all_wheels_on_track = params['all_wheels_on_track']
+    distance_from_center = params['distance_from_center']
+    track_width = params['track_width']
+    objects_distance = params['objects_distance']
+    _, next_object_index = params['closest_objects']
+    objects_left_of_center = params['objects_left_of_center']
+    is_left_of_center = params['is_left_of_center']
 
     # Initialize reward with a small number but not zero
     # because zero means off-track or crashed

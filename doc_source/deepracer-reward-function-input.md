@@ -14,29 +14,29 @@ The `params` dictionary object contains the following key\-value pairs:
 
 ```
 {
-    "[all\_wheels\_on\_track](#reward-function-input-all_wheels_on_track)": Boolean,        # flag to indicate if the agent is on the track
-    "[x](#reward-function-input-x_y)": float,                            # agent's x-coordinate in meters
-    "[y](#reward-function-input-x_y)": float,                            # agent's y-coordinate in meters
-    "[closest\_objects](#reward-function-input-closest_objects)": [int, int],         # zero-based indices of the two closest objects to the agent's current position of (x, y).
-    "[closest\_waypoints](#reward-function-input-closest_waypoints)": [int, int],       # indices of the two nearest waypoints.
-    "[distance\_from\_center](#reward-function-input-distance_from_center)": float,         # distance in meters from the track center 
-    "[is\_crashed](#reward-function-input-crashed)": Boolean,                 # Boolean flag to indicate whether the agent has crashed.
-    "[is\_left\_of\_center](#reward-function-input-is_left_of_center)": Boolean,          # Flag to indicate if the agent is on the left side to the track center or not. 
-    "[is\_offtrack](#reward-function-input-offtrack)": Boolean,                # Boolean flag to indicate whether the agent has gone off track.
-    "[is\_reversed](#reward-function-input-is_reversed)": Boolean,                # flag to indicate if the agent is driving clockwise (True) or counter clockwise (False).
-    "[heading](#reward-function-input-heading)": float,                      # agent's yaw in degrees
-    "[objects\_distance](#reward-function-input-objects_distance)": [float, ],         # list of the objects' distances in meters between 0 and track_len.
-    "[objects\_heading](#reward-function-input-objects_heading)": [float, ],          # list of the objects' headings in degrees between -180 and 180.
-    "[objects\_left\_of\_center](#reward-function-input-objects_left_of_center)": [Boolean, ], # list of Boolean flags indicating whether elements' objects are left of the center (True) or not (False).
-    "[objects\_location](#reward-function-input-objects_location)": [(float, float),], # list of of object locations [(x,y), ...].
-    "[objects\_speed](#reward-function-input-objects_speed)": [float, ],            # list of the objects' speeds in meters per second.
-    "[progress](#reward-function-input-progress)": float,                     # percentage of track completed
-    "[speed](#reward-function-input-speed)": float,                        # agent's speed in meters per second (m/s)
-    "[steering\_angle](#reward-function-input-steering_angle)": float,               # agent's steering angle in degrees
-    "[steps](#reward-function-input-steps)": int,                          # number steps completed
-    "[track\_length](#reward-function-input-track_len)": float,                 # track length in meters.
-    "[track\_width](#reward-function-input-track_width)": float,                  # width of the track
-    "[waypoints](#reward-function-input-waypoints)": [(float, float), ]        # list of (x,y) as milestones along the track center
+    "all_wheels_on_track": Boolean,        # flag to indicate if the agent is on the track
+    "x": float,                            # agent's x-coordinate in meters
+    "y": float,                            # agent's y-coordinate in meters
+    "closest_objects": [int, int],         # zero-based indices of the two closest objects to the agent's current position of (x, y).
+    "closest_waypoints": [int, int],       # indices of the two nearest waypoints.
+    "distance_from_center": float,         # distance in meters from the track center 
+    "is_crashed": Boolean,                 # Boolean flag to indicate whether the agent has crashed.
+    "is_left_of_center": Boolean,          # Flag to indicate if the agent is on the left side to the track center or not. 
+    "is_offtrack": Boolean,                # Boolean flag to indicate whether the agent has gone off track.
+    "is_reversed": Boolean,                # flag to indicate if the agent is driving clockwise (True) or counter clockwise (False).
+    "heading": float,                      # agent's yaw in degrees
+    "objects_distance": [float, ],         # list of the objects' distances in meters between 0 and track_len.
+    "objects_heading": [float, ],          # list of the objects' headings in degrees between -180 and 180.
+    "objects_left_of_center": [Boolean, ], # list of Boolean flags indicating whether elements' objects are left of the center (True) or not (False).
+    "objects_location": [(float, float),], # list of object locations [(x,y), ...].
+    "objects_speed": [float, ],            # list of the objects' speeds in meters per second.
+    "progress": float,                     # percentage of track completed
+    "speed": float,                        # agent's speed in meters per second (m/s)
+    "steering_angle": float,               # agent's steering angle in degrees
+    "steps": int,                          # number steps completed
+    "track_length": float,                 # track length in meters.
+    "track_width": float,                  # width of the track
+    "waypoints": [(float, float), ]        # list of (x,y) as milestones along the track center
 
 }
 ```
