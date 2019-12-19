@@ -16,58 +16,17 @@ This section explains how to train and evaluate an AWS DeepRacer model\. It also
 
 ## Create Your Reward Function<a name="deepracer-train-models-define-reward-function"></a>
 
-A reward function describes immediate feedback \(as a reward or penalty score\) when your AWS DeepRacer vehicle moves from one position on the track to a new position\. The function's purpose is to encourage the vehicle to make moves along the track to reach a destination quickly without accident or infraction\. A desirable move earns a higher score for the action or its target state\. An illegal or wasteful move earns a lower score\. When training an AWS DeepRacer model, the reward function is the only application\-specific part\.
+A [reward function](deepracer-reward-function-reference.md) describes immediate feedback \(as a reward or penalty score\) when your AWS DeepRacer vehicle moves from one position on the track to a new position\. The function's purpose is to encourage the vehicle to make moves along the track to reach a destination quickly without accident or infraction\. A desirable move earns a higher score for the action or its target state\. An illegal or wasteful move earns a lower score\. When training an AWS DeepRacer model, the reward function is the only application\-specific part\.
 
 In general, you design your reward function to act like an incentive plan\. Different incentive strategies could result in different vehicle behaviors\. To make the vehicle drive faster, the function should give rewards for the vehicle to follow the track\. The function should dispense penalties when the vehicle takes too long to finish a lap or goes off the track\. To avoid zig\-zag driving patterns, it could reward the vehicle to steer less on straighter portions of the track\. The reward function might give positive scores when the vehicle passes certain milestones, as measured by [`waypoints`](deepracer-reward-function-input.md)\. This could alleviate waiting or driving in the wrong direction\. It is also likely that you would change the reward function to account for the track conditions\. However, the more your reward function takes into account environment\-specific information, the more likely your trained model is over\-fitted and less general\. To make your model more generally applicable, you can explore [action space](#deepracer-define-action-space-for-training)\.
 
 If an incentive plan is not carefully considered, it can lead to [unintended consequences of opposite effect](https://en.wikipedia.org/wiki/Cobra_effect)\. This is possible because the immediate feedback is a necessary but not sufficient condition for reinforcement learning\. An individual immediate reward by itself also can’t determine if the move is desirable\. At a given position, a move can earn a high reward\. A subsequent move could go off the track and earn a low score\. In such case, the vehicle should avoid the move of the high score at that position\. Only when all future moves from a given position yield a high score on average should the move to the next position be deemed desirable\. Future feedback is discounted at a rate that allows for only a small number of future moves or positions to be included in the average reward calculation\.
 
-A good practice to create a reward a function is to start with a simple one that covers basic scenarios\. You can enhance the function to handle more actions\. Before you learn about various reward function examples, let's let a look at the reward function signature\. 
+A good practice to create a [reward function](deepracer-reward-function-reference.md) is to start with a simple one that covers basic scenarios\. You can enhance the function to handle more actions\. Let's now look at some simple reward functions\.
 
 **Topics**
-+ [The AWS DeepRacer Reward Function Signature](#deepracer-reward-function-signature)
 + [Simple Reward Function Examples](#deepracer-reward-function-simple-examples)
 + [Enhance Your Reward Function](#deepracer-iteratively-enhance-reward-functions)
-
-### The AWS DeepRacer Reward Function Signature<a name="deepracer-reward-function-signature"></a>
-
-The AWS DeepRacer reward function has the following signature: 
-
-```
-def reward_function(params) :
-    
-    reward = ...
-
-    return float(reward)
-```
-
-where `params` is a dictionary of the following form:
-
-```
-{
-    "[all\_wheels\_on\_track](deepracer-reward-function-input.md#reward-function-input-all_wheels_on_track)": Boolean,    # flag to indicate if the vehicle is on the track
-    "[x](deepracer-reward-function-input.md#reward-function-input-x_y)": float,                        # vehicle's x-coordinate in meters
-    "[y](deepracer-reward-function-input.md#reward-function-input-x_y)": float,                        # vehicle's y-coordinate in meters
-    "[distance\_from\_center](deepracer-reward-function-input.md#reward-function-input-distance_from_center)": float,     # distance in meters from the track center 
-    "[is\_left\_of\_center](deepracer-reward-function-input.md#reward-function-input-is_left_of_center)": Boolean,      # Flag to indicate if the vehicle is on the left side to the track center or not. 
-    "[heading](deepracer-reward-function-input.md#reward-function-input-heading)": float,                  # vehicle's yaw in degrees
-    "[progress](deepracer-reward-function-input.md#reward-function-input-progress)": float,                 # percentage of track completed
-    "[steps](deepracer-reward-function-input.md#reward-function-input-steps)": int,                      # number steps completed
-    "[speed](deepracer-reward-function-input.md#reward-function-input-speed)": float,                    # vehicle's speed in meters per second (m/s)
-    "[steering\_angle](deepracer-reward-function-input.md#reward-function-input-steering_angle)": float,          # vehicle's steering angle in degrees
-    "[track\_width](deepracer-reward-function-input.md#reward-function-input-track_width)": float,              # width of the track
-    "[waypoints](deepracer-reward-function-input.md#reward-function-input-waypoints)": [[float, float], … ], # list of [x,y] as milestones along the track center
-    "[closest\_waypoints](deepracer-reward-function-input.md#reward-function-input-closest_waypoints)": [int, int]    # indices of the two nearest waypoints.
-}
-```
-
-The `reward_function` outputs the immediate reward \(`reward`\) at the specified step and the output is a number in the range of `[-100000.0 : 100000.0]`\. 
-
-**Note**  
-When calculating the reward, keep the result non\-negative within the output value range\. Don't return an exact zero \(`0`\) value\. 
-
-**Note**  
-AWS DeepRacer supports the `math` package in the `reward_function` by default\.
 
 ### Simple Reward Function Examples<a name="deepracer-reward-function-simple-examples"></a>
 
@@ -103,117 +62,11 @@ After you have successfully trained your AWS DeepRacer model for the simple stra
 
 To make your vehicle handle those actions, you must enhance the reward function\. The function must give a reward when the agent makes a permissible turn and produce a penalty if the agent makes an illegal turn\. Then, you're ready to start another round of training\. To take advantage of the prior training, you can start the new training by cloning the previously trained model, passing along the previously learned knowledge\. You can follow this pattern to gradually add more features to the reward function to train your AWS DeepRacer vehicle to drive in increasingly more complex environments\.
 
-To illustrate how the reward function influences desired behaviors on your agent, we show in this section how to iteratively enhance and improve a reward function with a series of example functions that take the [input parameters as described elsewhere](deepracer-reward-function-input.md):
-
-**Topics**
-+ [Example 1: Follow the Track Center](#deepracer-example-reward-function-follow-center-line)
-+ [Example 2: Stay Inside Two Track Borders](#deepracer-example-reward-function-follow-center-line-with-reduced-turns)
-+ [Example 3: Drive Without Excessive Zig\-zagging](#deepracer-example-reward-function-follow-center-line-with-straight-orientation)
-
-#### Example 1: Follow the Track Center<a name="deepracer-example-reward-function-follow-center-line"></a>
-
- In the following example, we start with a reward function to keep the vehicle driving close to the center of a track\.
-
-```
-def reward_function(params):
-    '''
-    Example of rewarding the agent to follow the track center line
-    '''
-    
-    # Read input parameters
-    track_width = params['track_width']
-    distance_from_center = abs(params['distance_from_center'])
-
-    # Calculate 3 marks that are farther and father away from the center line
-    marker_1 = 0.1 * track_width
-    marker_2 = 0.25 * track_width
-    marker_3 = 0.5 * track_width
-
-    # Give higher reward if the car is closer to center line and vice versa
-    if distance_from_center <= marker_1:
-        reward = 1
-    elif distance_from_center <= marker_2:
-        reward = 0.5
-    elif distance_from_center <= marker_3:
-        reward = 0.1
-    else:
-        reward = 1e-3  # likely crashed/close to off-track
-
-    return reward
-```
-
-This example reward function determines how far away the agent is from the center line\. It then progressively assigns a higher reward as the agent gets closer to the center of the track in discrete steps\. 
-
-#### Example 2: Stay Inside Two Track Borders<a name="deepracer-example-reward-function-follow-center-line-with-reduced-turns"></a>
-
-In the following example function, we add rewards or penalties to steering to prevent the vehicle from turning away from the center line of the track\.
-
-```
-def reward_function(params):
-    '''
-    Example of rewarding the agent to stay inside the two track borders
-    '''
-    
-    # Read input parameters
-    all_wheels_on_track = params['all_wheels_on_track']
-    distance_from_center = abs(params['distance_from_center'])
-    track_width = params['track_width']
-    
-    # Give a very low reward by default
-    reward = 1e-3
-
-    # Give a high reward if no wheels go off the track and 
-    # the vehicle is somewhere in between the track borders 
-    if all_wheels_on_track and (0.5*track_width - distance_from_center) >= 0.05:
-        reward = 1.0
-
-    # Always return a float value
-    return reward
-```
-
-This example reward function simply gives high rewards if the agent stays inside the borders\. Otherwise, it lets the agent roam free to find the best path to finish the course\. It is straightforward to program and understand, but the training is likely to take longer time to converge\.
-
-#### Example 3: Drive Without Excessive Zig\-zagging<a name="deepracer-example-reward-function-follow-center-line-with-straight-orientation"></a>
-
-In this example, we add rewards or penalties to vehicle's orientation to keep the vehicle's body straight while it drives along the track center\. 
-
-```
-def reward_function(params):
-    '''
-    Example of penalize steering, which helps mitigate zig-zag behaviors
-    '''
-    
-    # Read input parameters
-    distance_from_center = params['distance_from_center']
-    track_width = params['track_width']
-    steering = abs(params['steering_angle']) # Only need the absolute steering angle
-
-    # Calculate 3 marks that are farther and father away from the center line
-    marker_1 = 0.1 * track_width
-    marker_2 = 0.25 * track_width
-    marker_3 = 0.5 * track_width
-
-    # Give higher reward if the car is closer to center line and vice versa
-    if distance_from_center <= marker_1:
-        reward = 1
-    elif distance_from_center <= marker_2:
-        reward = 0.5
-    elif distance_from_center <= marker_3:
-        reward = 0.1
-    else:
-        reward = 1e-3  # likely crashed/ close to off track
-
-    # Steering penality threshold, change the number based on your action space setting
-    ABS_STEERING_THRESHOLD = 15
-
-    # Penalize reward if the car is steering too much
-    if steering > ABS_STEERING_THRESHOLD:
-        reward *= 0.8
-
-    return float(reward)
-```
-
-This example reward function encourages the agent with higher reward to follow the track center line but penalizes it with lower reward when the agent steers too much\. The effect is to help prevent zig\-zag driving behaviors\. The agent learns to drive smoothly in the simulator and likely to keep the same behavior when deployed in the physical vehicle\.
+For more advanced reward functions, see the following examples:
++ [Example 1: Follow the Center Line in Time Trials](deepracer-reward-function-examples.md#deepracer-reward-function-example-0)
++ [Example 2: Stay Inside the Two Borders in Time Trials](deepracer-reward-function-examples.md#deepracer-reward-function-example-1)
++ [Example 3: Prevent Zig\-Zag in Time Trials](deepracer-reward-function-examples.md#deepracer-reward-function-example-2)
++ [Example 4: Stay On One Lane without Crashing into Stationary Obstacles or Moving Vehicles](deepracer-reward-function-examples.md#deepracer-reward-function-example-3)
 
 ## Explore Action Space to Train a Robust Model<a name="deepracer-define-action-space-for-training"></a>
 

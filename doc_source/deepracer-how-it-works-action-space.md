@@ -36,7 +36,7 @@ This default action space is characterized by the following ranges and granulari
 | Maximum speed | 0\.8 m/s | 
 | Speed granularity | 2 | 
 
-To influence behavior, we can explore a reward function to assign immediate rewards to the actions in this action space\. For example, AWS DeepRacer has a basic reward function by default to encourage the agent to stay as close to the center line as possible\. The agent avoids steering close to the edge of the track and going off the track with even a slight turn\. For details of this default reward function in the AWS DeepRacer console, see [AWS DeepRacer reward function example](deepracer-console-train-evaluate-models.md#deepracer-example-reward-function-follow-center-line)\. 
+To influence behavior, we can explore a reward function to assign immediate rewards to the actions in this action space\. For example, AWS DeepRacer has a basic reward function by default to encourage the agent to stay as close to the center line as possible\. The agent avoids steering close to the edge of the track and going off the track with even a slight turn\. For details of this default reward function in the AWS DeepRacer console, see [AWS DeepRacer reward function example](deepracer-reward-function-examples.md#deepracer-reward-function-example-0)\. 
 
 In addition to the default action space, you can also explore a [custom action space](deepracer-console-train-evaluate-models.md#deepracer-define-action-space-for-training) and a [custom reward function](deepracer-console-train-evaluate-models.md#deepracer-train-models-define-reward-function) to train your models\.
 
