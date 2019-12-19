@@ -20,9 +20,9 @@ The `params` dictionary object contains the following key\-value pairs:
     "[closest\_objects](#reward-function-input-closest_objects)": [int, int],         # zero-based indices of the two closest objects to the agent's current position of (x, y).
     "[closest\_waypoints](#reward-function-input-closest_waypoints)": [int, int],       # indices of the two nearest waypoints.
     "[distance\_from\_center](#reward-function-input-distance_from_center)": float,         # distance in meters from the track center 
-    "[crashed](#reward-function-input-crashed)": Boolean,                    # Boolean flag to indicate whether the agent has crashed.
+    "[is\_crashed](#reward-function-input-crashed)": Boolean,                 # Boolean flag to indicate whether the agent has crashed.
     "[is\_left\_of\_center](#reward-function-input-is_left_of_center)": Boolean,          # Flag to indicate if the agent is on the left side to the track center or not. 
-    "[offtrack](#reward-function-input-offtrack)": Boolean,                   # Boolean flag to indicate whether the agent has gone off track.
+    "[is\_offtrack](#reward-function-input-offtrack)": Boolean,                # Boolean flag to indicate whether the agent has gone off track.
     "[is\_reversed](#reward-function-input-is_reversed)": Boolean,                # flag to indicate if the agent is driving clockwise (True) or counter clockwise (False).
     "[heading](#reward-function-input-heading)": float,                      # agent's yaw in degrees
     "[objects\_distance](#reward-function-input-objects_distance)": [float, ],         # list of the objects' distances in meters between 0 and track_len.
@@ -196,7 +196,7 @@ Heading direction, in degrees, of the agent with respect to the x\-axis of the c
 
 For more information, see [`closest_waypoints`](#reward-function-input-closest_waypoints)\.
 
-## crashed<a name="reward-function-input-crashed"></a>
+## is\_crashed<a name="reward-function-input-crashed"></a>
 
 **Type**: `Boolean`
 
@@ -212,7 +212,7 @@ A Boolean flag to indicate whether the agent has crashed into another object \(`
 
 A `Boolean` flag to indicate if the agent is on the left side to the track center \(`True`\) or on the right side \(`False`\)\. 
 
-## offtrack<a name="reward-function-input-offtrack"></a>
+## is\_offtrack<a name="reward-function-input-offtrack"></a>
 
 **Type**: `Boolean`
 
