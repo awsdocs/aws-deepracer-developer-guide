@@ -1,4 +1,4 @@
-# How to Switch AWS DeepRacer Compute Module Power Source from Battery to Power Outlet?<a name="deepracer-troubleshooting-switch-battery-to-wall-power"></a>
+# How to Switch AWS DeepRacer Compute Module Power Source from Battery to a Power Outlet<a name="deepracer-troubleshooting-switch-battery-to-wall-power"></a>
 
 If the compute module battery level is low when you set up your AWS DeepRacer for the first time, follow the steps below to switch the compute power supply from the battery to a power outlet:
 

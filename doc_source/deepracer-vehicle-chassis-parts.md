@@ -1,12 +1,16 @@
-# AWS DeepRacer Vehicle Chassis Parts<a name="deepracer-vehicle-chassis-parts"></a>
+# AWS DeepRacer vehicle spare parts<a name="deepracer-vehicle-chassis-parts"></a>
 
-The AWS DeepLens vehicle uses [WLToys A949 and A979](https://www.amazon.com/s?k=wltoys+a949+and+a979) Remote Control \(RC\) car chassis\. To help you find replacement when any part of the chassis is damaged, we provide below a catalogue of the parts\. 
+Use this catalogue to help you find AWS DeepRacer parts for replacement or repair\.
+
+**Note**  
+The AWS DeepRacer vehicle uses [WLToys A949 and A979](https://www.amazon.com/s?k=wltoys+a949+and+a979) Remote Control \(RC\) car chassis\.
 
 
-**AWS DeepRacer Vehicle Chassis Parts**  
+**Spare AWS DeepRacer vehicle parts**  
 
 | Part | Name | 
 | --- | --- | 
+| ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-compute-spare-battery.png) | [Spare compute battery](https://www.amazon.com/gp/product/B07QY76BPQ) | 
 | ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/tire.png) | [Tire](https://www.amazon.com/Rubber-Tire-Wheel-Metal-WLtoys/dp/B07R155788) | 
 | ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/front-bumper.png) | [Front bumper](https://www.amazon.com/dp/B0719T33SD) | 
 | ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/suspension-arm.png) | [Suspension arm](https://www.amazon.com/MagiDeal-Pieces-Suspension-Wltoys-A959-B/dp/B07CW8T42Z) | 

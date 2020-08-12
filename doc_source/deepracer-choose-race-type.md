@@ -1,4 +1,4 @@
-# Understand Sensors Enabling Racing Types Supported by AWS DeepRacer<a name="deepracer-choose-race-type"></a>
+# Understanding Racing Types and Enabling Sensors Supported by AWS DeepRacer<a name="deepracer-choose-race-type"></a>
 
 In AWS DeepRacer League, you can participate in the following types of racing events: 
 + **Time trial**: race against the clock on an unobstructed track and aim to get the fastest lap time possible\.
@@ -33,7 +33,7 @@ A stereo camera has two or more lenses that capture images with the same resolut
 **LiDAR sensor**  <a name="term-deepracer-sensor-rear-mount-lidar"></a>
  A LiDAR sensor uses rotating lasers to send out pulses of light outside the visible spectrum and time how long it takes each pulse to return\. The direction of and distance to the objects that a specific pulse hits are recorded as a point in a large 3D map centered around the LiDAR unit\.   
 For example, LiDAR helps detect blind spots of the host vehicle to avoid collisions while the vehicle changes lanes\. By combining LiDAR with mono or stereo cameras, you enable the host vehicle to capture sufficient information to take appropriate actions\. However, a LiDAR sensor costs more compared to cameras\. The neural network must learn how to interpret the LiDAR data\. Thus, trainings will take longer to converge\.   
- On the AWS DeepRacer physical vehicle a LiDAR sensor is mounted on the rear and tilted down by 6 degrees\. It rotates at the angular velocity of 10 rotations per second and has a range of 15cm to 2m\. It can detect objects behind and beside the host vehicle as well as tall objects unobstructed by the vehicle parts in the front\. The angle and range are chosen to make the LiDAR unit less susceptible to environmental noise\.
+ On the AWS DeepRacer physical vehicle a LiDAR sensor is mounted on the rear and tilted down by 6 degrees\. It rotates at the angular velocity of 10 rotations per second and has a range of 15cm to 2m\. It can detect objects behind and beside the host vehicle as well as tall objects unobstructed by the vehicle parts in the front\. The angel and range are chosen to make the LiDAR unit less susceptible to environmental noise\.
 
  You can configure your AWS DeepRacer vehicle with the following combination of the supported sensors: 
 + Front\-facing single\-lens camera only\.
@@ -125,7 +125,7 @@ To experiment with obstacle avoidance, follow the recommended practice outlined 
 
 1. Use the default agent or experiment with new sensors and action spaces by customizing an existing agent or building a new one\. You should limit the top speed to below 0\.8 m/s and the speed granularity to 1 or 2 levels\.
 
-   Start training a model for around 3 hours with 2 objects at fixed locations\. Use the example reward function and a simple track, e\.g\., the **re:Invent 2018** track, which has more regular shapes and smoother turns\. Then evaluate the model on the same track with same number of obstacles\. Watch how the total expected reward converges, if at all\. 
+   Start training a model for around 3 hours with 2 objects at fixed locations\. Use the example reward function and train the model on the track that you will be racing on, or a track that closely resembles that track\. The **2019 Championship Cup** track is a simple track, which makes it a good choice for summit race preparation\. Evaluate the model on the same track with the same number of obstacles\. Watch how the total expected reward converges, if at all\. 
 
 1. Read about [the reward function parameters](deepracer-reward-function-input.md)\. Experiment with variations of your reward function\. Increase the obstacle number to 4\. Train the agent to see if the training converges in the same amount of training time\. If it doesn't, tweak your reward function again, lower the top speed or reduce the number of obstacles, and the train the agent again\. Repeat experimenting until there is no more significant improvement\. 
 
@@ -147,6 +147,6 @@ Follow these suggested steps to iterate your training for head\-to\-head racing:
 
 1. In **Garage** of the AWS DeepRacer console, build a new training agent configured with both stereo cameras and a LiDAR unit\. It is possible to train a relatively good model using only stereo camera against bot vehicles\. LiDAR helps reduce blind spots when the agent changes lanes\. Do not set the top speed too high\. A good starting point is 1 m/s\.
 
-1. To train for head\-to\-head racing against bot vehicles, start with two bot vehicles, set the bot's moving speed lower than your agent’s top speed \(e\.g\. 0\.5 m/s if the agent's top speed is 1 m/s\), disable the lane\-changing option, and then choose the training agent you just created\. Use one of the reward function examples or make minimally necessary modifications, and then train for 3 hours\. After the training is complete, evaluate the trained model on the same track\. 
+1. To train for head\-to\-head racing against bot vehicles, start with two bot vehicles\. Set the bot's moving speed lower than your agent’s top speed \(e\.g\. 0\.5 m/s if the agent's top speed is 1 m/s\)\. Disable the lane\-changing option, and then choose the training agent you just created\. Use one of the reward function examples or make minimally necessary modifications, and then train for 3 hours\. Use the track that you will be racing on, or a track that closely resembles that track\. The **2019 Championship Cup** track is a simple track, which makes it a good choice for summit race preparation\. After the training is complete, evaluate the trained model on the same track\. 
 
 1. For more challenging tasks, clone your trained model for a second head\-to\-head racing model\. Proceed to either experiment with more bot vehicles or enable lane\-changing options\. Start with slow lane\-changing operations at random intervals longer than 2 seconds\. You may also want to experiment with custom reward functions\. In general, your custom reward function logic can be similar to those for obstacle avoidance, if you don't take into consideration a balance between surpassing other vehicles and staying on track\. Depends on how good your previous model is, you may need to train another 3 to 6 hours\. Evaluate your models and see how the model performs\.

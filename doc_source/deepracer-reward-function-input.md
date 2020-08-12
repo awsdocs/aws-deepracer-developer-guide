@@ -25,7 +25,7 @@ The `params` dictionary object contains the following key\-value pairs:
     "is_offtrack": Boolean,                # Boolean flag to indicate whether the agent has gone off track.
     "is_reversed": Boolean,                # flag to indicate if the agent is driving clockwise (True) or counter clockwise (False).
     "heading": float,                      # agent's yaw in degrees
-    "objects_distance": [float, ],         # list of the objects' distances in meters between 0 and track_len.
+    "objects_distance": [float, ],         # list of the objects' distances in meters between 0 and track_length in relation to the starting line.
     "objects_heading": [float, ],          # list of the objects' headings in degrees between -180 and 180.
     "objects_left_of_center": [Boolean, ], # list of Boolean flags indicating whether elements' objects are left of the center (True) or not (False).
     "objects_location": [(float, float),], # list of object locations [(x,y), ...].
@@ -41,7 +41,7 @@ The `params` dictionary object contains the following key\-value pairs:
 }
 ```
 
-The more detailed technical reference for the input parameters is as follows\. 
+A more detailed technical reference of the input parameters is as follows\. 
 
 ## all\_wheels\_on\_track<a name="reward-function-input-all_wheels_on_track"></a>
 
@@ -143,7 +143,7 @@ def reward_function(params):
 
 **Range**: `[(0:len(object_locations)-1), (0:len(object_locations)-1]`
 
- The zero\-based indices of the two closest objects to the agent's current position of \(x, y\)\. First index refers to the closest object behind the agent, and second index refers to the closest object in front of the agent\. If there is only one object, both indices will be 0\. 
+ The zero\-based indices of the two closest objects to the agent's current position of \(x, y\)\. The first index refers to the closest object behind the agent, and the second index refers to the closest object in front of the agent\. If there is only one object, both indices are 0\. 
 
 ## distance\_from\_center<a name="reward-function-input-distance_from_center"></a>
 
@@ -236,9 +236,17 @@ It's used when you enable direction change for each episode\.
 
 **Range**: `[(0:track_length), … ]`
 
-List of the distances of objects from the agent\. The ith element measures the distance in meters between the ith object and the agent along the track center line\. 
+A list of the distances between objects in the environment in relation to the starting line\. The ith element measures the distance in meters between the ith object and the starting line along the track center line\. 
 
-The distance is not the straight\-line distance, but calculated by projecting the center of an object and vehicle to the center line of the track and measure distance along the center line between the two points\.
+To index the distance between a single object and the agent, use:
+
+`abs(params["objects_distance"][index] - (params["progress"]/100.0)*params["track_length"])`
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/objects-distance-diagram.png)
+
+**Note**  
+abs \| \(var1\) \- \(var2\)\| = how close the car is to an object, WHEN var1 = \["objects\_distance"\]\[index\] and var2 = params\["progress"\]\*params\["track\_length"\]  
+To get an index of the closest object in front of the vehicle and the closest object behind the vehicle, use the "closest\_objects" parameter\.
 
 ## objects\_heading<a name="reward-function-input-objects_heading"></a>
 

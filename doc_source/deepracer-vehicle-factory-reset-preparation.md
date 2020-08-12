@@ -1,4 +1,24 @@
-# Prepare for Factory Reset to Your AWS DeepRacer Vehicle<a name="deepracer-vehicle-factory-reset-preparation"></a>
+# Preparing for the Factory Reset of Your AWS DeepRacer Vehicle<a name="deepracer-vehicle-factory-reset-preparation"></a>
+
+## <a name="Introduction"></a>
+
+Resetting your AWS DeepRacer completely wipes the data on the device and returns it to its factory settings\. To prepare, there are steps you need to take that require additional hardware\. This topic explains what you need to get started and walks you through the process\.
+
+## Prerequisites<a name="prerequisites"></a>
+
+Before you get started make sure you have the following items ready:
++ 1 USB flash drive, 32 GB or larger
++ A computer to facilitate preparation \- Choose one of the following options: 
+  + **Option 1:** Set up your AWS DeepRacer compute module as a Linux computer with a mouse, keyboard, monitor \(connect with HDMI type A cable\) 
+  + **Option 2:** Connect AWS DeepRacer to an Ubuntu, MacOS, or Windows computer
++ An AWS DeepRacer vehicle 
+**Important**  
+Confirm which AWS DeepRacer hardware model you are resetting to insure you download the correct image and factory reset file
+  + **A**: Vehicles ordered from amazon\.com have a white "AWS" logo on the chassis \- use **0\.0\.8 BIOS** path
+  + **B**: Vehicles originating from re:Invent 2018 have no text on the chassis \- use **0\.0\.6 BIOS** path  
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-hardware-comparisonII.png)
+
+## Preparation<a name="preparation"></a>
 
 To prepare for the factory reset, perform the following tasks\.
 + Format the USB drive into the following two partitions\.
@@ -8,16 +28,11 @@ To prepare for the factory reset, perform the following tasks\.
   + Burn the required custom Ubuntu ISO image to the FAT32 partition\.
   + Copy the required factory restore files to the NTFS partition of the USB drive\.
 
- Depending on the computer you use, specific tasks may differ from one operating system to another\. To illustrate, we present the step\-by\-step instructions to prepare the USB drive using a computer running Ubuntu \(the computer module of the AWS DeepRacer vehicle\) and also a computer running Windows\.
+Depending on the computer you use, specific tasks may differ from one operating system to another\. We present step\-by\-step instructions to prepare your USB drive using Ubuntu \(via the computer module of the AWS DeepRacer vehicle\), MacOS, and Windows operating systems\.
 
- The instructions for using other Linux or Unix computers are similar to the Ubuntu instructions discussed below\. Just replace the `apt-get` commands with the corresponding commands supported by the other Linux or Unix system of your choosing\. 
+The instructions for using other Linux or Unix computers are similar to the Ubuntu instructions discussed in the following section\. You need to replace the `apt-get` commands with the corresponding commands supported by the other Linux or Unix system that you choose to use instead\. 
 
-Before starting, have the following items ready:
-+ One USB flash drive of at least 32 GB capacity\.
-+ Your AWS DeepRacer vehicle to restore the factory settings to\.
-+ A computer, when not using your AWS DeepRacer vehicle's compute module, to partition the USB drive and to make it bootable\.
-
-Choose one of the procedures below according to the type of your computer\.
+Choose one of the following procedures according to the type of computer you use\.
 
 ## Partition a USB Drive and Make it Bootable by Using an Ubuntu Computer<a name="deepracer-vehicle-factory-reset-preparation-ubuntu"></a>
 
@@ -77,12 +92,14 @@ Choose one of the procedures below according to the type of your computer\.
       **Label:** **Flash**  
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/create-ntfs-partition-on-gparted-console.png)
 
-   1. To apply the changes, choose the green tick\.  
+   1. After you've created the FAT32 and NTFS partitions, the USB drive partition information appears in the GParted console\.  
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/apply-partitions-on-gparted-console.png)
 
 1. To make the USB drive bootable from the FAT32 partition, follow these steps\.
 
-   1. Download the [customized Ubuntu ISO image](https://s3.amazonaws.com/deepracer-public/Ubuntu-Live-16.04.3-dlrc_Recovery_tpm_V3.iso)\.
+   1. Download the customized Ubuntu ISO image appropriate for your AWS DeepRacer model:
+      + For AWS DeepRacer vehicles ordered from amazon\.com with a white **AWS** logo on the chassis, download this [customized Ubuntu ISO image \(0\.0\.8 BIOS \) ](https://s3.amazonaws.com/deepracer-public/factory-restore/BIOS-0.0.8/Ubuntu-Live-16.04.3-dlrc_Recovery_tpm_V3.iso)\. 
+      + For AWS DeepRacer vehicles originating from re:Invent 2018 with no text on the chassis, download this [customized Ubuntu ISO image \(0\.0\.6 BIOS \)](https://s3.amazonaws.com/deepracer-public/factory-restore/BIOS-0.0.6/Ubuntu-Live-16.04.3-dlrc_Recovery_tpm_V3.iso)\. 
 
    1. Use UNetbootin on your AWS DeepRacer device, to do the following:
 
@@ -114,18 +131,11 @@ The customized Ubuntu image may be more recent than what's shown here\. If so, u
 
 1. To copy the factory restore files to the NTFS partition of the USB drive, follow these steps\.
 
-   1. [Download](https://s3.amazonaws.com/deepracer-public/factory-restore/factory_reset.zip) the compressed factory restore package\. It's about 3\.5 GB in size\. 
+   1. Download the compressed factory restore package appropriate for your AWS DeepRacer model:
+      + For AWS DeepRacer vehicles ordered from amazon\.com with a white **AWS** logo on the chassis, download this [compressed factory restore package \(0\.0\.8 BIOS \) ](https://s3.amazonaws.com/deepracer-public/factory-restore/BIOS-0.0.8/factory_reset.zip)\. 
+      + For AWS DeepRacer vehicles originating from re:Invent 2018 with no text on the chassis, download this [compressed factory restore package \(0\.0\.6 BIOS \)](https://s3.amazonaws.com/deepracer-public/factory-restore/BIOS-0.0.6/factory_reset.zip)\. 
 
-   1. Unzip the downloaded package, and 
-
-   1. Copy the following uncompressed files to the second \(NTFS\) partition of the USB drive: 
-      + Image files\. About 9 GB: 
-        + *image\_dlrc\_1109\_18WW45\.5\-2\.bin*
-        + *image\_dlrc\_1109\_18WW45\.5\-2\.bin\.md5*
-      + Script files: 
-        + *usb\_flash\.sh*
-        + *set\_hostname\.py*
-        + *dlrc\_key\.py* 
+   1. Unzip the downloaded package, and copy the uncompressed files to the second \(NTFS\) partition of the USB drive\.
 
 ## Partition a USB Drive and Make it Bootable by Using a MacOS Computer<a name="deepracer-vehicle-factory-reset-preparation-macos"></a>
 
@@ -164,7 +174,9 @@ Follow the instructions here to use a MacOS computer to prepare the USB drive fo
 
 1. To make the USB drive bootable from the FAT32 partition, follow these steps\.
 
-   1. Download the [customized Ubuntu image](https://s3.amazonaws.com/deepracer-public/Ubuntu-Live-16.04.3-dlrc_Recovery_tpm_V3.iso)\.
+   1. Download the customized Ubuntu ISO image appropriate for your AWS DeepRacer model:
+      + For AWS DeepRacer vehicles ordered from amazon\.com with a white **AWS** logo on the chassis, download this [customized Ubuntu ISO image \(0\.0\.8 BIOS \) ](https://s3.amazonaws.com/deepracer-public/factory-restore/BIOS-0.0.8/Ubuntu-Live-16.04.3-dlrc_Recovery_tpm_V3.iso)\. 
+      + For AWS DeepRacer vehicles originating from re:Invent 2018 with no text on the chassis, download this [customized Ubuntu ISO image \(0\.0\.6 BIOS \)](https://s3.amazonaws.com/deepracer-public/factory-restore/BIOS-0.0.8/Ubuntu-Live-16.04.3-dlrc_Recovery_tpm_V3.iso)\. 
 
    1. Go to [https://unetbootin\.github\.io/](https://unetbootin.github.io/) to download the *UNetbootin* software\. Then start the UNetbootin console\.
 
@@ -189,18 +201,11 @@ The customized Ubuntu image may be more recent than what's shown here\. If so, u
 
 1. To copy the factory restore files to the NTFS partition of the USB drive, follow these steps\.
 
-   1. [Download](https://s3.amazonaws.com/deepracer-public/factory-restore/factory_reset.zip) the compressed factory restore package\. It's about 3\.5 GB in size\. 
+   1. Download the compressed factory restore package appropriate for your AWS DeepRacer model:
+      + For AWS DeepRacer vehicles ordered from amazon\.com with a white **AWS**" logo on the chassis, download this [compressed factory restore package \(0\.0\.8 BIOS \) ](https://s3.amazonaws.com/deepracer-public/factory-restore/BIOS-0.0.8/factory_reset.zip)\. 
+      + For AWS DeepRacer vehicles originating from re:Invent 2018 with no text on the chassis, download this [compressed factory restore package \(0\.0\.6 BIOS \)](https://s3.amazonaws.com/deepracer-public/factory-restore/BIOS-0.0.6/factory_reset.zip)\. 
 
-   1. Unzip the downloaded package\. 
-
-   1. Copy the following uncompressed files to the second \(NTFS\) partition of the USB drive: 
-      + Image files\. About 9 GB: 
-        + *image\_dlrc\_1109\_18WW45\.5\-2\.bin*
-        + *image\_dlrc\_1109\_18WW45\.5\-2\.bin\.md5*
-      + Script files: 
-        + *usb\_flash\.sh*
-        + *set\_hostname\.py*
-        + *dlrc\_key\.py* 
+   1. Unzip the downloaded package, and copy the uncompressed files to the second \(NTFS\) partition of the USB drive\.
 
 ## Partition a USB Drive and Make it Bootable by Using a Windows Computer<a name="deepracer-vehicle-factory-reset-preparation-windows"></a>
 
@@ -230,7 +235,9 @@ Follow the instructions here to use a Windows computer to prepare the USB drive 
 
 1. To make the USB drive bootable from the FAT32 partition, follow these steps\.
 
-   1. Download the [customized Ubuntu image](https://s3.amazonaws.com/deepracer-public/Ubuntu-Live-16.04.3-dlrc_Recovery_tpm_V3.iso)\.
+   1. Download the customized Ubuntu ISO image appropriate for your AWS DeepRacer model:
+      + For AWS DeepRacer vehicles ordered from amazon\.com with a white **AWS** logo on the chassis, download this [customized Ubuntu ISO image \(0\.0\.8 BIOS \) ](https://s3.amazonaws.com/deepracer-public/factory-restore/BIOS-0.0.8/Ubuntu-Live-16.04.3-dlrc_Recovery_tpm_V3.iso)\. 
+      + For AWS DeepRacer vehicles originating from re:Invent 2018 with no text on the chassis, download this [customized Ubuntu ISO image \(0\.0\.6 BIOS \)](https://s3.amazonaws.com/deepracer-public/factory-restore/BIOS-0.0.6/Ubuntu-Live-16.04.3-dlrc_Recovery_tpm_V3.iso)\. 
 
    1. Go to [https://unetbootin\.github\.io/](https://unetbootin.github.io/) to download the *UNetbootin* software\. Then start the UNetbootin console\.
 
@@ -255,15 +262,8 @@ The customized Ubuntu image may be more recent than what's shown here\. If so, u
 
 1. To copy the factory restore files to the NTFS partition of the USB drive, follow these steps\.
 
-   1. [Download](https://s3.amazonaws.com/deepracer-public/factory-restore/factory_reset.zip) the compressed factory restore package It's about 3\.5 GB in size\. 
+   1. Download the compressed factory restore package appropriate for your AWS DeepRacer model:
+      + For AWS DeepRacer vehicles ordered from amazon\.com with a white **AWS** logo on the chassis, download this [compressed factory restore package \(0\.0\.8 BIOS \) ](https://s3.amazonaws.com/deepracer-public/factory-restore/BIOS-0.0.8/factory_reset.zip)\. 
+      + For AWS DeepRacer vehicles originating from re:Invent 2018 with no text on the chassis, download this [compressed factory restore package \(0\.0\.6 BIOS \)](https://s3.amazonaws.com/deepracer-public/factory-restore/BIOS-0.0.6/factory_reset.zip)\. 
 
    1. Unzip the downloaded package\. If your favorite tool can't unzip the file successfully, try using the PowerShell [Expand\-Archive](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) command\. 
-
-   1. Copy the following uncompressed files to the second \(NTFS\) partition of the USB drive: 
-      + Image files\. About 9 GB: 
-        + *image\_dlrc\_1109\_18WW45\.5\-2\.bin*
-        + *image\_dlrc\_1109\_18WW45\.5\-2\.bin\.md5*
-      + Script files: 
-        + *usb\_flash\.sh*
-        + *set\_hostname\.py*
-        + *dlrc\_key\.py* 

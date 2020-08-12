@@ -9,7 +9,7 @@ To get started quickly using AWS DeepRacer to explore reinforcement learning and
 1. On the **Get started with reinforcement learning** page, under **Step 2: Create a model and race**, choose **Create model**\.   
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-training-create-model-on-get-started-page.png)
 
-   Alternatively, on the AWS DeepRacer home page, choose **Models** from the main navigation pane to open the **Models** page\. On the **Models** page, choose **Create model**\.  
+   Alternatively, on the AWS DeepRacer home page, choose **Your models** from the main navigation pane to open the **Your models** page\. On the **Your models** page, choose **Create model**\.  
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-training-create-model.png)
 
 1. On the **Create model** page, under **Account resources**, if you don't have the required account resources, choose **Create resources**\. If there is any issue with the account resources, choose **Reset resources**\.
@@ -21,9 +21,9 @@ To get started quickly using AWS DeepRacer to explore reinforcement learning and
    You'll use the model name to reference this model when submitting it to a leaderboard of an AWS\-sponsored or community\-organized racing event or when cloning to continue the training\.   
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-training-details.png)
 
-1. On the **Create model** page, under **Environment simulation**, choose an available track as a virtual environment to train your AWS DeepRacer agent through trials and errors\. Then, choose **Next**\.
+1. On the **Create model** page, under **Environment simulation**, choose a track as a virtual environment to train your AWS DeepRacer agent\. Then, choose **Next**\.
 
-   For your first run, choose a simple track of less irregular shapes and smoother turns\. In later iterations, you can choose more complex track to progressively improve your models\. To train a model for a particular racing event, choose a track most similar to the designated track of the event\.
+   For your first run, choose a track with a simple shape and smooth turns\. In later iterations, you can choose more complex tracks to progressively improve your models\. To train a model for a particular racing event, choose the track most similar to the event track\.
 
 1. On the **Create model** page, choose **Next**\. 
 
@@ -76,18 +76,18 @@ To get started quickly using AWS DeepRacer to explore reinforcement learning and
 
 1. On the **Create model** page, under **Stop conditions**, leave the default **Maximum time** value as\-is or set a new value to terminate the training job, to help prevent long\-running \(and possible run\-away\) training jobs\. 
 
-   When experimenting in the early phase of training, you should start with a small value for this parameter and then progressively let a training job go longer\.
+   When experimenting in the early phase of training, you should start with a small value for this parameter and then progressively train for longer amounts of time\.
 
-1. On the **Create model** page, choose **Create model** to start creating the model and provisioning the train job instance\. 
+1. On the **Create model** page, choose **Create model** to start creating the model and provisioning the training job instance\. 
 
 1. After the submission, watch your training job being initialized and then run\. 
 
-   The initialization process takes about 6 minutes to complete, when the job status changes from **Initializing** to **In progress**\.
+   The initialization process takes about 6 minutes to change status from **Initializing** to **In progress**\.
 
-1. While the training job is in progress, watch **Reward graph** and **Simulation video stream** to observe how training proceeds\. You can choose the refresh button next to **Reward graph** periodically to refresh the **Reward graph** until the training job stops\.   
+1. Watch the **Reward graph** and **Simulation video stream** to observe the progress of your training job\. You can choose the refresh button next to **Reward graph** periodically to refresh the **Reward graph** until the training job is complete\.   
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-training-in-progress.png)
 
-The training job is running on the AWS Cloud\. You don't need to keep the AWS DeepRacer console open during the training\. You can come back to the console review the training progress at any time before the training job is terminated\. 
+The training job is running on the AWS Cloud, so you don't need to keep the AWS DeepRacer console open during training\. However, you can come back to the console to check on your model at any point while the job is in progress\. 
 
 If the** Simulation video stream** window or the **Reward graph** display becomes unresponsive, refresh the browser page to get the training progress updated\.
 

@@ -1,4 +1,4 @@
-# How to Charge the AWS DeepRacer Drive Module Battery?<a name="deepracer-troubleshooting-charge-vehicle-battery-first-time"></a>
+# How to Charge the AWS DeepRacer Drive Module Battery<a name="deepracer-troubleshooting-charge-vehicle-battery-first-time"></a>
 
 Follow the steps below to charge your AWS DeepRacer drive module battery:
 

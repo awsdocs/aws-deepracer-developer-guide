@@ -11,7 +11,7 @@ Allows Amazon SageMaker to create required resources and call AWS services on yo
 [AWSDeepRacerRoboMakerAccessRole](https://console.aws.amazon.com/iam/home#/roles/AWSDeepRacerRoboMakerAccessRole)  
 Allows AWS RoboMaker to create required resources and call AWS services on your behalf\.
 
-[AWSDeepRacerLambdaAccessRole](https://console.aws.amazon.com/iam/home#/roles/AWSDeepRacerLambdaAccessRole)  
+[AWSDeepRacerLambdaAccessRole](https://console.aws.amazon.com/iam/home#/roles/AWSDeepRacerLambdaAccesseRole)  
 Allows AWS Lambda functions to call AWS services on your behalf\.
 
 [AWSDeepRacerCloudFormationAccessRole](https://console.aws.amazon.com/iam/home#/roles/AWSDeepRacerCloudFormationAccessRole)  

@@ -80,7 +80,7 @@ def reward_function(params):
     # Read input parameters
     distance_from_center = params['distance_from_center']
     track_width = params['track_width']
-    steering = abs(params['steering']) # Only need the absolute steering angle
+    steering = abs(params['steering_angle']) # Only need the absolute steering angle
 
     # Calculate 3 marks that are farther and father away from the center line
     marker_1 = 0.1 * track_width

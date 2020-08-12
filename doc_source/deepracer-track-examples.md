@@ -59,6 +59,6 @@ This track was used during the AWS DeepRacer 2019 Championship Cup finals\. It's
 
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-Championship_Cup_2019.png)
 
-The track is 23 meters long and 0\.91 meter wide\.
+The track is 34 feet long and 27 feet wide\. Please see dimensions in the track files below\.
 
 To print or create your own Championship Cup track, download the [AWS DeepRacer Championship Cup 2019 track files here](samples/Championship_Cup_2019_Track.zip)\. 

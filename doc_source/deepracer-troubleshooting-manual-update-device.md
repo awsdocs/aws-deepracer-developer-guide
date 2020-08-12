@@ -1,8 +1,8 @@
-# How to Manually Update Your AWS DeepRacer Device?<a name="deepracer-troubleshooting-manual-update-device"></a>
+# How to Manually Update Your AWS DeepRacer Device<a name="deepracer-troubleshooting-manual-update-device"></a>
 
 Recent changes in the AWS DeepRacer service has made certain legacy devices, such as those distributed at AWS re:Invent 2018, unable to update automatically\. Follow the steps below to manually update such a device\. 
 
-**To manually update an AWS DeepRacer device:**
+**To manually update an AWS DeepRacer device**
 
 1. Download to your computer and unzip this [manually update a AWS DeepRacer device script](samples/deepracer-device-manual-update.sh.zip)\.
 
@@ -16,7 +16,7 @@ Recent changes in the AWS DeepRacer service has made certain legacy devices, suc
 
    You'll need to set the new OS password, if this is your first sign\-in to the device\.
 
-1. Plug in the USB drive into the device and copy the script file to a folder \(e\.g\., \~/Desktop\) on the device\. 
+1. Plug in the USB drive into the device and copy the script file to a folder \(for example, \~/Desktop\) on the device\. 
 
 1. From a terminal on the device, type the following command to go to the script file's folder and to add execution permission to the script file: 
 

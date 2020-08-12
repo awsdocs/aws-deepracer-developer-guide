@@ -53,4 +53,4 @@ To evaluate your trained model, you can use the AWS DeepRacer console\. To do so
 
 If you've trained your model on a track identical or similar to the one specified in an AWS DeepRacer League racing event or an AWS DeepRacer community race, you can submit the model to the virtual races in the AWS DeepRacer console\. To do this, follow **Official DeepRacer virtual circuit** or **Community races** on the main navigation pane\. For more information, see [Participate in AWS DeepRacer Virtual Races](deepracer-racing-series.md)\. 
 
-To train a model for obstacle avoidance or head\-to\-head racing, you may need to add new sensors to the agent and the physical vehicle\. For more information, see [Understand Sensors Enabling Racing Types Supported by AWS DeepRacer](deepracer-choose-race-type.md)\.
+To train a model for obstacle avoidance or head\-to\-head racing, you may need to add new sensors to the agent and the physical vehicle\. For more information, see [Understanding Racing Types and Enabling Sensors Supported by AWS DeepRacer](deepracer-choose-race-type.md)\.

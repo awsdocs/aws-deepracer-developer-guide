@@ -78,7 +78,7 @@ For example, when training a model on a circular track, you can't expect to obta
 
 How would you go about training a model as robust as possible while keeping the reward function as simple as possible? One way is to explore the action space spanning the actions your agent can take\. Another is to experiment with [hyperparameters](#deepracer-iteratively-adjust-hyperparameters) of underlying training algorithm\. Often times, you do both\. Here, we focus on how to explore the action space to train a robust model for your AWS DeepRacer vehicle\.
 
-In training an AWS DeepRacer model, an action \(`a`\) is a combination of speed \(`t` meters per second\) and steering angle \(`s` in degrees\)\. The action space of the agent defines the ranges of speed and steering angle the agent can take\. For a discrete action space of `m` number of speeds, `(v1, .., vm)` and `n` number of steering angles, `(s1, .., sm)`, there are `m*n` possible actions in the action space: 
+In training an AWS DeepRacer model, an action \(`a`\) is a combination of speed \(`t` meters per second\) and steering angle \(`s` in degrees\)\. The action space of the agent defines the ranges of speed and steering angle the agent can take\. For a discrete action space of `m` number of speeds, `(v1, .., vn)` and `n` number of steering angles, `(s1, .., sm)`, there are `m*n` possible actions in the action space: 
 
 ```
 a1:           (v1, s1)
@@ -144,7 +144,7 @@ A training data is a set of batches sampled at random from an experience buffer 
 
 After starting your training job, you can examine the training metrics of rewards and track completion per episode to ascertain the training job's performance of your model\. On the AWS DeepRacer console, the metrics are displayed in the **Reward graph**, as shown in the following illustration\.
 
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-training-metrics-display-on-console.png)
+![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/best-model-bar-reward-graph2.png)
 
 You can choose to view the reward gained per episode, the averaged reward per iteration, the progress per episode, the averaged progress per iteration or any combination of them\. To do so, toggle the **Reward \(Episode, Average\)** or **Progress \(Episode, Average\)** switches at the bottom of **Reward graph**\. The reward and progress per episode are displayed as scattered plots in different colors\. The averaged reward and track completion are displayed by line plots and start after the first iteration\. 
 
@@ -204,7 +204,7 @@ Test an AWS DeepRacer model with an AWS DeepRacer vehicle driving on a physical 
 
 For diagnostic purposes, AWS DeepRacer reports certain runtime events to CloudWatch Logs during training and evaluation\. 
 
-The events are logged in job\-specific log streams\. For a training job, the log stream appears under the `/aws/sagemaker/TrainingJobs` log group\. For a simulation job, the log stream appears under the `/aws/robomaker/SimulationJobs` log group\. For an evaluation job submitted to a leaderboard in the AWS DeepRacer Virtual Circuit, the log stream appears under the `/aws/deepracer/leaderboard/SimulationJobs` log group\. For the reward function execution, the log stream appears under the `/aws/lambda/AWS-DeepRacer-Test-Reward-Function` log group\. 
+The events are logged in job\-specific log streams\. For a training job, the log stream appears under the `/aws/sagemaker/TrainingJobs` log group\. For a simulation job, the log stream appears under the `/aws/robomaker/SimulationJobs` log group\. For an evaluation job submitted to a leaderboard in the AWS DeepRacer League Virtual Circuit, the log stream appears under the `/aws/deepracer/leaderboard/SimulationJobs` log group\. For the reward function execution, the log stream appears under the `/aws/lambda/AWS-DeepRacer-Test-Reward-Function` log group\. 
 
  Most of the log entries are self\-explanatory, except for those starting with "`SIM_TRACE_LOG`"\. An example of this log entry is shown as follows:
 

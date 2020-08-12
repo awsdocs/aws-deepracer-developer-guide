@@ -15,7 +15,7 @@ The reward function is an important part of your AWS DeepRacer model\. You must 
  As with general practice in machine learning, you must evaluate a trained reinforcement learning model to ascertain its efficacy before deploying it to a physical agent for running inference in a real\-world situation\. For autonomous driving, the evaluation can be based on how often a vehicle stays on a given track from start to finish or how fast it can finish the course without getting off the track\. The AWS DeepRacer simulation runs in the AWS RoboMaker simulator and lets you run the evaluation and post the performance metrics for comparison with models trained by other AWS DeepRacer users on a [leaderboard](deepracer-racing-series.md)\. 
 
 **Topics**
-+ [Understand Sensors Enabling Racing Types Supported by AWS DeepRacer](deepracer-choose-race-type.md)
++ [Understanding Racing Types and Enabling Sensors Supported by AWS DeepRacer](deepracer-choose-race-type.md)
 + [Train and Evaluate AWS DeepRacer Models Using the AWS DeepRacer Console](deepracer-console-train-evaluate-models.md)
 + [Train and Evaluate AWS DeepRacer Models Using Amazon SageMaker Notebooks](train-evaluate-models-using-sagemaker-notebook.md)
 + [AWS DeepRacer Reward Function Reference](deepracer-reward-function-reference.md)

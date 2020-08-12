@@ -1,4 +1,4 @@
-# AWS DeepRacer Basic Concepts and Terminology<a name="deepracer-basic-concept"></a>
+# AWS DeepRacer Concepts and Terminology<a name="deepracer-basic-concept"></a>
 
  AWS DeepRacer builds on the following concepts and uses the following terminology\.
 
@@ -50,7 +50,7 @@ If a vehicle completes three laps consecutively, then it qualifies to be ranked 
 The software libraries used to build machine learning algorithms\. Supported frameworks for AWS DeepRacer include Tensorflow\.
 
 **Policy network**  <a name="term-policy-network"></a>
-A policy network is a neural network that is trained\. It takes video images as input and predicts the next action for the agent\. Depending on the algorithm, it may also evaluate the value of current state of the agent\. 
+A policy network is a neural network that is trained\. The policy network takes video images as input and predicts the next action for the agent\. Depending on the algorithm, it may also evaluate the value of current state of the agent\. 
 
 ** Optimization algorithm**  <a name="term-optimization-algorithm"></a>
 An optimization algorithm is the algorithm used to train a model\. For supervised training, the algorithm is optimized by minimizing a loss function with a particular strategy to update weights\. For reinforcement learning, the algorithm is optimized by maximizing the expected future rewards with a particular reward function\.
@@ -62,7 +62,7 @@ A collection of connected units or nodes that are used to build an information m
 Algorithm\-dependent variables that control the performance of training a neural network\. An example hyperparameter is the learning rate that controls how much new experiences are counted for in learning at each step\. A larger learning rate makes a faster training but may make the trained model lower quality\. Hyperparameters are empirical and require systematic tuning for each training\. 
 
 **AWS DeepRacer Track**  <a name="term-track"></a>
-A path or course on which an AWS DeepRacer vehicle drives\. The track can exist in either a simulated or real\-world, physical environment\. You use a simulated environment for training an AWS DeepRacer model on a virtual track\. The AWS DeepRacer console makes virtual tracks available\. You use a real\-world environment for running an AWS DeepRacer vehicle on a physical track\. The AWS DeepRacer provides physical tracks for event participants to compete\. You must create your own physical track if you want to run your AWS DeepRacer vehicle in any other situation\.
+A path or course on which an AWS DeepRacer vehicle drives\. The track can exist in either a simulated or real\-world, physical environment\. You use a simulated environment for training an AWS DeepRacer model on a virtual track\. The AWS DeepRacer console makes virtual tracks available\. You use a real\-world environment for running an AWS DeepRacer vehicle on a physical track\. The AWS DeepRacer League provides physical tracks for event participants to compete\. You must create your own physical track if you want to run your AWS DeepRacer vehicle in any other situation\.
 
 ** Reward function**  <a name="term-reward-function"></a>
 An algorithm within a learning model that tells the agent whether the action performed resulted in:  
@@ -90,3 +90,20 @@ Each training job produces a trained model and outputs the model artifacts to a 
 
 **Evaluation job**  <a name="term-evaluation-job"></a>
 A workload that tests the performance of a model\. Performance is measured by given metrics after the training job is done\. The standard AWS DeepRacer performance metric is the driving time that an agent takes to complete a lap on a track\. Another metric is the percentage of the lap completed\. 
+
+## Racing Event Terminology<a name="racing-event-terminology"></a>
+
+**League/Competition**  
+In the context of AWS DeepRacer League events, the terms league and competition relate to the competition structure\. AWS sponsors the AWS DeepRacer League, which means we own it, design it, and execute it\. A competition has a start and end date\.
+
+**Season**  
+A competition can repeat in subsequent years\. We call these different seasons \(for example, the 2019 season or 2020 season\)\. Rules can change from season to season, but are typically consistent within a season\. Terms and conditions for the AWS DeepRacer League can vary from season to season\.
+
+**Circuit**  
+In the AWS DeepRacer League, you can choose to race in the Summit Circuit or in the Virtual Circuit\. The Summit Circuit refers to in\-person races happening at selected AWS Summits\. The Virtual Circuit refers to the online races happening in the AWS DeepRacer console\.
+
+**Event**  
+As defined by the rules, an event is an AWS DeepRacer League occurance where you can participate in a race\. It can be in\-person, like the Summit Circuit, or online, like the virtual circuit\. An event has a start and end date\. Virtual Circuit events will typically last a month, whereas Summit Circuit events will typically last a day\. There can be many events in a season, and some rules, such as how we rank those participating in an event, select who wins, and what happens thereafter are subject to change\.
+
+**Race type**  
+There are flexible options for race types available at each event\. In the Summit Circuit, you can choose to race in a time\-trial \(TT\) race, or in a head\-to\-head \(H2H\) race, or both\. In the Virtual Circuit, you can race in a time\-trial \(TT\), object\-avoidance \(OA\), or head\-to\-head \(H2H\) race, or all three\. Beginning in 2020, the default Virtual Circuit program includes TT, OA, and H2H\. However, we may add a fourth bonus race at a particular event\. Alternatively, an event host could choose to only offer a TT race\. Each race type may also specify the number of laps, how racers are ranked and so on\.

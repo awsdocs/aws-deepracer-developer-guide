@@ -12,7 +12,7 @@ The AWS DeepRacer vehicle is powered by a brushed motor\. The driving speed is c
 + [Test Your AWS DeepRacer Compute Module](#deepracer-prep-vehicle-test-compute-module)
 + [Turn Off Your AWS DeepRacer Vehicle](#deepracer-shutdown-device)
 + [AWS DeepRacer Vehicle LED Indicators](deepracer-vehicle-led-indicators.md)
-+ [AWS DeepRacer Vehicle Chassis Parts](deepracer-vehicle-chassis-parts.md)
++ [AWS DeepRacer vehicle spare parts](deepracer-vehicle-chassis-parts.md)
 
 ## Inspect Your AWS DeepRacer Vehicle<a name="deepracer-prep-vehicle-inspect-components"></a>
 
@@ -27,14 +27,16 @@ When you open your AWS DeepRacer vehicle box, you should find the following comp
 | --- | --- | 
 | Vehicle Chassis \[1\] | Includes a front\-mounted camera for capturing vehicle driving experiences and the compute module for autonomous driving\. You can view images captured by the camera as a streaming video on the vehicle's device console\. The chassis includes a brushed electric motor, an electronic speed controller \(ESC\), and a servomechanism \(servo\) | 
 | Vehicle body shell \[2\] | Remove this when setting up the vehicle\. | 
-| Vehicle battery \[3\] | A 7\.4v Li\-Po battery pack to power the motor\.  | 
-| Vehicle battery charger \[4\] | Use this to charge the vehicle battery that powers the vehicle drive chain\. | 
-| Vehicle battery power adapter \[5\] | Use this to connect the vehicle battery charger to a power outlet\. | 
-| Compute module power bank \[6\]  | Use this to power the compute module that runs inference on a downloaded AWS DeepRacer reinforcement learning model\. | 
-| Compute module power bank connector cable \[7\]  | Use this USB C\-to\-USB C cable to connect the compute module with the power bank\. | 
-| Power cord and adapter \[8\] | Use this to charge the compute module power bank and the compute module\. | 
-| Vehicle chassis pins \[9\] and \[11\] | Use the four white pins and the spare ones \(in black\) to fasten the compute module to the vehicle chassis\. | 
-| USB\-to\-μUSB cable \[10\] | Use this to support [USB\-OTG](https://en.wikipedia.org/wiki/USB_On-The-Go) functionality\. | 
+| Micro\-USB to USB\-A cable \[3\] | Use this to support [USB\-OTG](https://en.wikipedia.org/wiki/USB_On-The-Go) functionality\.  | 
+| Compute battery \[4\] | Use this to power the compute module that runs inference on a downloaded AWS DeepRacer reinforcement learning model\. | 
+| Compute battery connector cable \[5\] | Use this USB\-C to USB\-C cable to connect the compute module with the battery\. If you have a Dell compute battery, this cable will be longer\. | 
+| Power cable \[6a\]  | Use this to connect the power adaptor to a power outlet\. | 
+| Power adapter\[6b\]  | Use this to charge the compute battery and the compute module\. | 
+| Pins \(spare parts\) \[7\] | Use to fasten the compute module to the vehicle chassis\. These are extras\. | 
+| Vehicle battery \[8\] |  A 7\.4v LiPo battery pack to power the motor\.  | 
+| Vehicle battery charge adapter \[9a\] | Use this to charge the vehicle battery that powers the vehicle drive chain\. | 
+| Vehicle battery charge cable \[9b\] | Use this to connect the vehicle battery charger to a power outlet\. | 
+| Battery unlock cable \[10\] | Use this if your battery enters lock out state\. | 
 
 To set up your AWS DeepRacer vehicle, you must also have the following items ready: 
 + A computer with a USB port and access to the internet\.
@@ -47,9 +49,9 @@ Now follow the instructions in the [next section](#deepracer-prep-vehicle-charge
 
 Your AWS DeepRacer vehicle has two power sources: the vehicle battery and the compute module power bank\.
 
-The hard\-cased power bank keeps the compute module running\. The compute module maintains the Wi\-Fi connection, runs inference against a deployed AWS DeepRacer model, and issues a command for the vehicle to take an action\.
+The power bank keeps the compute module running\. The compute module maintains the Wi\-Fi connection, runs inference against a deployed AWS DeepRacer model, and issues a command for the vehicle to take an action\.
 
- The vehicle battery powers the motor to move the vehicle\. It has a blue package with two sets of cables\. The two\-wired set of the red and black cables is used to connect to the vehicle's ESC and the triple\-wired blue \(or black\), white and red cables is to connect to the charger\. For driving, only the two\-wired cable set should be connected to the vehicle\. 
+ The vehicle battery powers the motor to move the vehicle\. It has two sets of cables\. The two\-wired set of the red and black cables is used to connect to the vehicle's ESC and the triple\-wired blue \(or black\), white and red cables is to connect to the charger\. For driving, only the two\-wired cable set should be connected to the vehicle\. 
 
 After fully charged, the battery voltage will drop as the batteries discharge\. When the voltage drops, the available torque also drops\. As a consequence, the same speed setting will result in slower speed on the track\. When the battery is fully empty, the vehicle stops moving\. For autonomous driving under normal conditions, the battery usually lasts 15\-25 minutes\. To ensure consistent behavior, it is recommended that you charge the battery after every 15 minutes of use\. 
 
@@ -63,7 +65,7 @@ To install and charge the vehicle battery and the power bank, follow the steps b
 
    1.  To charge the battery, plug the three\-wired cable set from the batter to the charger to connect the battery to the power adapter and then plug the power adapter to a wall outlet or to a USB port if a USB cable is used to charge the battery\. 
 
-       For a graphical illustration of how to charge the vehicle battery using the enclosed charger, see [How to Charge the AWS DeepRacer Drive Module Battery?](deepracer-troubleshooting-charge-vehicle-battery-first-time.md)\. 
+       For a graphical illustration of how to charge the vehicle battery using the enclosed charger, see [How to Charge the AWS DeepRacer Drive Module Battery](deepracer-troubleshooting-charge-vehicle-battery-first-time.md)\. 
 
    1. After the battery is charged, plug the two\-wired cable set of the vehicle battery cable into the black and red cable connector on your vehicle\. 
 

@@ -1,4 +1,4 @@
-# How to Get the MAC Address of Your AWS DeepRacer Device?<a name="deepracer-troubleshooting-get-mac-address"></a>
+# How to Get the MAC Address of Your AWS DeepRacer Device<a name="deepracer-troubleshooting-get-mac-address"></a>
 
 Follow the instructions below to get the MAC address of your AWS DeepRacer device: 
 

@@ -1,8 +1,8 @@
-# How to Maintain Vehicle's Wi\-Fi Connection?<a name="deepracer-troubleshooting-maintain-vehicle-connection"></a>
+# How to Maintain Your Vehicle's Wi\-Fi Connection<a name="deepracer-troubleshooting-maintain-vehicle-connection"></a>
 
  The following troubleshooting guide provides you tips for maintaining your vehicle's connection\. 
 
-## How to Troubleshoot Wi\-Fi Connection if Vehicle's Wi\-Fi LED Indicator Flashes Blue, Then Turns Red for Two Seconds, and Finally Off?<a name="deepracer-troubleshoot-reconnect-wifi-after-led-turns-red-flashing-blue-and-off"></a>
+## How to Troubleshoot Wi\-Fi Connection If Your Vehicle's Wi\-Fi LED Indicator Flashes Blue, Then Turns Red for Two Seconds, and Finally Off<a name="deepracer-troubleshoot-reconnect-wifi-after-led-turns-red-flashing-blue-and-off"></a>
 
 Check the following to verify you have the valid Wi\-Fi connection settings\.
 + Verify that the USB drive has only one disk partition with only one *wifi\-creds\.txt* file on it\. If multiple *wifi\-creds\.txt* files are found, all of them will be processed in the order they were found, which may lead to unpredictable behavior\.
@@ -34,11 +34,11 @@ If the USB drive has both the *wifi\-creds\.txt* file and the `models` directory
 
 The Wi\-Fi LED might also turn red for two seconds if the Wi\-Fi connection attempt fails\.
 
-## How Can I Connect to Vehicle's Device Console Using its Hostname?<a name="deepracer-troubleshooting-connect-device-console-with-hostname"></a>
+## How Can I Connect to the Vehicle's Device Console Using its Hostname?<a name="deepracer-troubleshooting-connect-device-console-with-hostname"></a>
 
 When connecting to the vehicle's device console using its hostname, make sure you type: `https://hostname.local` in the browser, where `hostname` value \(of the `AMSS-1234` format\) is printed on the bottom of the AWS DeepRacer vehicle\. \)
 
-## How to Connect to Vehicle's Device Console Using its IP Address?<a name="deepracer-troubleshooting-connect-device-console-using-ip-address"></a>
+## How to Connect to Vehicle's Device Console Using Its IP Address<a name="deepracer-troubleshooting-connect-device-console-using-ip-address"></a>
 
 To connect to the device console using IP address as shown in the *device\-status\.txt* file \(found on the USB drive\), make sure the following conditions are met\.
 +  Check your laptop or mobile devices are in the same network as the AWS DeepRacer vehicle\. 

@@ -1,4 +1,4 @@
-# How to Connect Your AWS DeepRacer to Your Wi\-Fi Network?<a name="deepracer-troubleshooting-wifi-connection-first-time"></a>
+# How to Connect Your AWS DeepRacer to Your Wi\-Fi Network<a name="deepracer-troubleshooting-wifi-connection-first-time"></a>
 
 To use your AWS DeepRacer, you must connect the vehicle to your home or office Wi\-Fi network\. To connect the vehicle to your Wi\-Fi network, follow the steps below:
 
