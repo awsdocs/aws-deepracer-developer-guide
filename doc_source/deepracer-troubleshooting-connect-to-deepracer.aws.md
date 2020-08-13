@@ -12,7 +12,7 @@ Multiple causes may be behind this\. Typically, you can resolve the issue with t
 
 1. Open the device console by navigating to `https://deepracer.aws` from a web browser on your computer\.
 
-If the previous procedure doesn't work, you can check  your computer's network preferences to verify that they're properly configured to let the computer connect to the device's network, whose network name is `Deepracer`\. To do this, follow the steps in the following procedure\.
+If the previous procedure doesn't work, you can check your computer's network preferences to verify that they're properly configured to let the computer connect to the device's network, whose network name is `Deepracer`\. To do this, follow the steps in the following procedure\.
 
 **Note**  
 The instructions below assume you're working with a MacOS computer\. For other computer systems, consult with the network preferences documentation for the respective operating system and use the below instructions as a general guide\.<a name="deepracer-activate-device-usb-over-ethernet-network-on-computer"></a>

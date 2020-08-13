@@ -1,4 +1,4 @@
-# AWS DeepRacer vehicle spare parts<a name="deepracer-vehicle-chassis-parts"></a>
+# AWS DeepRacer Vehicle Spare Parts<a name="deepracer-vehicle-chassis-parts"></a>
 
 Use this catalogue to help you find AWS DeepRacer parts for replacement or repair\.
 
@@ -10,7 +10,7 @@ The AWS DeepRacer vehicle uses [WLToys A949 and A979](https://www.amazon.com/s?k
 
 | Part | Name | 
 | --- | --- | 
-| ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-compute-spare-battery.png) | [Spare compute battery](https://www.amazon.com/gp/product/B07QY76BPQ) | 
+| ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/deepracer-compute-spare-battery.png) | [Spare compute battery](https://www.amazon.com/gp/product/B07QY76BPQ) | 
 | ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/tire.png) | [Tire](https://www.amazon.com/Rubber-Tire-Wheel-Metal-WLtoys/dp/B07R155788) | 
 | ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/front-bumper.png) | [Front bumper](https://www.amazon.com/dp/B0719T33SD) | 
 | ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/suspension-arm.png) | [Suspension arm](https://www.amazon.com/MagiDeal-Pieces-Suspension-Wltoys-A959-B/dp/B07CW8T42Z) | 
@@ -33,7 +33,7 @@ The AWS DeepRacer vehicle uses [WLToys A949 and A979](https://www.amazon.com/s?k
 | ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/differential-mechanism.png) | [Differential mechanism](https://www.amazon.com/Walmeck-Wltoys-A949-A959-Transmission/dp/B079PP8MFF) | 
 | ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/reduction-gear.png) | [Reduction gear](https://www.amazon.com/Desetin-A949-24-Reduction-Wltoys-C1025/dp/B01N1WQ3N7) | 
 | ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/motor-base.png) | [Motor base](https://www.amazon.com/Baoblaze-Metal-Brushed-Brushless-WLtoys/dp/B0792BGX6L) | 
-| ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/lithium-battery-7.4v-1100mah.png) | [Lithium battery 7\.4V 1100mah](https://www.amazon.com/Battery-1100mah-Helicopter-Airplane-replacement/dp/B07GBV1BX1) | 
+| ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/lithium-battery-7.4v-1100mah.png) | [Lithium battery 7\.4V 1100mAh](https://www.amazon.com/AWS-DeepRacer-Car-Single-Battery/dp/B07Z5PLHQP) | 
 | ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/17g-steering-engine.png) | [17g steering engine](https://www.amazon.com/Sdoveb-Steering-Drone-WLTOYS-K929-B/dp/B07RB3BPKQ) | 
 | ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/motor-heat-dissipation-cover.png) | [Motor heat dissipation cover](https://www.amazon.com/Goolsky-Motor-Heat-Sink-Wltoys/dp/B07NVR2W5H) | 
 | ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/stub-axle.png) | [Stub axle](https://www.amazon.com/Products-Wltoys-A949-A959-A969/dp/B06XKLZFPC) | 

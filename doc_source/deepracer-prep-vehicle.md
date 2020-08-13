@@ -12,7 +12,7 @@ The AWS DeepRacer vehicle is powered by a brushed motor\. The driving speed is c
 + [Test Your AWS DeepRacer Compute Module](#deepracer-prep-vehicle-test-compute-module)
 + [Turn Off Your AWS DeepRacer Vehicle](#deepracer-shutdown-device)
 + [AWS DeepRacer Vehicle LED Indicators](deepracer-vehicle-led-indicators.md)
-+ [AWS DeepRacer vehicle spare parts](deepracer-vehicle-chassis-parts.md)
++ [AWS DeepRacer Vehicle Spare Parts](deepracer-vehicle-chassis-parts.md)
 
 ## Inspect Your AWS DeepRacer Vehicle<a name="deepracer-prep-vehicle-inspect-components"></a>
 
