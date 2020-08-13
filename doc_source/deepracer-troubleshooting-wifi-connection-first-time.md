@@ -13,7 +13,7 @@
 
 1. Plug the USB flash drive into your computer\.
 
-1. Open a web browser on your computer and navigate to [ https://d1.awsstatic.com/deepracer/wifi-creds.txt]( https://d1.awsstatic.com/deepracer/wifi-creds.txt)\. This link opens a text file named `wifi-creds.txt`\.  
+1. Open a web browser on your computer and navigate to [https://aws\.amazon\.com/deepracer/usbwifi](http://aws.amazon.com/deepracer/usbwifi)\. This link opens a text file named `wifi-creds.txt` hosted on GitHub\.  
 ![\[The wifi-creds.txt file describes how to connect to connect to a Wi-Fi network.\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-wifi-USB-text-file.png)
 
 1. Save `wifi-creds.txt` to your USB flash drive\. Depending on which web browser you use, the text file might download to your computer and open in your default code editor automatically\. If `wifi-creds.txt` doesn't download automatically, open the context \(right\-click\) menu and choose **Save as** to save the text file to your USB flash drive\.
