@@ -133,7 +133,7 @@ At this point, you're done with initializing the training and are ready to move 
 
 Setting up the environment for training your AWS DeepRacer model involves selecting a race track, a reward function and the associated action space, as well as hyperparameters used for training\. 
 
-The notebook uses the default settings for these\. To view the default settings, uncomment relevant parts and then run the code cell under **Configure the preset for RL algorithm**\. For example, to view the code listing of the reward function, run the code cell as follows:
+The notebook uses the default settings for these\. To view the default settings, uncomment relevant parts and then run the code cell under **Configure the preset for RL algorithm**\. For example, to view the code listing of the reward function ( **NB:** reward function is in src/artifacts/rewards/ ), run the code cell as follows:
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/sagemaker-notebokk-view-edit-reward-function.png)
 
@@ -144,7 +144,7 @@ If you decide to use the default settings, copy the files to the S3 bucket\. To 
 1. Choose **File** menu on the top of the notebook instance page and then choose **Open\.\.\.**\.   
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/sagemaker-notebook-open-file-to-edit.png)
 
-1. Navigate to the *src/markov/rewards* folder and choose *default\.py* to open the file\.   
+1. Navigate to the *src/artifacts/rewards* folder and choose *default\.py* to open the file\.   
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/sagemaker-notebook-naviate-to-reward-function-file.png)
 
 1. Edit the file as you see fit\. After finishing editing the file, choose **File\->Save** to save the update\.  
