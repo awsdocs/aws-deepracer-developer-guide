@@ -36,40 +36,139 @@ If your model fails to copy to the AWS DeepRacer service account, find your erro
 | MODEL\_VALIDATION\_SERVICE\_ERROR | Invalid model: Import model manually\. | We can't validate your model because it's been edited\. If you have a copy of it, import it manually\. For more information, see [S3 folder structure](#s3-folder-structure)\. To remove this message, select the model, and choose Delete\. | 
 | ACCOUNT\_RESOURCE\_DOES\_NOT\_EXIST | Missing or incorrect permissions: Reset permissions\. | We can't copy the model because the permissions that were available with AWS DeepRacer when you trained it have been removed\. To authorize AWS DeepRacer to recreate the required permissions, choose the model and then choose Update\. After recreating the permissions, AWS DeepRacer will copy the model\. For more information, see [S3 folder structure](#s3-folder-structure)\. | 
 
-## Prerequisites for Importing a Model from SageMaker<a name="model-import-prerequites"></a>
+## Prerequisites for Importing a Model<a name="model-import-prerequites"></a>
 
-In order to import an RL model you trained in SageMaker successfully: 
-+ Include all necessary[ model files](#model-files) named with appropriate conventions
-+ Locate files as expected within the Amazon [S3 folder structure](#s3-folder-structure)
-+ Include a valid [S3 bucket policy](#bucket-policy) and all necessary[ import permissions](#import-model-permissions)
+In order to import an RL model you trained: 
++ Include all necessary[ model files](#model-files) named with appropriate conventions\.
++ Locate files as expected within the Amazon [S3 folder structure](#s3-folder-structure)\.
++ Include a valid [S3 bucket policy](#bucket-policy) and all necessary[ import permissions](#import-model-permissions)\.
 
 When you have all the necessary files in the expected folders, follow the [import model](#model-import) instructions\.
 
 ## Model files<a name="model-files"></a>
 
-**Mandatory \- your AWS DeepRacer RL model needs to include these files for a successful import\. Follow the steps in [S3 folder structure](#s3-folder-structure) to make sure they exist in the correct folders\.**
-+ `.coach_checkpoint`
-+ `*ckpt*`files
-+ `model_metadata.json`
+**Mandatory \- your AWS DeepRacer RL models need to include these files for a successful import\. Follow the steps in [S3 folder structure](#s3-folder-structure) to make sure they exist in the correct folders\.**
++ `.coach_checkpoint` \- The \.coach\_checkpoint file is a pointer file containing the name of the checkpoint that will be imported\. The following code shows an example of a \.coach\_checkpoint file, which is one line and contains a key name\.
+
+  ```
+  13_Step-25173.ckpt
+  ```
++ `*ckpt*`files \- Checkpoint file names use the naming convention, `number of training iteration_Step-total steps.ckpt`\. The following code shows example checkpoints\.
+
+  ```
+            
+  1_Step-42.ckpt,
+  2_Step-91.ckpt,
+  3_Step-124.ckpt,
+  4_Step-162.ckpt
+  ```
++ `model_metadata.json` \- Your model\_metadata\.json file contains descriptive information about your model\. The following code shows an example of the contents of a model\_metadata\.json file\.
+
+  ```
+  {
+      "action_space": [
+          {
+              "steering_angle": -30,
+              "speed": 0.5,
+              "index": 0
+          },
+          {
+              "steering_angle": -30,
+              "speed": 1,
+              "index": 1
+          },
+          {
+              "steering_angle": 30,
+              "speed": 1,
+              "index": 9
+          }
+      ],
+      "sensor": [
+          "FRONT_FACING_CAMERA"
+      ],
+      "neural_network": "DEEP_CONVOLUTIONAL_NETWORK_SHALLOW",
+      "version": "3"
+  }
+  ```
 + `reward_function.py`
 + `model.tar.gz`
 
 **Optional \- your model will import without these files, but we need them to render your training and evaluation metrics\.**
++ `deepracer_checkpoints.json` \- If this file is present then `.coach_checkpoint` will be ignored\. The following code is an example that shows the json format that a `.coach_checkpoint` file needs to be in for your model to import successfully\.
+
+  ```
+   {"best_checkpoint": {"name": "319_Step-43282.ckpt"}, "last_checkpoint": {"name": "20_Step-43482.ckpt"}}
+  ```
 + `training_params.yaml`
 + `EvaluationMetrics*.json`
 + ` TrainingMetrics*.json`
 
 ## Finding checkpoint files<a name="checkpoint-files"></a>
-+ We scan the following files to determine which model checkpoint files to import
-  + `deepracer_checkpoints.json (optional)`
-  + `.coach_checkpoint (mandatory)`
-  + `checkpoint (optional)`
-+ If \.coach\_checkpoint doesn’t exist the import will fail
-+ Checkpoint logic:
-  + When `deepracer_checkpoints.json` file exists, we copy the `best_checkpoint` and `last_checkpoint` files using the keys from `deepracer_checkpoints file`\.
-  + When only \.coach\_checkpoint file or checkpoint file exists\. We get the last checkpoint key from the file to copy last two checkpoints\. 
 
-Consider We have following checkpoints:
+When we import your model, we check whether the following checkpoint files are present in this order:
+
+1. `deepracer_checkpoints.json` \- The following code is an example that shows the json format that a `.coach_checkpoint` file needs to be in for your model to import successfully\.
+
+   ```
+    {"best_checkpoint": {"name": "319_Step-43282.ckpt"}, "last_checkpoint": {"name": "20_Step-43482.ckpt"}}
+   ```
+
+1. `.coach_checkpoint` \- The `.coach_checkpoint` file is a pointer file containing the name of the checkpoint that will be imported\. The following code shows an example of the contents of a checkpoint file, which is one line and contains a key name\.
+
+   ```
+   13_Step-25173.ckpt
+   ```
+
+If `deepracer_checkpoints.json` is present, but we can't find the named checkpoints in the file, the import will fail:
+
+```
+# We can find a deepracer_checkpoints.json file in the S3 containing the model you want to import:
+{"best_checkpoint": {"name": "319_Step-43282.ckpt"}, "last_checkpoint": {"name": "20_Step-43482.ckpt"}}
+
+# We CAN'T find the named checkpoints in the file:
+320_Step-43278.ckpt
+321_Step-43280.ckpt
+322_Step-43282.ckpt
+
+# The import fails. :-(
+```
+
+If `.coach_checkpoint` is present, but we can't find the named checkpoint in the file, the import will fail:
+
+```
+# We can find a .coach_checkpoint file in the S3 containing the model you want to import:
+13_Step-25173.ckpt
+
+# We CAN'T find the named checkpoints in the file:
+13_Step-25174.ckpt
+13_Step-25175.ckpt
+14_Step-3456.ckpt
+
+# The import fails. :-(
+```
+
+If neither `deepracer_checkpoints.json` nor `.coach_checkpoint` files are present, the import will fail\.
+
+To ensure your import is a success, check that your `.coach_checkpoint` is in the model folder of your model's S3 bucket\. Next, make sure the checkpoint called out in the `.coach_checkpoint` file is present and the key names of the checkpoint files follow the naming convention `number of training iteration_Step-total steps.ckpt`\.
+
+```
+# We can find a .coach_checkpoint file in the S3 containing the model you want to import:
+13_Step-25173.ckpt
+
+# We CAN find the named checkpoints in the file:
+13_Step-25173.ckpt
+13_Step-25174.ckpt
+13_Step-25175.ckpt
+14_Step-3456.ckpt
+
+# The import succeeds. :-)
+```
+
+## Checkpoint logic<a name="checkpoint-logic"></a>
+
+When a `deepracer_checkpoints.json` file exists, we copy the `best_checkpoint` and `last_checkpoint` files using the keys from your `deepracer_checkpoints file`\.
+
+When only a `.coach_checkpoint file exists`, we copy the specified checkpoint\. The following code shows example checkpoints inside a `coach_checkpoint` file\.
 
 ```
           
@@ -77,12 +176,14 @@ Consider We have following checkpoints:
 2_Step-91.ckpt,
 3_Step-124.ckpt,
 4_Step-162.ckpt
+```
++ `The .coach_checkpoint` file in the example contains `4_Step-162.ckpt`\.
++ `A deepracer_checkpoints.json` file isn't present\.
++ So we copy the last two checkpoints, `3_Step-124.ckpt` and `4_Step-162.ckpt` \.
 
--> .coach_checkpoint file contains 4_Step-162.ckpt. 
--> deepracer_checkpoints.json file doesn't exist. 
--> Need to copy last two checkpoints. So that will be 3_Step-124.ckpt, 4_Step-162.ckpt.
+The following code shows a different example of the contents of `coach_checkpoint` file\.
 
-Also Consider We have following files
+```
 3_Step-124.ckpt.data-00000-of-00001,
 3_Step-124.ckpt.index,
 3_Step-124.ckpt.meta,
@@ -91,9 +192,7 @@ Also Consider We have following files
 4_Step-162.ckpt.data-00000-of-00001
 ```
 
-We should copy all the 3\_Step\-124\.ckpt\* files and 4\_Step\-162\.ckpt\* files\.
-
-checkpoint file names follow \- \(training iteration\)\_Step\-\(total steps\)\.ckpt as naming convention\. So to find the second from the last checkpoint, we need to make a S3:list call\.
+Checkpoint file names use the naming convention, `number of training iteration_Step-total steps.ckpt`, so in this example, we make an S3:list call\. This means we copy all the `3_Step-124.ckpt*` files and `4_Step-162.ckpt*` files to find the second from the last checkpoint\. 
 
 ## S3 folder structure<a name="s3-folder-structure"></a>
 
