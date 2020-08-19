@@ -26,7 +26,6 @@ Amazon's trademarks and trade dress may not be used in
    + [AWS DeepRacer Solution Workflow](deepracer-how-it-works-solution-workflow.md)
    + [Simulated-to-Real Performance Gaps](deepracer-how-it-works-virtual-to-physical.md)
 + [Get Started with AWS DeepRacer](deepracer-get-started.md)
-   + [Set Up Account Resources for AWS DeepRacer](deepracer-get-started-set-up-account-resources.md)
    + [Train Your First AWS DeepRacer Model](deepracer-get-started-training-model.md)
    + [Evaluate Your AWS DeepRacer Models in Simulation](deepracer-get-started-test-in-simulator.md)
 + [Train and Evaluate AWS DeepRacer Models](create-deepracer-project.md)
