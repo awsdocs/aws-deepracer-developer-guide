@@ -11,7 +11,7 @@ To help reduce the learning curve, AWS DeepRacer simplifies the process in three
 
 If you are a seasoned machine learning practitioner, you will find AWS DeepRacer a welcome opportunity to build reinforcement learning models for autonomous racing in both virtual and physical environments\. To summarize, use AWS DeepRacer to create reinforcement learning models for autonomous racing with the following steps:
 
-1. Train a custom reinforcement learning model for autonomous racing\. Do this by using the AWS DeepRacer console integrated with Amazon SageMaker and AWS RoboMaker\.
+1. Train a custom reinforcement learning model for autonomous racing\. Do this by using the AWS DeepRacer console integrated with SageMaker and AWS RoboMaker\.
 
 1. Use the AWS DeepRacer simulator to evaluate a model and test autonomous racing in a virtual environment\.
 

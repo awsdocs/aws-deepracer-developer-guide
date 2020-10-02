@@ -19,7 +19,7 @@ The AWS DeepRacer console is a graphical user interface to interact with the AWS
 
 In summary, the AWS DeepRacer console supports the following features:
 + Create a training job to train a reinforcement learning model with a specified reward function, optimization algorithm, environment, and hyperparameters\. 
-+ Choose a simulated track to train and evaluate a model by using Amazon SageMaker and AWS RoboMaker\.
++ Choose a simulated track to train and evaluate a model by using SageMaker and AWS RoboMaker\.
 + Clone a trained model to improve training by tuning hyperparameters to optimize your model's performance\. 
 + Download a trained model for deployment to your AWS DeepRacer vehicle so it can drive in a physical environment\. 
 + Submit your model to a virtual race and have its performance ranked against other models in a virtual leaderboard\. 

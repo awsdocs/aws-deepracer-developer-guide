@@ -1,41 +1,58 @@
-# Join an AWS DeepRacer Community Race<a name="deepracer-join-community-race"></a>
+# To Join an AWS DeepRacer Community Race<a name="deepracer-join-community-race"></a>
 
-If you're invited to an active community race and you've entered an AWS DeepRacer race before, follow the steps below to join the invited race in the AWS DeepRacer console\.<a name="join-community-race-as-existing-racer"></a>
+**Note**  
+To join an AWS DeepRacer community race, you first need to receive a link to the race from the race organizer\.
 
-**To join an AWS DeepRacer Community Race as a race participant**
+## Join an AWS DeepRacer Community Race as a Race Participant<a name="join-community-race-as-existing-racer"></a>
 
-1. Sign in to your AWS account in the [AWS DeepRacer console](https://console.aws.amazon.com/deepracer)\.
+If you're invited to an active community race and you've entered an AWS DeepRacer race before, follow the steps below to join the race in the AWS DeepRacer console\. If you're new to AWS and receive an invitation to join an AWS DeepRacer community race, follow the steps in [Join an AWS DeepRacer Community Race as a New AWS DeepRacer User](#join-community-race-as-new-racer)\.
 
-1. Choose **Community races** from the main navigation pane\.
+**To join a race**
 
-1. On the **Virtual community races** page and from the list of invited races, choose the race you want to enter and then choose **Enter race**\.  
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-join-races-enter.png)
+1. Select the link you received from the race organizer\. If you're not already signed in to your account in the [AWS DeepRacer console](https://console.aws.amazon.com/deepracer), you'll be prompted to sign in\.
 
-1. On the **Submit model to *your race*** page, under **Model**, choose a trained model and then choose **Submit model**\.  
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-join-races-submit-model.png)
+1. Once signed in to the AWS DeepRacer console, the link will take you to the Race page\. The Race page displays the race details and leaderboard\. Choose **Enter race**\.  
+![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-community-race-enter.png)
 
-1. If your model is evaluated successfully against the racing criteria, watch the event's leaderboard to see how your model ranks against other participants\.
+1. On the Submit model to *your race* page, under **Model**, choose a trained model and then choose **Submit model**\.
 
-If you're new to AWS and receive an invitation in an email message to join an AWS DeepRacer community race, choose the event link to go to the AWS DeepRacer console and then sign up for an AWS account before proceeding to join the race\. 
+If your model is evaluated successfully against the racing criteria, watch the event's leaderboard to see how your model ranks against other participants\.
 
-As a new AWS DeepRacer user or a first\-time participant to any AWS DeepRacer race, follow the steps to join the invited race in the AWS DeepRacer console\.<a name="join-community-race-as-new-racer"></a>
+You can also choose **Watch** to view a video of your vehicle's performance or choose **Download Logs** to review a detailed look at the outputs produced\.
 
-**To join an AWS DeepRacer Community Race as a New AWS DeepRacer user**
+![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-community-race-success.png)
 
-1. Sign in to your AWS account in the [AWS DeepRacer console](https://console.aws.amazon.com/deepracer)\. 
+## Join an AWS DeepRacer Community Race as a New AWS DeepRacer User<a name="join-community-race-as-new-racer"></a>
 
-1. From the main navigation pane, under **Racing league**, choose **Community races**\.
+If you're new to AWS and receive an invitation link to join an AWS DeepRacer community race, choose the link to go to the AWS DeepRacer console and then sign up for an AWS account before proceeding to join the race\. 
 
-1. When prompted for your **AWS DeepRacer racer name**, type an racer name as your identification across all the AWS DeepRacer leaderboards\.
+As a new AWS DeepRacer user or a first\-time participant to any AWS DeepRacer race, follow the steps to join a community race in the AWS DeepRacer console\.
 
-1. On the invited race details page, expand **Get started racing**\. 
+**To join a race as a new user**Join an AWS DeepRacer Community Race as a New AWS DeepRacer user
 
-1. Choose **Get started with RL** to get a quick introduction to training ad AWS DeepRacer model for autonomous driving\. 
+1. Create an AWS account in the [AWS DeepRacer console](https://console.aws.amazon.com/deepracer)\.
 
-1. Train and evaluate your model for the invited race in the AWS DeepRacer console\.
+1. Once you are set up and signed in, choose the link shared with you by the race organizer to open the Race page\.
+
+1. When prompted to create an **AWS DeepRacer racer name**, enter a name that you will use as identification across all the AWS DeepRacer leaderboards\. Once you choose a racer name, you cannot change it\.
+
+1. On the Race details page, expand **Get started racing**\. 
+
+1. Choose **Get started with RL** to get a quick introduction to training an AWS DeepRacer model for autonomous driving\. 
+
+1. Train and evaluate your model for the race in the AWS DeepRacer console\.
 
    For more information on training your model, see [Train Your First AWS DeepRacer Model ](deepracer-get-started-training-model.md)\.
 
-1. Navigate to **Community races** to see the race you're invited to\.
+1. Navigate to **Community races**\.
 
-1. Watch your ranking on the event leaderboard, if your model is evaluated successfully against the racing criteria\.
+1. Find the race you're invited to\. Choose **Enter race** on the race card\.  
+![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-community-race-welcome-enter.png)
+
+1. On the Submit model to *your race* page, under **Model**, select the model you trained and then choose **Submit model**\.
+
+If your model is evaluated successfully against the racing criteria, watch the event's leaderboard to see how your model ranks against other participants\.
+
+You can also choose **Watch** to view a video of your vehicle's performance or choose **Download Logs** to review a detailed look at the outputs produced\.
+
+![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-community-race-success.png)

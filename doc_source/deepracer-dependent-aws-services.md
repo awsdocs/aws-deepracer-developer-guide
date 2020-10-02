@@ -11,13 +11,13 @@ To create and run the reward functions\.
 AWS CloudFormation  
 To create training jobs for AWS DeepRacer models\.
 
-Amazon SageMaker  
+SageMaker  
 To train the AWS DeepRacer models\.
 
 AWS RoboMaker  
 To simulate an environment for both training and evaluation\.
 
- The dependent AWS Lambda, AWS CloudFormation, Amazon SageMaker, and AWS RoboMaker in turn use other AWS services including Amazon CloudWatch and Amazon CloudWatch Logs\. 
+ The dependent AWS Lambda, AWS CloudFormation, SageMaker, and AWS RoboMaker in turn use other AWS services including Amazon CloudWatch and Amazon CloudWatch Logs\. 
 
 The following table shows AWS services used by AWS DeepRacer, directly or indirectly\.
 

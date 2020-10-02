@@ -22,7 +22,7 @@
 
    Follow the link to read the terms and conditions before selecting this option\.
 
-1. Choose **Submit model** to complete the submission\.
+1. Choose **Submit model** to complete the entry\.
 
    After your model is submitted, the AWS DeepRacer console starts its evaluation\. The process can take up to 10 minutes\.
 

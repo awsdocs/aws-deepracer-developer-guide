@@ -98,43 +98,47 @@ The zero\-based indices of the two neighboring `waypoint`s closest to the agent'
 
 The following example reward function demonstrates how to use `waypoints` and `closest_waypoints` as well as `heading` to calculate immediate rewards\.
 
+AWS DeepRacer supports the following libraries: math, random, NumPy, SciPy, and Shapely\. To use one, add an import statement, `import supported library`, above your function definition, `def function_name(parameters)`\.
+
 ```
-def reward_function(params):
+    # Place import statement outside of function (supported libraries: math, random, NumPy, SciPy, and Shapely)
+    import math
+​
+    def reward_function(params):
     ###############################################################################
     '''
-    Example of using waypoints and heading to make the car in the right direction
+    Example of using waypoints and heading to make the car point in the right direction
     '''
-
-    import math
-
+​
+​
+​
     # Read input variables
     waypoints = params['waypoints']
     closest_waypoints = params['closest_waypoints']
     heading = params['heading']
-
+​
     # Initialize the reward with typical value 
     reward = 1.0
-
+​
     # Calculate the direction of the center line based on the closest waypoints
     next_point = waypoints[closest_waypoints[1]]
     prev_point = waypoints[closest_waypoints[0]]
-
+​
     # Calculate the direction in radius, arctan2(dy, dx), the result is (-pi, pi) in radians
     track_direction = math.atan2(next_point[1] - prev_point[1], next_point[0] - prev_point[0]) 
     # Convert to degree
     track_direction = math.degrees(track_direction)
-
+​
     # Calculate the difference between the track direction and the heading direction of the car
     direction_diff = abs(track_direction - heading)
     if direction_diff > 180:
         direction_diff = 360 - direction_diff
-
+​
     # Penalize the reward if the difference is too large
     DIRECTION_THRESHOLD = 10.0
     if direction_diff > DIRECTION_THRESHOLD:
         reward *= 0.5
-
-    return reward
+​
 ```
 
 ## closest\_objects<a name="reward-function-input-closest_objects"></a>

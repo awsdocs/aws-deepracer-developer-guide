@@ -235,7 +235,7 @@ If you directly edited the permissions on your DeepRacer S3, restore your bucket
             "Sid": "Stmt1586917903457",
             "Effect": "Allow",
             "Principal": {
-                "Service": ""deepracer.amazonaws.com"
+                "Service": "deepracer.amazonaws.com"
                 },
             "Action": [
                 "s3:GetObjectAcl",
