@@ -21,7 +21,7 @@ The provided scripts only work with the entity, *IAM role*\. Some enterprise cus
 
 **To create child accounts**
 
-1. Open a web browser on your computer and navigate to [ChildAccounts\.zip](https://github.com/aws-samples/aws-deepracer-workshops/blob/master/CommunityRaces/ChildAccountsWithAWSOrganizations/ChildAccounts.zip), which opens a zipped file on GitHub\. Download the file and unzip it to find a folder containing these files:
+1. Open a web browser on your computer and navigate to [ChildAccounts\.zip](https://github.com/aws-samples/aws-deepracer-workshops/tree/master/CommunityRaces/ChildAccountsWithAWSOrganizations), which opens a zipped file on GitHub\. Download the file and unzip it to find a folder containing these files:
 
    1. `templates` \(folder\)
 

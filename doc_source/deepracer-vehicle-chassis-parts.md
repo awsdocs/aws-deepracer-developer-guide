@@ -10,8 +10,8 @@ The AWS DeepRacer vehicle uses [WLToys A949 and A979](https://www.amazon.com/s?k
 
 | Part | Name | 
 | --- | --- | 
-| ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/deepracer-compute-spare-battery.png) | Spare compute battery | 
-| ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/tire.png) | [Tire](https://www.amazon.com/Rubber-Tire-Wheel-Metal-WLtoys/dp/B07R155788) | 
+| ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/deepracer-compute-spare-battery.png) | [ Spare compute battery](https://www.amazon.com/gp/product/B07QY76BPQ) | 
+| ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/tire.png) | [Tire](https://www.amazon.com/LoveinDIY-Rubber-Silver-Wheels-WLtoys/dp/B08B2LX5Z6) | 
 | ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/front-bumper.png) | [Front bumper](https://www.amazon.com/dp/B0719T33SD) | 
 | ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/suspension-arm.png) | Suspension arm | 
 | ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/chassis-parts/pull-rod.png) | [Pull rod](https://www.amazon.com/Kingzer-Original-Wltoys-A949-Pull/dp/B00VQCW914) | 
