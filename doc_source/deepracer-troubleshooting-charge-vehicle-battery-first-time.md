@@ -20,6 +20,6 @@ Follow the steps below to charge your AWS DeepRacer drive module battery:
 
 1. Disconnect the charged vehicle battery's white 3\-pin connector from the charge adapter\. If you removed the battery to charge it \(optional\) make sure to reconnect its red 2\-pin connector to the vehicle drive train connector and secure the battery to the vehicle with the Velcro strap\. 
 
-1. Turn on the vehicle drive train by pushing its switch to the "on" position\. Listen for the indicator sound \(two short beeps\) to confirm a successful charge\.
+1. Turn on the vehicle drive train by pushing its switch to the "on" position\. Listen for the indicator sound \(two short beeps\) to confirm a successful charge\. If you don't hear two beeps, try [unlocking your vehicle battery](deepracer-troubleshooting-unlock-dead-vehicle-batteries.md)
 
 Your AWS DeepRacer drive module battery is now ready for use\.

@@ -43,6 +43,8 @@ The procedure below walks you through these tasks\.
    1. To enable or disable SSH connection to the vehicle, choose **Edit** for **Device SSH** and then choose **Enable** or **Disable**\.  
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-settings-enable-device-ssh.png)
 
+    
+
 1.  To change the vehicle's trail light LED color to distinguish your vehicle on a track, choose **Edit** for **LED color** on the **Settings** page and do the following\. 
 
    1. Choose an available color from the **Select the color of the LEDs** drop\-down list on the **Edit LED color** page\.  
@@ -57,3 +59,4 @@ The procedure below walks you through these tasks\.
 1.  To inspect the device software and hardware versions and to find out the system and camera configurations, check the **About** section under **Settings**\.
 
 1. To inspect the vehicle battery's charge level, check the lower part of the primary navigation pane\.
+

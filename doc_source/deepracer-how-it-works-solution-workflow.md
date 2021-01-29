@@ -27,3 +27,5 @@ Training an AWS DeepRacer model involves the following general tasks:
 1. Experiment with the vehicle driving under different lighting, battery levels, and surface textures and colors\. 
 
    The vehicle's performance in a physical environment may not match the performance in a simulated environment due to model limitations or insufficient training\. The phenomenon is referred to as the *sim2real* performance gap\. To reduce the gap, see [Simulated\-to\-Real Performance Gaps](deepracer-how-it-works-virtual-to-physical.md)\.
+
+ 

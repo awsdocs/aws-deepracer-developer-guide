@@ -83,6 +83,8 @@ To install and charge the vehicle battery and the power bank, follow the steps b
 
       1. When not using the vehicle, slide the vehicle power switch back to turn off the vehicle battery\.
 
+      
+
 1. To check the power bank charging level, do the following: 
 
    1. Press the power button on the power bank\.
@@ -100,6 +102,8 @@ To install and charge the vehicle battery and the power bank, follow the steps b
    1. Use the strap to tie the power bank to the vehicle chassis securely\.
 **Note**  
 Do not connect the power bank to the compute module in this step\.
+
+
 
 ## Test Your AWS DeepRacer Compute Module<a name="deepracer-prep-vehicle-test-compute-module"></a>
 

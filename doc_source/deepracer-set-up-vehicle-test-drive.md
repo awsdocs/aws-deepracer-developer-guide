@@ -4,6 +4,8 @@ After you set up the vehicle's Wi\-Fi connection and install required software u
 
 The device control console is hosted on the vehicle and is accessed with the IP address you obtained at the end of the [Wi\-Fi setup](deepracer-set-up-vehicle.md#deepracer-set-up-vehicle-wifi-connection) section\. 
 
+
+
 **To access the device console of your AWS DeepRacer vehicle through the Wi\-Fi connection**
 
 1. To access the device console of your vehicle, open a web browser on your computer, tablet or a smart phone and type your vehicle's IP address into the address bar\. 

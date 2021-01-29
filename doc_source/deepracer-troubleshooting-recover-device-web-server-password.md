@@ -14,6 +14,8 @@ Follow the instructions in the following procedure to recover the password for y
 
 1.  In **Password**, enter the device SSH password\. 
 
+   
+
    If this is your first time to log in to the device, enter `deepracer` in **Password**\. Reset the password, as required, before moving to the next step\. You'll use the new password for future logins\. For security reasons, use a complex or strong password phrase for the new password\.
 
 1.  After you're logged in, open a terminal window\. 
@@ -27,6 +29,8 @@ Follow the instructions in the following procedure to recover the password for y
    ```
 
     The command outputs the default password as its result\. 
+
+   
 
 1. To reset the device console password to the default, run the following Python script in the terminal window:
 

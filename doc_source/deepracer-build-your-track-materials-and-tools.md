@@ -16,6 +16,8 @@ To build a track, you need the following materials:
 
   You can create a track on a dark\-colored hard floor such as hardwood, carpet, concrete, or [asphalt felt](https://www.amazon.com/30-ASTM-D-226-DADE-CNTY/dp/B000FCIONS/ref=sr_1_12?ie=UTF8&qid=1549398905&sr=8-12&keywords=roofing+paper)\. The latter mimics the real\-world road surface with minimal reflection\. [Interlocked foam or rubber pads](https://www.amazon.com/dp/B013A4ATCQ?ref_=ams_ad_dp_ttl&th=1) are also good options\. 
 
+  
+
 ## Tools You May Need<a name="deepracer-build-your-track-tools"></a>
 
 The following tools are either required or helpful to design and build your track:

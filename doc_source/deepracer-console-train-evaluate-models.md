@@ -66,7 +66,7 @@ For more advanced reward functions, see the following examples:
 + [Example 1: Follow the Center Line in Time Trials](deepracer-reward-function-examples.md#deepracer-reward-function-example-0)
 + [Example 2: Stay Inside the Two Borders in Time Trials](deepracer-reward-function-examples.md#deepracer-reward-function-example-1)
 + [Example 3: Prevent Zig\-Zag in Time Trials](deepracer-reward-function-examples.md#deepracer-reward-function-example-2)
-+ [Example 4: Stay On One Lane without Crashing into Stationary Obstacles or Moving Vehicles](deepracer-reward-function-examples.md#deepracer-reward-function-example-3)
++ [Example 4: Stay in One Lane without Crashing into Stationary Obstacles or Moving Vehicles](deepracer-reward-function-examples.md#deepracer-reward-function-example-3)
 
 ## Explore Action Space to Train a Robust Model<a name="deepracer-define-action-space-for-training"></a>
 
@@ -126,6 +126,8 @@ A batch is an ordered list of experiences, representing a portion of simulation 
 
 Training data  
 A training data is a set of batches sampled at random from an experience buffer and used for training the policy network weights\.
+
+
 
 
 **Algorithmic hyperparameters and their effects**  
@@ -263,6 +265,8 @@ SIM_TRACE_LOG: episode, step, x-coordinate, y-coordinate, heading, steering_angl
        "nextBackwardToken": "b/34865137118854508561245373892407536877673471318173089813"
    }
    ```
+
+
 
 **To view AWS DeepRacer logs in the CloudWatch Logs console:**
 

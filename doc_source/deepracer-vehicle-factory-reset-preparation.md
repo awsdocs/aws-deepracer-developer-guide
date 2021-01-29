@@ -110,6 +110,8 @@ Choose one of the following procedures according to the type of computer you use
          sudo unetbootin
          ```
 
+          
+
       1. On the UNetbootin window, do the following:
 
          1. Check the **Disimage** radio button\.
@@ -199,13 +201,13 @@ The customized Ubuntu image may be more recent than what's shown here\. If so, u
 
       If you get a **/dev/sda1 not mounted** alert message, choose OK to close the message, unplug the USB drive, replug the drive, and then follow the steps above create the Ubuntu ISO image\. 
 
-1. To copy the factory restore files to the NTFS partition of the USB drive, follow these steps\.
+1. To copy the factory restore files to the ExFAT partition of the USB drive, follow these steps\.
 
    1. Download the compressed factory restore package appropriate for your AWS DeepRacer model:
       + For AWS DeepRacer vehicles ordered from amazon\.com with a white **AWS**" logo on the chassis, download this [compressed factory restore package \(0\.0\.8 BIOS \) ](https://s3.amazonaws.com/deepracer-public/factory-restore/BIOS-0.0.8/factory_reset.zip)\. 
       + For AWS DeepRacer vehicles originating from re:Invent 2018 with no text on the chassis, download this [compressed factory restore package \(0\.0\.6 BIOS \)](https://s3.amazonaws.com/deepracer-public/factory-restore/BIOS-0.0.6/factory_reset.zip)\. 
 
-   1. Unzip the downloaded package, and copy the uncompressed files to the second \(NTFS\) partition of the USB drive\.
+   1. Unzip the downloaded package, and copy the uncompressed files to the second \(ExFAT\) partition of the USB drive\.
 
 ## Partition a USB Drive and Make it Bootable by Using a Windows Computer<a name="deepracer-vehicle-factory-reset-preparation-windows"></a>
 

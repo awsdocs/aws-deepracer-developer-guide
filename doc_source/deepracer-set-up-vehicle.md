@@ -34,6 +34,8 @@ To connect your computer to your vehicle's compute module, follow the steps belo
 
 You're now ready to proceed to setting up your vehicle's Wi\-Fi connection\.
 
+
+
 ## Set Up Wi\-Fi Connection and Update Your AWS DeepRacer Vehicle's Software<a name="deepracer-set-up-vehicle-wifi-connection"></a>
 
 Before you follow the steps here to set up the Wi\-Fi connection, be sure you complete the steps in [Get Ready to Set Up Wi\-Fi Connection for Your AWS DeepRacer Vehicle](#deepracer-set-up-vehicle-connect-computer-with-vehicle)\.
@@ -58,6 +60,8 @@ Before you follow the steps here to set up the Wi\-Fi connection, be sure you co
 
 1. On the **Connect your vehicle to your Wi\-Fi network** pane, choose your Wi\-Fi network name from the **Wi\-Fi network name \(SSID\)** drop\-down menu, type the password of your Wi\-Fi network under **Wi\-Fi password**, and choose **Connect**\.
 
+   
+
 1. Wait until the Wi\-Fi connection status changes from **Connecting to Wi\-Fi network\.\.\.** to **Connected**\. Then, choose **Next**\.
 
 1. On the **Software update** pane, if a software update is required, turn on the vehicle's compute module, with the included power cord and power adapter, and then choose **Install software update**\. 
@@ -67,3 +71,4 @@ Before you follow the steps here to set up the Wi\-Fi connection, be sure you co
 1. Wait until the software update status changes from **Installing software update** to **Software update installed successfully**\.
 
 1. Note the IP address shown under **Wi\-Fi network details**\. You'll need it to open the vehicle's device control console after the initial setup and any subsequent modification of the Wi\-Fi network settings\. 
+

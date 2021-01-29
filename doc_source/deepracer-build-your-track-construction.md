@@ -40,6 +40,8 @@ You can build a track of any shape as long as it meets the following requirement
 
   Though not required, we recommended that you encircle the track with uniform\-colored barriers that are at least 2\.5 feet tall and 2 feet away from the track at all points\.
 
+
+
 ## Considerations for Model Performance<a name="deepracer-build-your-track-performance-considerations"></a>
 
 How you build a track can affect the reliability and performance of a trained model\. The following are factors you should consider when building your own tracks\.
@@ -53,6 +55,8 @@ How you build a track can affect the reliability and performance of a trained mo
 1. Do not use a track floor with line markings other than the track lines\. The model might interpret the non\-track lines as part of the track\.
 
 1. Place barriers around the track to help reduce distractions from background objects\.
+
+    
 
 ## Steps to Build the Track<a name="deepracer-build-your-track-construction-steps"></a>
 
@@ -69,6 +73,8 @@ As an illustration, we use the most basic single\-turn track\. You can modify th
    1. Put another 60\-inch long piece of tape on the floor to lay down the second boarder to connect the two endpoints \(`2`\) and \(`3`\)\.  
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-track-example-straight-60inches.png)
 
+    
+
    We assume the straight track segment is 60\-inches long and 24\-inches wide\. You can adjust the length and width to fit to your space, provided that the dimensional requirements are met\. 
 
 1.  To make the track to turn at a 60\-degree angle, do the following and refer to the diagram:
@@ -82,6 +88,8 @@ As an illustration, we use the most basic single\-turn track\. You can modify th
 
    1. Put small tape segments, e\.g\. 4\-inches each, on the floor to lay the curved border segments \(`7`\) and \(`8`\) and connect them with the straight\-line borders\. The two curved borders don't need to be parallel\.  
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-track-example-curved-60degrees.png)
+
+       
 
 1.  To extend the track with the next straight segment of 30 inches long and 24 inches wide, do the following:
 

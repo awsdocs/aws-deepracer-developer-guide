@@ -1,5 +1,7 @@
 # Train Your First AWS DeepRacer Model<a name="deepracer-get-started-training-model"></a>
 
+
+
 To get started quickly using AWS DeepRacer to explore reinforcement learning and its application to autonomous driving, we'll walk you through how to train your first model using the AWS DeepRacer console\.<a name="deepracer-get-started-train-model-proc"></a>
 
 **To train a reinforcement learning model using the AWS DeepRacer console**

@@ -13,10 +13,12 @@ Follow these steps if your AWS DeepRacer console is set up, your compute battery
 
    *Red light \+ green light = *not* fully charged*
 
-   When only the green light is illuminated, your battery is fully charged and ready to use\. Disconnect the car battery's white connector from the charge adapter, and reconnect its red connector to the vehicle\. If you removed the battery to charge it \(optional\) make sure to once again secure it to the drive train with the Velcro strap\. Turn on the vehicle drive train by pushing its switch to the "on" position\. If you still don't hear two beeps, try [unlocking your vehicle battery](deepracer-troubleshooting-unlock-dead-vehicle-batteries.md)\. If you do not have a battery unlock cable, please contact AWSDeepRacer\-Help@amazon\.com and we will mail you one\.
+   When only the green light is illuminated, your battery is fully charged and ready to use\. Disconnect the car battery's white connector from the charge adapter, and reconnect its red connector to the vehicle\. If you removed the battery to charge it \(optional\) make sure to once again secure it to the drive train with the Velcro strap\. Turn on the vehicle drive train by pushing its switch to the "on" position\. If you still don't hear two beeps, try [unlocking your vehicle battery](deepracer-troubleshooting-unlock-dead-vehicle-batteries.md)\.
 
 1. Connect your vehicle to [Wi\-Fi](deepracer-set-up-vehicle.md) and open the AWS DeepRacer console in your browser\. Manually drive your vehicle with the touch joystick to confirm that it can move\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/Deepracer-troubleshooting-manually-drive-with-touch-joystick.png)
+
+
 
 **REMINDER: **To get the most millage out of your vehicle battery, make sure to switch off the vehicle drive train or disconnect its battery when you are not using your AWS DeepRacer\.
 

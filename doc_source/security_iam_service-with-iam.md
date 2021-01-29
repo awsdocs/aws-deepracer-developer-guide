@@ -12,7 +12,11 @@ With IAM identity\-based policies, you can specify allowed or denied actions and
 
 ### Actions<a name="security_iam_service-with-iam-id-based-policies-actions"></a>
 
-The `Action` element of an IAM identity\-based policy describes the specific action or actions that will be allowed or denied by the policy\. Policy actions usually have the same name as the associated AWS API operation\. The action is used in a policy to grant permissions to perform the associated operation\. 
+Administrators can use AWS JSON policies to specify who has access to what\. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**\.
+
+The `Action` element of a JSON policy describes the actions that you can use to allow or deny access in a policy\. Policy actions usually have the same name as the associated AWS API operation\. There are some exceptions, such as *permission\-only actions* that don't have a matching API operation\. There are also some operations that require multiple actions in a policy\. These additional actions are called *dependent actions*\.
+
+Include actions in a policy to grant permissions to perform the associated operation\.
 
 ### Resources<a name="security_iam_service-with-iam-id-based-policies-resources"></a>
 

@@ -2,6 +2,8 @@
 
  AWS DeepRacer uses the [Proximal Policy Optimization \(PPO\)](https://arxiv.org/abs/1707.06347) algorithm to train the reinforcement learning model\. PPO uses two neural networks during training: a policy network and a value network\. The policy network \(also called actor network\) decides which action to take given an image as input\. The value network \(also called critic network\) estimates the cumulative reward we are likely to get given the image as input\. Only the policy network interacts with the simulator and gets deployed to the real agent, namely an AWS DeepRacer vehicle\. 
 
+
+
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-how-it-works-algo-ppo.png)
 
 Below we explain how the actor and critic work together mathematically\. 

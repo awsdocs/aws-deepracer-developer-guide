@@ -1,7 +1,7 @@
 # AWS DeepRacer Developer Guide
 
 -----
-*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2021 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -56,6 +56,11 @@ Amazon's trademarks and trade dress may not be used in
    + [Organize an AWS DeepRacer Community Race](deepracer-create-community-race.md)
    + [Manage an AWS DeepRacer Community Race](deepracer-manage-community-races.md)
    + [Create Child Accounts so Multiple Racers Can Race Under a Single AWS Parent Account](deepracer-child-accounts.md)
++ [Tagging](deepracer-tagris.md)
+   + [Add a Tag](add-a-tag.md)
+   + [View tags](view-tags.md)
+   + [Edit tags](edit-tags.md)
+   + [Remove tags](remove-tags.md)
 + [Security for AWS DeepRacer](deepracer-setup.md)
    + [Data Protection in AWS DeepRacer](data-protection.md)
    + [AWS DeepRacer-Dependent AWS Services](deepracer-dependent-aws-services.md)

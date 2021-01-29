@@ -1,5 +1,7 @@
 # Calibrate Your AWS DeepRacer Vehicle<a name="deepracer-calibrate-vehicle"></a>
 
+ 
+
 To achieve the best performance, it's essential that you calibrate some physical parts of your AWS DeepRacer vehicle\. If you use an uncalibrated vehicle, it can add uncertainty when testing your model\. If the vehicle's performance is not optimal, you might be tempted to only adjust the deep learning model code\. However, you won't be able to improve the vehicle performance if the root cause is mechanical\. Adjust the mechanics by calibration\.
 
 To calibrate your AWS DeepRacer vehicle, set the [duty cycle](https://en.wikipedia.org/wiki/Duty_cycle) range for the vehicle's electronic control system \(ECS\) and its servomechanism \(servo\), respectively\. Both the servo and ECS accept [pulse\-width modulation \(PWM\)](https://en.wikipedia.org/wiki/Pulse-width_modulation)\) signals as control input from the vehicle's compute module\. The compute module adjusts both of the vehicle's speed and steering angle by changing the duty cycles of the PWM signals\. 
@@ -40,6 +42,8 @@ Make sure to [calibrate your AWS DeepRacer vehicle well](#deepracer-calibrate-ve
 
       To measure the actual maximum left steering angle, draw a center line for the vehicle, mark the two edge points of the selected front wheel for calibration, and draw the center line of this front wheel until it crosses over the center line of the vehicle\. Use a protractor to measure the angle\. See the figure below\. If you want to match the actual angle in your training, you can set the same value in the action space in your next training job\.  
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-calibration-measure-steering-angle.png)
+
+      
 
    1. Under **Maximum right steering**, gradually move the slider to the right until the selected front wheels stop turning right\. There will be a quiet noise\. If you hear a loud noise, you have gone too far\. The position corresponds to the maximum right steering angle\. If you have limited your steering angle in the simulated action space, match the corresponding value here\. Choose **Done**\.  
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-calibration-steering-right.png)

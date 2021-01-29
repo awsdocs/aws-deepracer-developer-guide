@@ -6,7 +6,7 @@ The following lists some examples of the AWS DeepRacer reward function\.
 + [Example 1: Follow the Center Line in Time Trials](#deepracer-reward-function-example-0)
 + [Example 2: Stay Inside the Two Borders in Time Trials](#deepracer-reward-function-example-1)
 + [Example 3: Prevent Zig\-Zag in Time Trials](#deepracer-reward-function-example-2)
-+ [Example 4: Stay On One Lane without Crashing into Stationary Obstacles or Moving Vehicles](#deepracer-reward-function-example-3)
++ [Example 4: Stay in One Lane without Crashing into Stationary Obstacles or Moving Vehicles](#deepracer-reward-function-example-3)
 
 ## Example 1: Follow the Center Line in Time Trials<a name="deepracer-reward-function-example-0"></a>
 
@@ -107,54 +107,54 @@ def reward_function(params):
     return float(reward)
 ```
 
-## Example 4: Stay On One Lane without Crashing into Stationary Obstacles or Moving Vehicles<a name="deepracer-reward-function-example-3"></a>
+## Example 4: Stay in One Lane without Crashing into Stationary Obstacles or Moving Vehicles<a name="deepracer-reward-function-example-3"></a>
 
-This reward function rewards the agent to stay between the track borders and penalizes the agent for getting too close to the next object in the front\. The agent can move from lane to lane to avoid crashes\. The total reward is a weighted sum of the reward and penalty\. The example gives more weight to the penalty term to focus more on safety by avoiding crashes\. You can play with different averaging weights to train the agent with different driving behaviors and to achieve different driving performances\.
+ 
+
+This reward function rewards the agent for staying inside the track's borders and penalizes the agent for getting too close to objects in front of it\. The agent can move from lane to lane to avoid crashes\. The total reward is a weighted sum of the reward and penalty\. The example gives more weight to the penalty in effort to avoid crashes\. Experiment with different averaging weights to train for different behavior outcomes\.
+
+ 
 
 ```
+import math
 def reward_function(params):
     '''
     Example of rewarding the agent to stay inside two borders
     and penalizing getting too close to the objects in front
     '''
-
     all_wheels_on_track = params['all_wheels_on_track']
     distance_from_center = params['distance_from_center']
     track_width = params['track_width']
-    objects_distance = params['objects_distance']
+    objects_location = params['objects_location']
+    agent_x = params['x']
+    agent_y = params['y']
     _, next_object_index = params['closest_objects']
     objects_left_of_center = params['objects_left_of_center']
     is_left_of_center = params['is_left_of_center']
-
     # Initialize reward with a small number but not zero
     # because zero means off-track or crashed
     reward = 1e-3
-
     # Reward if the agent stays inside the two borders of the track
     if all_wheels_on_track and (0.5 * track_width - distance_from_center) >= 0.05:
         reward_lane = 1.0
     else:
         reward_lane = 1e-3
-
     # Penalize if the agent is too close to the next object
     reward_avoid = 1.0
-
     # Distance to the next object
-    distance_closest_object = objects_distance[next_object_index]
+    next_object_loc = objects_location[next_object_index]
+    distance_closest_object = math.sqrt((agent_x - next_object_loc[0])**2 + (agent_y - next_object_loc[1])**2)
     # Decide if the agent and the next object is on the same lane
     is_same_lane = objects_left_of_center[next_object_index] == is_left_of_center
-    
     if is_same_lane:
-        if 0.5 <= distance_closest_object < 0.8: 
+        if 0.5 <= distance_closest_object < 0.8:
             reward_avoid *= 0.5
         elif 0.3 <= distance_closest_object < 0.5:
             reward_avoid *= 0.2
         elif distance_closest_object < 0.3:
-            reward_avoid = 1e-3 # Likely crashed
-
-    # Calculate reward by putting different weights on 
+            reward_avoid = 1e-3  # Likely crashed
+    # Calculate reward by putting different weights on
     # the two aspects above
     reward += 1.0 * reward_lane + 4.0 * reward_avoid
-
     return reward
 ```

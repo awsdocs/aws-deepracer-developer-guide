@@ -13,6 +13,8 @@ As the race organizer, you can edit race details, including the start and end da
 1. On the **Manage races** page, for **Races**, choose the race that you want to manage\. The chosen race's details, including the list of participants is displayed\.  
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-community-race-manage.png)
 
+   
+
 1. To edit the race details, in **Actions**, choose **Edit race details**\.   
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-community-race-manage-actions.png)
 

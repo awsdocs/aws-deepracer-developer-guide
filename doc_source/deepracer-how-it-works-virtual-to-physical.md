@@ -7,3 +7,5 @@ Efforts have been made in AWS DeepRacer to minimize the *sim2real* performance g
  To help reduce *real2sim* performance gaps, make sure to use the same or similar color, shape and dimensions for both the simulated and real tracks\. To reduce visual distractions, use barricades around the real track\. Also, carefully calibrate the ranges of the vehicle's speed and steering angles so that the action space used in training matches the real world\. Evaluating model performance in a different simulation track than the one used in training can show the extent of the *real2real* performance gap\. 
 
 For more information about how to reduce the *sim2real* gap when training an AWS DeepRacer model, see [Optimize Training AWS DeepRacer Models for Real Environments](deepracer-console-train-evaluate-models.md#deepracer-evaluate-model-test-approaches)\.
+
+ 

@@ -20,6 +20,8 @@ Check the following to verify you have the valid Wi\-Fi connection settings\.
   ssid: ' MyHomeWi-Fi'
   password: myWiFiPassword
   ```
+
+   
 + Verify both the field names of `ssid` and `password` in the *wifi\-creds\.txt* file are in lower case\.
 + Verify that each of the field name and value is separated by one colon \(:\)\. For example\. `ssid : ' MyHomeWi-Fi'`
 + Verify that the field value containing a space is enclosed by a pair of single quotes\. On Mac, TextEdit or some other text editor shows single quotes as of the '\.\.\.' form, but not of ‘\.\.\.’\. If the field value does not contain spaces, the value can be without single quotes\.

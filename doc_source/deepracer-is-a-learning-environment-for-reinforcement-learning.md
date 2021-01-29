@@ -9,6 +9,8 @@ To help reduce the learning curve, AWS DeepRacer simplifies the process in three
 + By providing a simulator to emulate interactions between a virtual [agent](deepracer-basic-concept.md#term-model-vehicle) and a virtual environment\.
 + By offering an AWS DeepRacer vehicle as a physical agent\. Use the vehicle to evaluate a trained model in a physical environment\. This closely resembles a real\-world use case\. 
 
+
+
 If you are a seasoned machine learning practitioner, you will find AWS DeepRacer a welcome opportunity to build reinforcement learning models for autonomous racing in both virtual and physical environments\. To summarize, use AWS DeepRacer to create reinforcement learning models for autonomous racing with the following steps:
 
 1. Train a custom reinforcement learning model for autonomous racing\. Do this by using the AWS DeepRacer console integrated with SageMaker and AWS RoboMaker\.
@@ -16,3 +18,4 @@ If you are a seasoned machine learning practitioner, you will find AWS DeepRacer
 1. Use the AWS DeepRacer simulator to evaluate a model and test autonomous racing in a virtual environment\.
 
 1. Deploy a trained model to AWS DeepRacer model vehicles to test autonomous racing in a physical environment\.
+

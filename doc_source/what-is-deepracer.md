@@ -5,6 +5,8 @@ AWS DeepRacer is an integrated learning system for users of all levels to learn 
 + AWS DeepRacer Vehicle: a 1/18th scale RC car capable of [running inference on a trained AWS DeepRacer model](operate-deepracer-vehicle.md) for autonomous driving\.
 + AWS DeepRacer League: the world’s first global, autonomous racing league\. Race for prizes, glory, and a chance to advance to the Championship Cup\.
 
+ 
+
 **Topics**
 + [The AWS DeepRacer Console](#what-is-deepracer-service-console)
 + [The AWS DeepRacer Vehicle](#what-is-deepracer-model-vehicle)
@@ -23,6 +25,8 @@ In summary, the AWS DeepRacer console supports the following features:
 + Clone a trained model to improve training by tuning hyperparameters to optimize your model's performance\. 
 + Download a trained model for deployment to your AWS DeepRacer vehicle so it can drive in a physical environment\. 
 + Submit your model to a virtual race and have its performance ranked against other models in a virtual leaderboard\. 
+
+
 
 ## The AWS DeepRacer Vehicle<a name="what-is-deepracer-model-vehicle"></a>
 

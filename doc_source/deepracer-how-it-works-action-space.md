@@ -1,5 +1,7 @@
 # AWS DeepRacer Action Space and Reward Function<a name="deepracer-how-it-works-action-space"></a>
 
+
+
 For autonomous driving, the AWS DeepRacer vehicle receives input images streamed at 15 frames per second from the front camera\. The raw input is downsized to 160x120 pixels in size and converted to grayscale images\. 
 
 Responding to an input observation, the vehicle reacts with a well\-defined action of specific speed and steering angle\. The actions are converted to low\-level motor controls\. The possible actions a vehicle can take is defined by an action space of the dimensions in speed and steering angle\. An action space can be discrete or continuous\. AWS DeepRacer uses a discrete action space\. 
@@ -25,6 +27,8 @@ For example, the AWS DeepRacer default action space has the following actions yo
 | 9 | 30 degrees | 0\.8 m/s | 
 
 This default action space is characterized by the following ranges and granularities:
+
+
 
 
 **The default action space characteristics**  

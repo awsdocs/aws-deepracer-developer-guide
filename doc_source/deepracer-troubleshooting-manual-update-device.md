@@ -36,3 +36,4 @@ Recent changes in the AWS DeepRacer service has made certain legacy devices, suc
    Make sure that your device is connected to your Wi\-Fi network and use a browser in the same network without tunneling through a VPN\.
 
 1.  On the device console, type the password for the device console to sign in\. Wait for the update screen to show up\. When prompted for further updates, follow the instructions therein\. 
+

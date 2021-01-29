@@ -51,6 +51,8 @@ To train an AWS DeepRacer model directly on SageMaker, follow the steps below an
 
     You are charged for a running instance according to the selected instance type\. To avoid being charged for a running instance when you're not ready to use it, shut down the instance\.
 
+ 
+
 ## Initialize the SageMaker Notebook Instance<a name="train-evaluate-models-using-sagemaker-notebook-initialize-instance"></a>
 
  To use an SageMaker notebook instance to train your AWS DeepRacer model, first properly initialize the instance for the required job\. The initialization includes the following\. 
@@ -116,7 +118,9 @@ Follow the steps below for detailed instructions to initialize a notebook instan
 1. To set up the required permissions for SageMaker to access the S3 storage, run the code cell under **Permission setup for SageMaker to S3 bucket** and folow the instructions thereafter to attach the **AmazonS3FullAccess** policy to the IAM role previously created\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/sagemaker-notebook-attach-s3fullaccess-to-iam-role.png)
 
-1. To provision a docker container for running our training and evalution jobs, run the code cell under **Build and push docker image**\.   
+1. To provision a docker container for running our training and evalution jobs, run the code cell under **Build and push docker image**\. 
+
+     
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/sagemaker-notebook-provision-docker-container.png)
 
    Building and pushing the docker image takes some time to finish\.
@@ -133,7 +137,7 @@ At this point, you're done with initializing the training and are ready to move 
 
 Setting up the environment for training your AWS DeepRacer model involves selecting a race track, a reward function and the associated action space, as well as hyperparameters used for training\. 
 
-The notebook uses the default settings for these\. To view the default settings, uncomment relevant parts and then run the code cell under **Configure the preset for RL algorithm**\. For example, to view the code listing of the reward function ( **NB:** reward function is in src/artifacts/rewards/ ), run the code cell as follows:
+The notebook uses the default settings for these\. To view the default settings, uncomment relevant parts and then run the code cell under **Configure the preset for RL algorithm**\. For example, to view the code listing of the reward function, run the code cell as follows:
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/sagemaker-notebokk-view-edit-reward-function.png)
 
@@ -144,7 +148,7 @@ If you decide to use the default settings, copy the files to the S3 bucket\. To 
 1. Choose **File** menu on the top of the notebook instance page and then choose **Open\.\.\.**\.   
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/sagemaker-notebook-open-file-to-edit.png)
 
-1. Navigate to the *src/artifacts/rewards* folder and choose *default\.py* to open the file\.   
+1. Navigate to the *src/markov/rewards* folder and choose *default\.py* to open the file\.   
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/sagemaker-notebook-naviate-to-reward-function-file.png)
 
 1. Edit the file as you see fit\. After finishing editing the file, choose **File\->Save** to save the update\.  
@@ -162,7 +166,9 @@ While the training is in progress, you can have specified training metrics logge
 
 **To train your AWS DeepRacer model**
 
-1. Run the code cell under **Copy custom files to S3 bucket so that sagemaker & robomaker can pick it up** copy the environment files to S3 \.   
+1. Run the code cell under **Copy custom files to S3 bucket so that sagemaker & robomaker can pick it up** copy the environment files to S3 \. 
+
+     
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/sagemaker-notebook-copy-environment-files-to-s3.png)
 
 1. To start an SageMaker job to train your AWS DeepRacer model, do the following:
@@ -177,6 +183,8 @@ While the training is in progress, you can have specified training metrics logge
 
       This SageMaker training job uses the TensorFlow framework and runs on a specified EC2 compute instance type\. The output lists the job name\. You can track the status of this training job in SageMaker\.  
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/sagemaker-notebook-train-create-job-inprogress.png)
+
+       
 
 1. To create an environment simulation job in AWS RoboMaker, run the code cells under **Start the RoboMaker job** and **Create Simulation Application**\.
 

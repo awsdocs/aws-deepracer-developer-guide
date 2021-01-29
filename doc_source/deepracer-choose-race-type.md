@@ -113,6 +113,8 @@ To train your model with the default agent, follow the recommendations below\.
 
 ## Tailor AWS DeepRacer Training for Object Avoidance Races<a name="deepracer-get-started-training-object-avoidance"></a>
 
+ 
+
 After you become familiar with time trials and have trained a few converged models, move on to the next more demanding challenge—obstacle avoidance\. Here, your goal is to train a model that can complete a lap as fast as possible without going off track, while avoiding crashing into the objects placed on the track\. This is obviously a harder problem for the agent to learn, and training takes longer to converge\. 
 
 The AWS DeepRacer console supports two types of obstacle avoidance training: obstacles can be placed at fixed or random locations along the track\. With fixed locations, the obstacles remain fixed to the same place throughout the training job\. With random locations, the obstacles change their respective places at random from episode to episode\. 
@@ -142,6 +144,8 @@ Having gone through training obstacle avoidance, you're now ready to tackle the 
 Each bot vehicle follows a predefined path at constant speed\. You can enable it to change lanes or to remains on its starting lane\. Similar to training for obstacle avoidance, you can have the bot vehicles evenly distributed across the track on both lanes\. The console limits you to have up to 4 bot vehicles on the track\. Having more competing vehicles on the track provides the learning agent with more opportunities to encounter more varied situations with the other vehicles\. This way, it learns more in one training job and the agent gets trained faster\. However, each training is likely to take longer to converge\. 
 
 To train an agent with bot vehicles, you should set the top speed of the agent's action space higher than the \(constant\) speed of the bot vehicles so that the agent has more passing opportunities during training\. As a good starting point, you should set the agent's top speed at 0\.8 m/s and the bot vehicle's moving speed at 0\.4 m/s\. If you enable the bots to change lanes, the training becomes more challenging because the agent must learn not only how to avoid crashing into a moving vehicle in the front on the same lane but also how to avoid crashing into another moving vehicle in the front on the other lane\. You can set the bots to change lanes at random intervals\. The length of an interval is randomly selected from a range of time \(e\.g\. 1s to 5s\) that you specify before starting the training job\. This lane\-changing behavior is more similar to the real\-world head\-to\-head racing behaviors and the trained agent should generate better\. However, it takes longer to train the model to converge\. 
+
+
 
 Follow these suggested steps to iterate your training for head\-to\-head racing: 
 

@@ -15,3 +15,4 @@ To view the device logs, follow the steps below\.
 
 1. To view the robot operating system events, scroll down the event list under **Robot operating system log**\.  
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-device-console-logs-robot-os.png)
+

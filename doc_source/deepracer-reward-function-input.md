@@ -60,7 +60,7 @@ The following illustration shows that the agent is off\-track\.
 **Example: ** *A reward function using the `all_wheels_on_track` parameter*
 
 ```
-define reward_function(params):
+def reward_function(params):
     #############################################################################
     '''
     Example of using all_wheels_on_track and speed
@@ -70,8 +70,8 @@ define reward_function(params):
     all_wheels_on_track = params['all_wheels_on_track']
     speed = params['speed']
 
-    # Set the speed threshold based your action space 
-    SPEED_THRESHOLD = 1.0 
+    # Set the speed threshold based your action space
+    SPEED_THRESHOLD = 1.0
 
     if not all_wheels_on_track:
         # Penalize if the car goes off track
@@ -83,7 +83,7 @@ define reward_function(params):
         # High reward if the car stays on track and goes fast
         reward = 1.0
 
-    return reward
+    return float(reward)
 ```
 
 ## closest\_waypoints<a name="reward-function-input-closest_waypoints"></a>
@@ -101,43 +101,51 @@ The following example reward function demonstrates how to use `waypoints` and `c
 AWS DeepRacer supports the following libraries: math, random, NumPy, SciPy, and Shapely\. To use one, add an import statement, `import supported library`, above your function definition, `def function_name(parameters)`\.
 
 ```
-    # Place import statement outside of function (supported libraries: math, random, NumPy, SciPy, and Shapely)
-    import math
-​
-    def reward_function(params):
+# Place import statement outside of function (supported libraries: math, random, numpy, scipy, and shapely)
+# Example imports of available libraries
+#
+# import math
+# import random
+# import numpy
+# import scipy
+# import shapely
+
+import math
+
+def reward_function(params):
     ###############################################################################
     '''
     Example of using waypoints and heading to make the car point in the right direction
     '''
-​
-​
-​
+
     # Read input variables
     waypoints = params['waypoints']
     closest_waypoints = params['closest_waypoints']
     heading = params['heading']
-​
-    # Initialize the reward with typical value 
+
+    # Initialize the reward with typical value
     reward = 1.0
-​
+
     # Calculate the direction of the center line based on the closest waypoints
     next_point = waypoints[closest_waypoints[1]]
     prev_point = waypoints[closest_waypoints[0]]
-​
+
     # Calculate the direction in radius, arctan2(dy, dx), the result is (-pi, pi) in radians
-    track_direction = math.atan2(next_point[1] - prev_point[1], next_point[0] - prev_point[0]) 
+    track_direction = math.atan2(next_point[1] - prev_point[1], next_point[0] - prev_point[0])
     # Convert to degree
     track_direction = math.degrees(track_direction)
-​
+
     # Calculate the difference between the track direction and the heading direction of the car
     direction_diff = abs(track_direction - heading)
     if direction_diff > 180:
         direction_diff = 360 - direction_diff
-​
+
     # Penalize the reward if the difference is too large
     DIRECTION_THRESHOLD = 10.0
     if direction_diff > DIRECTION_THRESHOLD:
         reward *= 0.5
+
+    return float(reward)
 ​
 ```
 
@@ -165,8 +173,8 @@ Displacement, in meters, between the agent center and the track center\. The obs
 def reward_function(params):
     #################################################################################
     '''
-    Example of using distance from the center 
-    ''' 
+    Example of using distance from the center
+    '''
 
     # Read input variable
     track_width = params['track_width']
@@ -183,7 +191,7 @@ def reward_function(params):
     else:
         reward = 1e-3  # likely crashed/ close to off track
 
-    return reward
+    return float(reward)
 ```
 
 ## heading<a name="reward-function-input-heading"></a>
@@ -241,12 +249,6 @@ It's used when you enable direction change for each episode\.
 **Range**: `[(0:track_length), … ]`
 
 A list of the distances between objects in the environment in relation to the starting line\. The ith element measures the distance in meters between the ith object and the starting line along the track center line\. 
-
-To index the distance between a single object and the agent, use:
-
-`abs(params["objects_distance"][index] - (params["progress"]/100.0)*params["track_length"])`
-
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/objects-distance-diagram.png)
 
 **Note**  
 abs \| \(var1\) \- \(var2\)\| = how close the car is to an object, WHEN var1 = \["objects\_distance"\]\[index\] and var2 = params\["progress"\]\*params\["track\_length"\]  
@@ -333,15 +335,15 @@ def reward_function(params):
     # Read input variable
     steering = abs(params['steering_angle']) # We don't care whether it is left or right steering
 
-    # Initialize the reward with typical value 
+    # Initialize the reward with typical value
     reward = 1.0
 
     # Penalize if car steer too much to prevent zigzag
-    STEERING_THRESHOLD = 20.0
+    ABS_STEERING_THRESHOLD = 20.0
     if steering > ABS_STEERING_THRESHOLD:
         reward *= 0.8
 
-    return reward
+    return float(reward)
 ```
 
 ## steps<a name="reward-function-input-steps"></a>
@@ -364,18 +366,18 @@ def reward_function(params):
     # Read input variable
     steps = params['steps']
     progress = params['progress']
-    
+
     # Total num of steps we want the car to finish the lap, it will vary depends on the track length
     TOTAL_NUM_STEPS = 300
 
-    # Initialize the reward with typical value 
+    # Initialize the reward with typical value
     reward = 1.0
 
-    # Give additional reward if the car pass every 100 steps faster than expected 
+    # Give additional reward if the car pass every 100 steps faster than expected
     if (steps % 100) == 0 and progress > (steps / TOTAL_NUM_STEPS) * 100 :
         reward += 10.0
 
-    return reward
+    return float(reward)
 ```
 
 ## track\_length<a name="reward-function-input-track_len"></a>
@@ -414,11 +416,11 @@ def reward_function(params):
 
     # Reward higher if the car stays inside the track borders
     if distance_from_border >= 0.05:
-        reward *= 1.0
+        reward = 1.0
     else:
         reward = 1e-3 # Low reward if too close to the border or goes off the track
 
-    return reward
+    return float(reward)
 ```
 
 ## x, y<a name="reward-function-input-x_y"></a>
