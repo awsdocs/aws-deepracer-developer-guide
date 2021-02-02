@@ -1,59 +1,26 @@
-# AWS DeepRacer Training Algorithm<a name="deepracer-how-it-works-reinforcement-learning-algorithm"></a>
+# AWS DeepRacer Training Algorithms<a name="deepracer-how-it-works-reinforcement-learning-algorithm"></a>
 
- AWS DeepRacer uses the [Proximal Policy Optimization \(PPO\)](https://arxiv.org/abs/1707.06347) algorithm to train the reinforcement learning model\. PPO uses two neural networks during training: a policy network and a value network\. The policy network \(also called actor network\) decides which action to take given an image as input\. The value network \(also called critic network\) estimates the cumulative reward we are likely to get given the image as input\. Only the policy network interacts with the simulator and gets deployed to the real agent, namely an AWS DeepRacer vehicle\. 
+**Proximal Policy Optimization \(PPO\) versus Soft Actor Critic \(SAC\)**  
+The algorithms SAC and PPO both learn a policy and value function at the same time, but their strategies vary in three notable ways:
 
 
+| PPO | SAC | 
+| --- | --- | 
+|  Works in both discrete and continuous action spaces  |  Works in a continuous action space  | 
+|  On\-policy  |  Off\-policy  | 
+|  Uses entropy regularization  |  Adds entropy to the maximization objective  | 
 
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-how-it-works-algo-ppo.png)
+**Stable vs\. Data Hungry**  
+The information learned by the PPO and SAC algorithms' policies while exploring an environment is utilized differently\. PPO uses on\-policy learning which means that it learns its value function from observations made by the current policy exploring the environment\. SAC uses off\-policy learning which means that it can use observations made by previous policies' exploration of the environment\. The trade\-off between off\-policy and on\-policy learning is often stability vs\. data efficiency\. On\-policy algorithms tend to be more stable but data hungry, whereas off\-policy algorithms tend to be the opposite\.
 
-Below we explain how the actor and critic work together mathematically\. 
+**Exploration vs\. Exploitation**  
+Exploration vs\. exploitation is a key challenge in RL\. An algorithm should exploit known information from previous experiences to achieve higher cumulative rewards, but it also needs to explore to gain new experiences that can be used in finding the optimum policy in the future\. As a policy is trained over multiple iterations and learns more about an environment, it becomes more certain about choosing an action for a given observation\. However, if the policy doesn't explore enough, it will likely stick to information already learned even if it's not at an optimum\. The PPO algorithm encourages exploration by using entropy regularization, which prevents agents from converging to local optima\. The SAC algorithm strikes an exceptional balance between exploration and exploitation by adding entropy to its maximization objective\. 
 
-PPO is a derivative of the policy gradient method\. In the most basic form, the policy gradient method trains the agent to move along a track by searching for the optimal policy `π*(a|s; θ*)`\. The optimization aims at maximizing a policy score function `J(θ`\) that can be expressed in terms of the immediate reward `r(s,a)` of taking action \(*`a`*\) in state \(*`s`*\) averaged over the state probability distribution `ρ(s)` and the action probability distribution \(`π(a|s; θ)`\):
+**Entropy**  
+In this context, "entropy" is a measure of the uncertainty in the policy, so it can be interpreted as a measure of how confident a policy is at choosing an action for a given state\. A policy with low entropy is very confident at choosing an action, whereas a policy with high entropy is unsure of which action to choose\.
 
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-how-it-works-policy-score-function.png)
+The SAC algorithm's entropy maximization strategy has similar advantages to the PPO algorithms's use of entropy as a regularizer\. Like PPO, it encourages wider exploration and avoids convergence to a bad local optimum by incentivizing the agent to choose an action with higher entropy\. Unlike entropy regulation, entropy maximization has a unique advantage\. It tends to give up on policies that choose unpromising behavior, which is another reason that the SAC algorithm tends to be more data efficient than PPO\.
 
-The optimal policy, as represented by the optimal policy network weights `θ*`, can be expressed as follows:
+Tune the amount of entropy in SAC by using the SAC alpha hyperparameter\. The maximum SAC alpha entropy value \(1\.0\) favors exploration\. The minimum value \(0\.0\) recovers the standard RL objective and neutralizes the entropy bonus that incentivizes exploration\. A good SAC alpha value to begin experiementing with is 0\.5\. Tune accordingly as you iterate on your models\.
 
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-how-it-works-optimal-policy.png)
-
-The maximization can proceed by following the policy gradient ascent over episodes of training data `(s, a, r)`:
-
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-how-it-works-policy-gradient-ascent-update.png)
-
- where `α` is known as the learning rate and `∇θJ(θτ)` is the policy gradient with respect to `θ` evaluated at step `τ`\.
-
-In terms of the total future reward: 
-
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-how-it-works-total-future-reward.png)
-
-where *γ* is the discount factor ranging between 0 and 1, and τ maps to an *experience* \(*s*τ, *a*τ, *r*τ\) at step τ, and the summation includes experiences in an episode that starts from time *t* = 0 and ends at time *t* = *H* when the agent goes off\-track or reaches to the finish line, the score function becomes the expected total future reward averaged over the policy distribution π across many episodes of experiences:
-
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-how-it-works-policy-score-function-over-experiences.png)
-
-From this definition of `J(θ)`, the policy weight updates can be expressed as follows:
-
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-how-it-works-policy-gradient-over-experiences.png)
-
-Here, averaging over π is approximated by sample averaging over *N* of episodes each of which consists of possibly unequal *H* number of experiences\. 
-
-The update rule for a policy network weight then becomes:
-
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-how-it-works-policy-weight-update-over-experiences.png)
-
-The policy gradient method outlined above is of limited utility in practice, because the score function `R(si,t, ai,t)` has high variance as the agent can take many different paths from a given state\. To get around this, one uses a critic network \(`ϕ`\) to estimate the score function\. To illustrate this, let `Vϕ(s)` the value of the critic network, where *s * describes a state and `ϕ` the value network weights\. To train this value network, the estimated value \(`yi,t`\) of state *`s`* at step *`t`* in episode *`i`* is estimated to be the immediate reward taking action *ai,t* at state *si,t* plus the discounted total future value of the state *s* at the next step `t+1` in the same episode: 
-
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-how-it-works-estimated-value-network.png)
-
-The loss function for the value network weights is:
-
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-how-it-works-value-network-loss-function.png)
-
-Using the estimated values, the policy gradient for updating the policy network weights `θ` becomes:
-
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-how-it-works-actor-critic-policy-gradient.png)
-
-This formulation changes the policy network weights such that it encourages actions that give higher rewards than prior estimate and discourages otherwise\. 
-
-Every reinforcement learning algorithm needs to balance between exploration and exploitation\. The agent needs to explore the state and action space to learn which actions lead to high rewards in unexplored state space\. The agent should also exploit by taking the actions that leads to high rewards so that the model converges to a stable solution\. In our algorithm, the policy network outputs the probability of taking each action and during training the action is chosen by sampling from this probability distribution \(e\.g\. an action with probability 0\.5 will be chosen half the time\)\. During evaluation, the agent picks with action with the highest probability\.
-
-In addition to the above actor\-critic framework, PPO uses importance sampling with clipping, adds a [Gauss\-Markov noise](https://en.wikipedia.org/wiki/Ornstein%E2%80%93Uhlenbeck_process) to encourage exploration and uses [generalized advantage estimation](https://arxiv.org/abs/1506.02438)\. To learn more, see the [original paper](https://arxiv.org/pdf/1707.06347.pdf)\.
+Try both PPO and SAC algorithms, experiment with their hyperparameters, and explore with them in different action spaces\.

@@ -14,15 +14,6 @@ To get started quickly using AWS DeepRacer to explore reinforcement learning and
    Alternatively, on the AWS DeepRacer home page, choose **Your models** from the main navigation pane to open the **Your models** page\. On the **Your models** page, choose **Create model**\.  
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-training-create-model.png)
 
-1. On the **Create model** page, under **Account resources**, if you don't have the required account resources, choose **Create resources**\. If there is any issue with the account resources, choose **Reset resources**\.
-
-   For more information about the required IAM roles and policies, see [Required IAM Roles for AWS DeepRacer to Call Dependent AWS Services](deepracer-understand-required-permissions-and-iam-roles.md)\. 
-
-1.  On the **Create model** page, under **Training details**, type a name for the model in **Model name** and, optionally, provide a summary description of the model in **Training job description**\.
-
-   You'll use the model name to reference this model when submitting it to a leaderboard of an AWS\-sponsored or community\-organized racing event or when cloning to continue the training\.   
-![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-training-details.png)
-
 1. On the **Create model** page, under **Environment simulation**, choose a track as a virtual environment to train your AWS DeepRacer agent\. Then, choose **Next**\.
 
    For your first run, choose a track with a simple shape and smooth turns\. In later iterations, you can choose more complex tracks to progressively improve your models\. To train a model for a particular racing event, choose the track most similar to the event track\.
@@ -38,7 +29,31 @@ To get started quickly using AWS DeepRacer to explore reinforcement learning and
 
     For more ambitious runs, choose **Head\-to\-head racing** to race against up to 4 bot vehicles moving at a constant speed\. In addition to either a single\-lens camera or a stereo camera, the agent should be configured with a LiDAR unit to enable detecting and avoiding blind spots while passing other moving vehicles or stationary obstacles\. For more information, see [Tailor AWS DeepRacer Training for Head\-to\-Head Races](deepracer-choose-race-type.md#deepracer-get-started-training-h2h-racing)\.
 
-1. On the **Create model** page, under **Agent**, choose **The Original DeepRacer** for your first model\.   
+1. On the **Create model** page, under **Training algorithm and hyperparameters**, choose the Soft Actor Critic \(SAC\) or Proximal Policy Optimization \(PPO\) algorithm\. In the AWS DeepRacer console, SAC models must be trained in continuous action spaces\. PPO models can be trained in either continuous or discrete action spaces\.
+
+1. On the **Create model** page, under **Training algorithm and hyperparameters**, use the default hyperparameter values as\-is\.
+
+   Later on, to improve training performance, expand **Hyperparameters** and modify the default hyperparameter values as follows:
+
+   1.  For **Gradient descent batch size**, choose [available options](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\. 
+
+   1.  For **Number of epochs**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\. 
+
+   1.  For **Learning rate**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\. 
+
+   1. For **SAC alpha value** \(SAC algorithm only\), set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\.
+
+   1. For **Entropy**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\.
+
+   1. For **Discount factor**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\.
+
+   1. For **Loss type**, choose [available options](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\.
+
+   1. For **Number of experience episodes between each policy\-updating iteration**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\.
+
+   For more information about hyperparameters, see [Systematically Tune Hyperparameters](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\.
+
+1. On the **Create model** page, under **Agent**, choose **The Original DeepRacer** or **The Original DeepRacer \(continuous action space\)** for your first model\. If you use Soft Actor Critic \(SAC\) as your training algorithm, we filter your cars so that you can conveniently choose from a selection of compatible continuous action space agents\.  
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-training-agent.png)
 
    The **Edit** button is unavailable because the default agent is not configurable\. For a custom agent, the **Edit** option will be available for you to modify the agent configuration to meet the racing criteria for the chosen race type\. 
@@ -55,26 +70,6 @@ To get started quickly using AWS DeepRacer to explore reinforcement learning and
    To learn more about the reward function, see [AWS DeepRacer Reward Function Reference](deepracer-reward-function-reference.md)\.
 
     
-
-1. On the **Create model** page, under **Training algorithm and hyperparameters**,  use the default hyperparameter values as\-is\.
-
-   Later on, to improve training performance, expand **Hyperparameters** and modify the default hyperparameter values as follows:
-
-   1.  For **Gradient descent batch size**, choose [available options](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\. 
-
-   1.  For **Number of epochs**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\. 
-
-   1.  For **Learning rate**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\. 
-
-   1. For **Entropy**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\. 
-
-   1. For **Discount factor**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\.
-
-   1. For **Loss type**, choose [available options](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\.
-
-   1. For **Number of experience episodes between each policy\-updating iteration**, set a [valid value](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\.
-
-   For more information about hyperparameters, see [Systematically Tune Hyperparameters](deepracer-console-train-evaluate-models.md#deepracer-iteratively-adjust-hyperparameters)\.
 
 1. On the **Create model** page, under **Stop conditions**, leave the default **Maximum time** value as\-is or set a new value to terminate the training job, to help prevent long\-running \(and possible run\-away\) training jobs\. 
 

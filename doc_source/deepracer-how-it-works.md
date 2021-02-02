@@ -9,7 +9,7 @@
 **Topics**
 + [Reinforcement Learning in AWS DeepRacer](deepracer-how-it-works-overview-reinforcement-learning.md)
 + [AWS DeepRacer Action Space and Reward Function](deepracer-how-it-works-action-space.md)
-+ [AWS DeepRacer Training Algorithm](deepracer-how-it-works-reinforcement-learning-algorithm.md)
++ [AWS DeepRacer Training Algorithms](deepracer-how-it-works-reinforcement-learning-algorithm.md)
 + [AWS DeepRacer Service Architecture](deepracer-how-it-works-service-architecture.md)
 + [AWS DeepRacer Solution Workflow](deepracer-how-it-works-solution-workflow.md)
 + [Simulated\-to\-Real Performance Gaps](deepracer-how-it-works-virtual-to-physical.md)
