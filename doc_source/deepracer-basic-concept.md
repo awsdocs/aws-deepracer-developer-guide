@@ -2,9 +2,6 @@
 
  AWS DeepRacer builds on the following concepts and uses the following terminology\.
 
-**AWS DeepRacer**  <a name="term-deepracer"></a>
-Also referred to as AWS DeepRacer vehicle\. One type of AWS DeepRacer vehicle is an AWS DeepRacer car that is a 1/18th scale model car\. It has a mounted camera and an on\-board compute module\. The compute module runs inference in order to drive itself along a track\. The compute module and the vehicle chassis are powered by dedicated batteries known as the compute battery and the drive battery, respectively\. 
-
 **AWS DeepRacer service**  <a name="term-deepracer-service"></a>
 An AWS Machine Learning service for exploring reinforcement learning that is focused on autonomous racing\. The AWS DeepRacer service supports the following features:  
 
@@ -20,9 +17,13 @@ An AWS Machine Learning service for exploring reinforcement learning that is foc
 
 1. Place the vehicle on a physical track for autonomous driving and evaluate the model for real\-world performances\. 
 
-1. Run the AWS DeepRacer League for racing events on physical tracks\.
-
 1. Remove unnecessary charges by deleting models that you don't need\.
+
+**AWS DeepRacer**  <a name="term-deepracer"></a>
+Can refer to three different vehicles:  
++ **The virtual race car** can take the form of the original AWS DeepRacer device, the Evo device, or various digital rewards that can be earned by participating in AWS DeepRacer League Virtual Circuit races\. You can also customize the virtual car by changing its color\.
++ **The original AWS DeepRacer device** is a physical 1/18th scale model car\. It has a mounted camera and an on\-board compute module\. The compute module runs inference in order to drive itself along a track\. The compute module and the vehicle chassis are powered by dedicated batteries known as the compute battery and the drive battery, respectively\.
++ **The AWS DeepRacer Evo device** is the original device with an optional sensor kit\. The kit includes an additional camera and LIDAR \(light detection and ranging\), which allow the car to detect objects behind and lateral to itself\. The kit also includes a new shell\.
 
 **Reinforcement learning**  <a name="term-rl"></a>
 A machine learning method that is focused on autonomous decision making by an agent in order to achieve specified goals through interactions with an environment\. In reinforcement learning, learning is achieved through trial and error and training does not require labeled input\. Training relies on the reward hypothesis\. The hypothesis is that all goals can be achieved by maximizing a future reward after action sequences\. In reinforcement learning, designing the reward function is important\. The better the reward function is crafted, the better the agent can decide what actions to take to reach the goal\.  
@@ -43,8 +44,8 @@ See [AWS DeepRacer](#term-deepracer)
 A type of [AWS DeepRacer vehicle](#term-model-vehicle) that is a 1/18th scale model car\.
 
 **Leaderboard**  <a name="term-leaderboard"></a>
-A *leaderboard* is a ranked list of AWS DeepRacer vehicle performances in an AWS DeepRacer League racing event\. The race can be a virtual event, carried out in the simulated environment, or a physical event, carried out in a real\-world environment\. The performance metric is the average lap time submitted by AWS DeepRacer users who have evaluated their trained models on a track identical or similar to the given track of the race\.    
-If a vehicle completes three laps consecutively, then it qualifies to be ranked on a leaderboard\. The average lap time for the first three consecutive laps is submitted to the leaderboard\. 
+A *leaderboard* is a ranked list of AWS DeepRacer vehicle performances in an AWS DeepRacer League racing event\. The race can be a virtual event, carried out in the simulated environment, or a physical event, carried out in a real\-world environment\. The performance metric depends on the race type\. It can be the fastest lap time, total time, or average lap time submitted by AWS DeepRacer users who have evaluated their trained models on a track identical or similar to the given track of the race\.    
+If a vehicle completes three laps consecutively, then it qualifies to be ranked on a leaderboard\. The average lap time for the first three consecutive laps is submitted to the leaderboard\.
 
 **Machine\-learning frameworks**  <a name="term-frameworks"></a>
 The software libraries used to build machine learning algorithms\. Supported frameworks for AWS DeepRacer include Tensorflow\.
@@ -62,7 +63,7 @@ A collection of connected units or nodes that are used to build an information m
 Algorithm\-dependent variables that control the performance of training a neural network\. An example hyperparameter is the learning rate that controls how much new experiences are counted for in learning at each step\. A larger learning rate makes a faster training but may make the trained model lower quality\. Hyperparameters are empirical and require systematic tuning for each training\. 
 
 **AWS DeepRacer Track**  <a name="term-track"></a>
-A path or course on which an AWS DeepRacer vehicle drives\. The track can exist in either a simulated or real\-world, physical environment\. You use a simulated environment for training an AWS DeepRacer model on a virtual track\. The AWS DeepRacer console makes virtual tracks available\. You use a real\-world environment for running an AWS DeepRacer vehicle on a physical track\. The AWS DeepRacer League provides physical tracks for event participants to compete\. You must create your own physical track if you want to run your AWS DeepRacer vehicle in any other situation\.
+A path or course on which an AWS DeepRacer vehicle drives\. The track can exist in either a simulated or real\-world, physical environment\. You use a simulated environment for training an AWS DeepRacer model on a virtual track\. The AWS DeepRacer console makes virtual tracks available\. You use a real\-world environment for running an AWS DeepRacer vehicle on a physical track\. The AWS DeepRacer League provides physical tracks for event participants to compete\. You must create your own physical track if you want to run your AWS DeepRacer vehicle in any other situation\. To learn more about how to build your own track see [Build Your Physical Track](deepracer-build-your-track.md)\.
 
 ** Reward function**  <a name="term-reward-function"></a>
 An algorithm within a learning model that tells the agent whether the action performed resulted in:  
@@ -99,11 +100,20 @@ In the context of AWS DeepRacer League events, the terms league and competition 
 **Season**  
 A competition can repeat in subsequent years\. We call these different seasons \(for example, the 2019 season or 2020 season\)\. Rules can change from season to season, but are typically consistent within a season\. Terms and conditions for the AWS DeepRacer League can vary from season to season\.
 
-**Circuit**  
-In the AWS DeepRacer League, you can choose to race in the Summit Circuit or in the Virtual Circuit\. The Summit Circuit refers to in\-person races happening at selected AWS Summits\. The Virtual Circuit refers to the online races happening in the AWS DeepRacer console\.
+**The Virtual Circuit**  
+ The Virtual Circuit refers to the online races happening in the AWS DeepRacer console\.
 
 **Event**  
-As defined by the rules, an event is an AWS DeepRacer League occurance where you can participate in a race\. It can be in\-person, like the Summit Circuit, or online, like the virtual circuit\. An event has a start and end date\. Virtual Circuit events will typically last a month, whereas Summit Circuit events will typically last a day\. There can be many events in a season, and some rules, such as how we rank those participating in an event, select who wins, and what happens thereafter are subject to change\.
+As defined by the rules, an event is an AWS DeepRacer League occurrence where you can participate in a race\.  An event has a start and end date\. Virtual Circuit events typically last one month\. There can be many events in a season, and some rules, such as how we rank those participating in an event, select who wins, and what happens thereafter are subject to change\.
 
 **Race type**  
-There are flexible options for race types available at each event\. In the Summit Circuit, you can choose to race in a time\-trial \(TT\) race, or in a head\-to\-head \(H2H\) race, or both\. In the Virtual Circuit, you can race in a time\-trial \(TT\), object\-avoidance \(OA\), or head\-to\-head \(H2H\) race, or all three\. Beginning in 2020, the default Virtual Circuit program includes TT, OA, and H2H\. However, we may add a fourth bonus race at a particular event\. Alternatively, an event host could choose to only offer a TT race\. Each race type may also specify the number of laps, how racers are ranked and so on\.
+ In the Virtual Circuit, Open Division racers can race in a time\-trial \(TT\) races and Pro Division racers can race in object\-avoidance \(OA\), or head\-to\-head \(H2H\) races\.  Each race type may also specify the number of laps, how racers are ranked and so on\.
+
+**League Divisions**  
+The AWS DeepRacer League's Virtual Circuit monthly leaderboard is split into two skill\-based divisions, Pro and Open\. Each division offers its own racing formats and opportunities for prizes to maintain a high level of overall competitiveness\. 
+
+**Open Division**  
+All racers begin their machine learning journey in the Open Division\. Open Division racers compete in the time trial format and receive monthly digital rewards for participation\.
+
+**Pro Division**  
+The Pro Division is for racers who have earned a top 10% time trial result from the previous month\. Racers in the Pro Division earn bigger rewards and can compete in the monthly finale for qualifying seats for the yearly AWS re:Invent Championship Cup\. Pro Division racers compete in complex racing formats, such as head\-to\-head or object avoidance, which require stereo camera or LiDAR sensor configurations\.
