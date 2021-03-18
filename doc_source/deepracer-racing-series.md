@@ -19,7 +19,7 @@ You can use the AWS DeepRacer console to enter an AWS DeepRacer League Virtual C
 + Only invited users can access or participate in community racing virtual events\. Users are invited when they receive an invitation link sent by the race organizer or forwarded by another race participant\. 
 
 **Topics**
-+ [Join an AWS DeepRacer League Virtual Circuit Race](deepracer-submit-model-to-leaderboard.md)
++ [Join an AWS DeepRacer League Virtual Circuit race](deepracer-submit-model-to-leaderboard.md)
 + [To Join an AWS DeepRacer Community Race](deepracer-join-community-race.md)
 + [Organize an AWS DeepRacer Community Race](deepracer-create-community-race.md)
 + [Manage an AWS DeepRacer Community Race](deepracer-manage-community-races.md)

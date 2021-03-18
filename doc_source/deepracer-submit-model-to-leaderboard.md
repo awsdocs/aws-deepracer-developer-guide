@@ -1,8 +1,8 @@
-# Join an AWS DeepRacer League Virtual Circuit Race<a name="deepracer-submit-model-to-leaderboard"></a>
+# Join an AWS DeepRacer League Virtual Circuit race<a name="deepracer-submit-model-to-leaderboard"></a>
 
- In this section, learn how to use the AWS DeepRacer console to submit your trained model to a Virtual Circuit race\. 
+In this section, learn how to use the AWS DeepRacer console to submit your trained model to a Virtual Circuit race\. 
 
-**To enter in the AWS DeepRacer League Virtual Circuit**
+**To enter the AWS DeepRacer League Virtual Circuit**
 
 1. Sign in to the AWS DeepRacer console at [https://console\.aws\.amazon\.com/deepracer](https://console.aws.amazon.com/deepracer)\.
 
@@ -10,8 +10,8 @@
 
 1. On the **AWS Virtual Circuit** page, find the race in your division that you'd like to enter, and choose **Enter race**\. 
    + All racers begin in the Open Division\. Open Division racers compete in the time trial format and receive monthly digital rewards for participation\. Racers who earn a top 10% result on the leaderboard move on to the Pro Division\. 
-   + Pro Division racers compete in the more complex head\-to\-head and object avoidance racing formats, which require stereo camera or LiDAR sensor configurations\. Pros also earn bigger rewards and can enter the monthly finale for a chance to win qualifying seats in the yearly AWS re:Invent Championship Cup\.
-   + As an Open Division Racer, you can enter Open Division Races and view Pro Division Leaderboards, but not enter Pro Division races\. \(Optional\) Add the Pro Division Finale to your calendar as a reminder to watch it live\.  
+   + Pro Division racers compete in the more complex head\-to\-head and object\-avoidance racing formats, which require stereo camera or LiDAR sensor configurations\. Pros also earn bigger rewards and can enter the monthly finale for a chance to win qualifying seats in the yearly AWS re:Invent Championship Cup\.
+   + As an Open Division Racer, you can enter Open Division Races and view Pro Division Leaderboards, but you can't enter Pro Division races\. \(Optional\) Add the Pro Division Finale to your calendar as a reminder to watch it live\.  
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-virtual-circuit-open-race-card.png)
    + As a Pro Division racer, you can enter Pro Division Races and the monthly Pro Division Finale\. Once you are Pro, you can view Open Division Leaderboards, but not enter Open Division races\. \(Optional\) Add the Pro Division Finale to your calendar as a reminder to participate or spectate\.   
 ![\[\]](http://docs.aws.amazon.com/deepracer/latest/developerguide/images/deepracer-virtual-circuit-pro-race-card.png)
