@@ -63,7 +63,7 @@ The provided scripts only work with the entity, *IAM role*\. Some enterprise cus
                        curl "https://aws.amazon.com/deepracer/accounts-v3.zip" -o "deepracer-accounts-v3.zip"
                        unzip deepracer-accounts-v3.zip
                        chmod +x make_child_accounts.sh
-                       chomd +x update_child_accounts.sh
+                       chmod +x update_child_accounts.sh
                        chmod +x cleanup_maker.sh
    ```
 
