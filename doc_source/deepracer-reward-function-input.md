@@ -304,7 +304,7 @@ For more information, see [steps](#reward-function-input-steps)\.
 
 **Type**: `float`
 
-**Range**: `0.0:5.0`
+**Range**: `0.0:4.0`
 
 The observed speed of the agent, in meters per second \(m/s\)\.
 
